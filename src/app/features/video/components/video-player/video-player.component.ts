@@ -48,7 +48,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild, input, signal, output 
   styles: [`:host { display: contents; }`],
 })
 export class VideoPlayerComponent implements AfterViewInit {
-  videoUrl = input('assets/videos/lesson-1.mp4');
+  videoUrl = input('');
   thumbnailUrl = input('');
   timeUpdate = output<number>();
 

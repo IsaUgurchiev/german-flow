@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:pages": "ng build --configuration production --base-href /german-flow/",
+    "deploy:pages": "npm run build:pages && gh-pages -d dist/german-flow/browser"
   },
   "prettier": {
     "printWidth": 100,
@@ -38,7 +40,9 @@
     "@angular/compiler-cli": "^21.0.6",
     "@angular/language-service": "^21.0.6",
     "@tailwindcss/postcss": "^4.1.18",
+    "angular-cli-ghpages": "^2.0.3",
     "autoprefixer": "^10.4.23",
+    "gh-pages": "^6.3.0",
     "jsdom": "^27.1.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.12",

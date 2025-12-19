@@ -24,7 +24,7 @@ export interface VideoPageData {
 
 export const videoPageMockData: VideoPageData = {
   xpText: '1,240 XP',
-  title: 'Ordering Coffee in Berlin',
+  title: 'Aladdin und die Wunderlampe',
   levelText: 'A2 - Intermediate',
   durationText: '12:05 min',
   transcriptLines: [

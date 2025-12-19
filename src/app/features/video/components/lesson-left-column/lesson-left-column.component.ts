@@ -53,7 +53,7 @@ import { ExercisesSectionComponent } from '../exercises-section/exercises-sectio
   ],
 })
 export class LessonLeftColumnComponent {
-  videoUrl = input('assets/videos/lesson-1.mp4');
+  videoUrl = input('');
   title = input.required<string>();
   levelText = input.required<string>();
   durationText = input.required<string>();

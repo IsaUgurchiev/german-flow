@@ -12,7 +12,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
   template: `
     <main class="flex-1 flex overflow-hidden w-full max-w-[1440px] mx-auto min-h-0">
       <app-lesson-left-column
-        [videoUrl]="'/assets/videos/lesson-1.mp4'"
+        [videoUrl]="'assets/videos/lesson-1.mp4'"
         [title]="data.title"
         [levelText]="data.levelText"
         [durationText]="data.durationText"
@@ -37,12 +37,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class VideoPageComponent {
   private subtitleService = inject(SubtitleService);
-  
+
   data = videoPageMockData;
   thumbnailUrl = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAFlQlVSPwcm1uAkSonM7dvZowkP5cuhc1wjixJfC1hMHF2Z2Jzd5kxfFNRmfFjqWOafbmaArDTo2BsIT7531kov0_9eJxW7F8E3NhUf5gGO0caSKcTN0IbQBFCPquGWwh-HPyqa9OpuEGMwk12m1sb0CBUOA8s22gYcLrfg3EwLzH5JCgAuGgUwH4Grb6Qn3rag6AUysg0vNWeqNOvE1zH5pmpnH3WO-7VSW_EY0Yv0JS-mQ2OiP9PYXfYliz_tDEFmWlICy3E4Pk';
-  
+
   currentTime = signal(0);
-  subtitles = toSignal(this.subtitleService.parseVtt('/assets/subtitles/lesson-1.vtt'));
+  subtitles = toSignal(this.subtitleService.parseVtt('assets/subtitles/lesson-1.vtt'));
 
   // Loop settings
   loopEnabled = signal(localStorage.getItem('gf.loop.enabled') === 'true');
@@ -102,7 +102,7 @@ export class VideoPageComponent {
     // Check if we just crossed the end of the current active line
     if (time >= activeLine.end && this.lastTime < activeLine.end) {
       const count = this.loopCount();
-      
+
       if (count === 1) {
         // Infinite loop
         this.onSeek(activeLine.start, true);
