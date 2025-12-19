@@ -9,7 +9,7 @@ import { Component, input } from '@angular/core';
         <div class="size-8 flex items-center justify-center bg-primary rounded-lg text-text-primary">
           <span class="material-symbols-outlined">school</span>
         </div>
-        <h2 class="text-text-primary dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">GermanFlow</h2>
+        <h2 class="text-text-primary dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">German Flow</h2>
       </div>
       <div class="flex flex-1 justify-end gap-8">
         <nav class="flex items-center gap-9 hidden md:flex">
