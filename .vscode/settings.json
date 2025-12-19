@@ -1,0 +1,5 @@
+{
+  "angular.angular-language-service.version": "workspace",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "angular.enable-strict-template-type-checking": true
+}
