@@ -156,6 +156,8 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Updated Exercises layout to full-width cards.
+  - Changed grid to vertical list in `ExercisesSectionComponent`.
 - 2025-12-20: Implemented batch Exercises Set (Section 5.2).
   - Created `FillBlankSetService` to generate up to 10 random tasks from lesson subtitles.
   - Refactored `ExercisesSectionComponent` to render a list of cards generated on page load.

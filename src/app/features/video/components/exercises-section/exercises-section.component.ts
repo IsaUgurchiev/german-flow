@@ -15,13 +15,13 @@ import { FillBlankSetItem } from '../../../../core/services/fill-blank-set.servi
         </span>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-4">
         @for (ex of exerciseSet(); track ex.id) {
           <app-fill-blank-card
             [exercise]="ex"
           />
         } @empty {
-          <div class="col-span-full py-12 px-6 rounded-3xl border-2 border-dashed border-[#f0f0eb] dark:border-[#33332a] flex flex-col items-center justify-center text-center">
+          <div class="py-12 px-6 rounded-3xl border-2 border-dashed border-[#f0f0eb] dark:border-[#33332a] flex flex-col items-center justify-center text-center">
             <span class="material-symbols-outlined text-gray-300 dark:text-gray-600 !text-[64px] mb-4">pending_actions</span>
             <p class="text-text-primary dark:text-white font-bold mb-1">
               No exercises generated yet
