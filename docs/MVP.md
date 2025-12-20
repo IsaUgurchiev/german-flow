@@ -378,6 +378,7 @@ Definition of Done:
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Aligned `ProgressPageComponent` layout and styling with `CatalogPageComponent`.
 - 2025-12-20: Fixed video poster (thumbnail) not being displayed on the video page.
 - 2025-12-20: Completed Content Pipeline (Section 10). Documented developer workflow for adding lessons.
 - 2025-12-20: Added error handling and "Not Found" state to `VideoPageComponent` (Section 10.6).
