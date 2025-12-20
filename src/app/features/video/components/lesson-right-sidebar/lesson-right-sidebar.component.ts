@@ -47,10 +47,22 @@ import type { SubtitleLine } from '../../../../core/services/subtitle.service';
             [currentTime]="currentTime()"
             (seek)="seek.emit($event)"
           />
+        } @else if (activeTab() === 'vocabulary') {
+          <app-vocab-widget
+            [vocabRows]="vocabRows()"
+            [isTab]="true"
+            (toggleWord)="toggleWord.emit($event)"
+          />
         }
       </div>
-      <!-- Vocab Widget (Fixed at bottom of right column) -->
-      <app-vocab-widget [vocabRows]="vocabRows()" />
+      <!-- Vocab Widget (Fixed at bottom of right column, only shown in transcript tab) -->
+      @if (activeTab() === 'transcript') {
+        <app-vocab-widget
+          [vocabRows]="vocabRows()"
+          (toggleWord)="toggleWord.emit($event)"
+          (viewAll)="activeTab.set('vocabulary')"
+        />
+      }
     </div>
   `,
   styles: [`:host { display: contents; }`],
@@ -65,6 +77,7 @@ export class LessonRightSidebarComponent {
   seek = output<number>();
   toggleLoop = output<void>();
   setLoopCount = output<number>();
+  toggleWord = output<string>();
 
   activeTab = signal<'transcript' | 'vocabulary'>('transcript');
 }

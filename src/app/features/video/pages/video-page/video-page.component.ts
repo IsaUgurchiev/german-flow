@@ -1,8 +1,10 @@
-import { Component, inject, signal, ViewChild } from '@angular/core';
+import { Component, inject, signal, ViewChild, effect } from '@angular/core';
 import { LessonLeftColumnComponent } from '../../components/lesson-left-column/lesson-left-column.component';
 import { LessonRightSidebarComponent } from '../../components/lesson-right-sidebar/lesson-right-sidebar.component';
-import { videoPageMockData } from '../../data/video-page.mock';
+import { videoPageMockData, VocabRow } from '../../data/video-page.mock';
 import { SubtitleService, SubtitleLine } from '../../../../core/services/subtitle.service';
+import { VocabularyService } from '../../../../core/services/vocabulary.service';
+import { MyWordsRepository } from '../../../../core/repositories/my-words.repository';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -23,12 +25,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
       />
       <app-lesson-right-sidebar
         [subtitles]="subtitles() || []"
-        [vocabRows]="data.vocabRows"
+        [vocabRows]="vocabRows()"
         [currentTime]="currentTime()"
         [loopEnabled]="loopEnabled()"
         [loopCount]="loopCount()"
         (toggleLoop)="toggleLoop()"
         (setLoopCount)="setLoopCount($event)"
+        (toggleWord)="onToggleWord($event)"
         (seek)="onSeek($event)"
       />
     </main>
@@ -37,12 +40,32 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class VideoPageComponent {
   private subtitleService = inject(SubtitleService);
+  private vocabularyService = inject(VocabularyService);
+  private myWordsRepository = inject(MyWordsRepository);
   
   data = videoPageMockData;
   thumbnailUrl = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAFlQlVSPwcm1uAkSonM7dvZowkP5cuhc1wjixJfC1hMHF2Z2Jzd5kxfFNRmfFjqWOafbmaArDTo2BsIT7531kov0_9eJxW7F8E3NhUf5gGO0caSKcTN0IbQBFCPquGWwh-HPyqa9OpuEGMwk12m1sb0CBUOA8s22gYcLrfg3EwLzH5JCgAuGgUwH4Grb6Qn3rag6AUysg0vNWeqNOvE1zH5pmpnH3WO-7VSW_EY0Yv0JS-mQ2OiP9PYXfYliz_tDEFmWlICy3E4Pk';
   
   currentTime = signal(0);
   subtitles = toSignal(this.subtitleService.parseVtt('assets/subtitles/lesson-1.vtt'));
+  vocabRows = signal<VocabRow[]>([]);
+
+  constructor() {
+    // Automatically extract vocabulary when subtitles are loaded
+    effect(() => {
+      const lines = this.subtitles();
+      if (lines && lines.length > 0) {
+        const extracted = this.vocabularyService.extractPotentialWords(lines);
+        const rows: VocabRow[] = extracted.map(item => ({
+          word: item.word,
+          translation: item.example, // Use example as translation/context for now
+          level: (item.count > 1 ? 'A2' : 'A1') as 'A1' | 'A2',
+          added: this.myWordsRepository.isSaved(item.word)
+        }));
+        this.vocabRows.set(rows);
+      }
+    });
+  }
 
   // Loop settings
   loopEnabled = signal(localStorage.getItem('gf.loop.enabled') === 'true');
@@ -127,6 +150,20 @@ export class VideoPageComponent {
     this.loopCount.set(validCount);
     localStorage.setItem('gf.loop.count', String(validCount));
     this.loopsDone.set(0);
+  }
+
+  onToggleWord(word: string) {
+    const isSaved = this.myWordsRepository.isSaved(word);
+    if (isSaved) {
+      this.myWordsRepository.remove(word);
+    } else {
+      this.myWordsRepository.add(word);
+    }
+
+    // Refresh state
+    this.vocabRows.update(rows => 
+      rows.map(row => row.word === word ? { ...row, added: !isSaved } : row)
+    );
   }
 
   onSeek(time: number, isInternalLoop = false) {
