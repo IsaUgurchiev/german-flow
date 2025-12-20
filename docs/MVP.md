@@ -90,12 +90,12 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 
 ## 4) Vocabulary MVP
 ### 4.1 Extraction
-- [ ] Create `VocabularyService`
-- [ ] Add `shared/utils/stop-words.de.ts`
+- [x] Create `VocabularyService`
+- [x] Add `shared/utils/stop-words.de.ts`
 
 ### 4.2 UI
-- [ ] Vocabulary tab in Video sidebar
-- [ ] Add/remove word UI state
+- [x] Vocabulary tab in Video sidebar
+- [x] Add/remove word UI state
 
 ### 4.3 Storage
 - [ ] `MyWordsRepository` (localStorage)
@@ -130,6 +130,13 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Implemented Vocabulary UI (Section 4.2).
+  - Integrated `VocabWidgetComponent` into the sidebar as a dedicated tab.
+  - Implemented add/remove word logic with reactive state in `VideoPageComponent`.
+  - Added "View All" link in Transcript tab to switch to Vocabulary tab.
+- 2025-12-20: Implemented Vocabulary Extraction (Section 4.1).
+  - Created `VocabularyService` for extracting words from subtitles.
+  - Added `STOP_WORDS_DE` utility in `src/app/shared/utils/stop-words.de.ts`.
 - 2025-12-20: Implemented Phrase Loop (Section 3).
   - Added loop engine in `VideoPageComponent` with signals and anti-bounce.
   - Added UI controls in `LessonRightSidebarComponent` (Toggle + ∞/2x/3x selector).

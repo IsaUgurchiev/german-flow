@@ -23,12 +23,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
       />
       <app-lesson-right-sidebar
         [subtitles]="subtitles() || []"
-        [vocabRows]="data.vocabRows"
+        [vocabRows]="vocabRows()"
         [currentTime]="currentTime()"
         [loopEnabled]="loopEnabled()"
         [loopCount]="loopCount()"
         (toggleLoop)="toggleLoop()"
         (setLoopCount)="setLoopCount($event)"
+        (toggleWord)="onToggleWord($event)"
         (seek)="onSeek($event)"
       />
     </main>
@@ -37,12 +38,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class VideoPageComponent {
   private subtitleService = inject(SubtitleService);
-
+  
   data = videoPageMockData;
   thumbnailUrl = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAFlQlVSPwcm1uAkSonM7dvZowkP5cuhc1wjixJfC1hMHF2Z2Jzd5kxfFNRmfFjqWOafbmaArDTo2BsIT7531kov0_9eJxW7F8E3NhUf5gGO0caSKcTN0IbQBFCPquGWwh-HPyqa9OpuEGMwk12m1sb0CBUOA8s22gYcLrfg3EwLzH5JCgAuGgUwH4Grb6Qn3rag6AUysg0vNWeqNOvE1zH5pmpnH3WO-7VSW_EY0Yv0JS-mQ2OiP9PYXfYliz_tDEFmWlICy3E4Pk';
-
+  
   currentTime = signal(0);
   subtitles = toSignal(this.subtitleService.parseVtt('assets/subtitles/lesson-1.vtt'));
+  vocabRows = signal(this.data.vocabRows);
 
   // Loop settings
   loopEnabled = signal(localStorage.getItem('gf.loop.enabled') === 'true');
@@ -127,6 +129,12 @@ export class VideoPageComponent {
     this.loopCount.set(validCount);
     localStorage.setItem('gf.loop.count', String(validCount));
     this.loopsDone.set(0);
+  }
+
+  onToggleWord(word: string) {
+    this.vocabRows.update(rows => 
+      rows.map(row => row.word === word ? { ...row, added: !row.added } : row)
+    );
   }
 
   onSeek(time: number, isInternalLoop = false) {

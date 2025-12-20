@@ -1,15 +1,17 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import type { VocabRow } from '../../data/video-page.mock';
 
 @Component({
   selector: 'app-vocab-widget',
   standalone: true,
   template: `
-    <div class="border-t border-[#e6e6e0] dark:border-[#33332a] bg-gray-50 dark:bg-[#15150a] p-4 shrink-0">
-      <div class="flex items-center justify-between mb-3">
-        <h4 class="text-sm font-bold text-text-primary dark:text-white uppercase tracking-wider">Lesson Vocabulary</h4>
-        <button class="text-xs text-primary font-bold hover:underline">View All</button>
-      </div>
+    <div [class]="isTab() ? 'p-4' : 'border-t border-[#e6e6e0] dark:border-[#33332a] bg-gray-50 dark:bg-[#15150a] p-4 shrink-0'">
+      @if (!isTab()) {
+        <div class="flex items-center justify-between mb-3">
+          <h4 class="text-sm font-bold text-text-primary dark:text-white uppercase tracking-wider">Lesson Vocabulary</h4>
+          <button (click)="viewAll.emit()" class="text-xs text-primary font-bold hover:underline cursor-pointer">View All</button>
+        </div>
+      }
       <div class="bg-white dark:bg-[#1e1e12] rounded-xl border border-[#e6e6e0] dark:border-[#33332a] overflow-hidden shadow-sm">
         <table class="w-full text-sm text-left">
           <thead class="bg-gray-50 dark:bg-[#25251a] text-xs uppercase text-text-secondary dark:text-gray-400">
@@ -41,11 +43,17 @@ import type { VocabRow } from '../../data/video-page.mock';
                 </td>
                 <td class="px-2 py-3 text-right pr-4">
                   @if (row.added) {
-                    <button class="size-7 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-colors">
+                    <button 
+                      (click)="toggleWord.emit(row.word)"
+                      class="size-7 rounded-full bg-white border border-gray-200 flex items-center justify-center text-primary border-primary shadow-sm hover:bg-primary/5 transition-colors cursor-pointer"
+                    >
                       <span class="material-symbols-outlined !text-[16px]">check</span>
                     </button>
                   } @else {
-                    <button class="size-7 rounded-full bg-primary flex items-center justify-center text-text-primary hover:bg-[#e6e205] transition-colors shadow-sm">
+                    <button 
+                      (click)="toggleWord.emit(row.word)"
+                      class="size-7 rounded-full bg-primary flex items-center justify-center text-text-primary hover:bg-[#e6e205] transition-colors shadow-sm cursor-pointer"
+                    >
                       <span class="material-symbols-outlined !text-[16px]">add</span>
                     </button>
                   }
@@ -61,5 +69,9 @@ import type { VocabRow } from '../../data/video-page.mock';
 })
 export class VocabWidgetComponent {
   vocabRows = input.required<VocabRow[]>();
+  isTab = input<boolean>(false);
+  
+  toggleWord = output<string>();
+  viewAll = output<void>();
 }
 
