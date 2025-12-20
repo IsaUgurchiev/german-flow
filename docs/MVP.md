@@ -54,38 +54,37 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## 3) Phrase Loop (Repeat active line)
-
 ### 3.1 UI
 - [x] Loop enabled toggle exists on Video Page
-- [ ] Add loop mode segmented control: `∞ / 2x / 3x`
+- [x] Add loop mode segmented control: `∞ / 2x / 3x`
   - default: `∞`
   - state stored in VideoPage container
 
 ### 3.2 Loop Engine (core logic)
-- [ ] Add loop engine state:
+- [x] Add loop engine state:
   - `loopEnabled`
   - `loopMode: infinite | 2 | 3`
   - `loopsDone`
   - `activeLineKey`
 
-- [ ] Detect line end correctly:
+- [x] Detect line end correctly:
   - same line
   - `prevTime < endSec && currentTime >= endSec`
 
-- [ ] Anti-bounce protection (prevent seek spam)
+- [x] Anti-bounce protection (prevent seek spam)
 
-- [ ] Infinite loop behavior (`∞`)
+- [x] Infinite loop behavior (`∞`)
 
-- [ ] Finite loop behavior (`2x / 3x`)
+- [x] Finite loop behavior (`2x / 3x`)
   - `2x` = play line 2 times total
   - `3x` = play line 3 times total
 
-- [ ] Reset loop state when active line changes
+- [x] Reset loop state when active line changes
 
 ### 3.3 Persistence
-- [ ] Persist loop settings in localStorage:
+- [x] Persist loop settings in localStorage:
   - `gf.loop.enabled`
-  - `gf.loop.mode`
+  - `gf.loop.count` (mapped to mode)
 
 ---
 
@@ -129,3 +128,10 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 - [x] assets load correctly on Pages
 
 ---
+
+## Changelog (Cursor fills)
+- 2025-12-20: Implemented Phrase Loop (Section 3).
+  - Added loop engine in `VideoPageComponent` with signals and anti-bounce.
+  - Added UI controls in `LessonRightSidebarComponent` (Toggle + ∞/2x/3x selector).
+  - Added localStorage persistence for loop settings.
+  - Verified auto-scroll and subtitle interactions.
