@@ -21,7 +21,7 @@ import { Component, input } from '@angular/core';
             <span class="material-symbols-outlined !text-[20px] mr-1">bolt</span>
             <span class="truncate">{{ xpText() }}</span>
           </button>
-          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-white shadow-sm" data-alt="User profile avatar portrait" [style.background-image]="'url(' + avatarUrl() + ')'"></div>
+          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-white shadow-sm cursor-pointer" data-alt="User profile avatar portrait" [style.background-image]="'url(' + avatarUrl() + ')'"></div>
         </div>
       </div>
     </header>

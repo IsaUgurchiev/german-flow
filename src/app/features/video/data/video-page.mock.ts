@@ -26,7 +26,7 @@ export const videoPageMockData: VideoPageData = {
   xpText: '1,240 XP',
   title: 'Aladdin und die Wunderlampe',
   levelText: 'A2 - Intermediate',
-  durationText: '12:05 min',
+  durationText: '13:33 min',
   transcriptLines: [
     {
       time: '04:05',
