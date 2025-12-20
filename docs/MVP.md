@@ -108,11 +108,30 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## 5) Exercises MVP
-### 5.1 Fill-in-the-blank
+
+### 5.1 Fill-in-the-blank (single card)
 - [x] `FillBlankService`
-  - input: active subtitle text
-  - output: `{ maskedText, answer }`
-- [x] `FillBlankCardComponent`
+- [ ] `FillBlankCardComponent`
+  - input: `exercise: { maskedText: string; answer: string }`
+  - UI: maskedText + input + Check + feedback
+  - Must not crash if `answer` is empty: show "Нет подходящих слов" and disable Check
+  - NOTE: Card must be reusable for rendering a list of exercises (no direct binding to video playback)
+
+### 5.2 Exercise Set (10 random tasks per lesson on page load)
+- [ ] Create `ExercisesSetService` (or `FillBlankSetService`)
+  - input: `SubtitleLine[]` (lesson subtitles)
+  - output: `FillBlankExercise[]` length = 10
+    - `FillBlankExercise` = `{ id: string; sourceText: string; maskedText: string; answer: string }`
+  - selection rules:
+    - pick UNIQUE subtitle lines (by startSec-endSec key or index)
+    - only lines that produce a valid exercise (`answer` not empty)
+    - random sample each page reload (MVP). No need to persist.
+    - if not enough valid lines: return as many as possible (>=0), do not crash
+
+- [ ] Render Exercises section as a LIST of 10 FillBlankCardComponent items
+  - Source: the generated exercise set (not active line, not currentTime)
+  - UI: show all exercises сразу (scrollable if needed)
+  - Optional: "Regenerate" button to re-roll the 10 tasks (nice-to-have, only if trivial)
 
 ---
 
