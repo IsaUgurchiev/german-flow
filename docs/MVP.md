@@ -109,7 +109,7 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 
 ## 5) Exercises MVP
 ### 5.1 Fill-in-the-blank
-- [ ] `FillBlankService`
+- [x] `FillBlankService`
   - input: active subtitle text
   - output: `{ maskedText, answer }`
 - [ ] `FillBlankCardComponent`
@@ -137,6 +137,10 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Implemented `FillBlankService` (Section 5.1).
+  - Created logic to mask a single non-stop-word from subtitle text.
+  - Preserves punctuation and spacing in the masked text.
+  - Files: `src/app/core/services/fill-blank.service.ts`.
 - 2025-12-20: Simplified sidebar UI for MVP.
   - Removed mini-vocabulary widget from the Transcript tab.
   - Subtitles now occupy the full height of the sidebar in the Transcript tab.
