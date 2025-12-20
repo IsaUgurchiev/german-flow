@@ -143,7 +143,7 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## 7) Catalog MVP
-- [ ] `/catalog` page with mock lessons
+- [x] `/catalog` page with mock lessons
 
 ---
 
@@ -156,6 +156,12 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Improved visibility of lesson level labels in the catalog.
+  - Changed level badge from transparent/yellow-text to solid yellow background with dark text.
+- 2025-12-20: Implemented Catalog MVP (Section 7).
+  - Created `/catalog` route and `CatalogPageComponent` with mock lesson data.
+  - Added navigation from catalog to video page.
+  - Linked header navigation to the catalog page.
 - 2025-12-20: Integrated reactive XP display in the header (Section 6).
   - Modified `AppHeaderComponent` to inject `XpService` and use a `computed` signal for display.
   - Removed static mock XP value from `AppShellComponent`.

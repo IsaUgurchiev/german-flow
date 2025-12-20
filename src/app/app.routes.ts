@@ -3,8 +3,15 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'video/1',
+    redirectTo: 'catalog',
     pathMatch: 'full',
+  },
+  {
+    path: 'catalog',
+    loadComponent: () =>
+      import('./features/catalog/pages/catalog-page/catalog-page.component').then(
+        (m) => m.CatalogPageComponent
+      ),
   },
   {
     path: 'video/:id',
