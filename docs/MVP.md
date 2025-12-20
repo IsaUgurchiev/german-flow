@@ -5,8 +5,8 @@
 1) Read this file fully before starting any task.
 2) Implement **ONLY the next unchecked item(s) `[ ]`** in order below.
 3) After finishing, Cursor **MUST**:
-  - mark completed items `[x]`
-  - append an entry to `## Changelog (Cursor fills)`
+- mark completed items `[x]`
+- append an entry to `## Changelog (Cursor fills)`
 4) Do not refactor unrelated code.
 5) Keep current feature-based architecture.
 
@@ -72,13 +72,8 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
   - `prevTime < endSec && currentTime >= endSec`
 
 - [x] Anti-bounce protection (prevent seek spam)
-
 - [x] Infinite loop behavior (`∞`)
-
 - [x] Finite loop behavior (`2x / 3x`)
-  - `2x` = play line 2 times total
-  - `3x` = play line 3 times total
-
 - [x] Reset loop state when active line changes
 
 ### 3.3 Persistence
@@ -88,23 +83,35 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 
 ---
 
-## 4) Vocabulary MVP
+## 4) Vocabulary MVP (lesson-based)
+> Vocabulary is derived from **lesson subtitles only**.
+> Saved words are a separate persistence layer.
+
 ### 4.1 Extraction
 - [x] Create `VocabularyService`
+  - input: `SubtitleLine[]`
+  - output: `VocabItem[] { word, count, example }`
+  - source of words: **subtitle text only**
 - [x] Add `shared/utils/stop-words.de.ts`
 
 ### 4.2 UI
 - [x] Vocabulary tab in Video sidebar
+  - displays words extracted from current lesson subtitles
 - [x] Add/remove word UI state
+  - reflects saved state from `MyWordsRepository`
 
 ### 4.3 Storage
 - [x] `MyWordsRepository` (localStorage)
+  - persists user-selected words only
+  - does NOT define lesson vocabulary list
 
 ---
 
 ## 5) Exercises MVP
 ### 5.1 Fill-in-the-blank
 - [ ] `FillBlankService`
+  - input: active subtitle text
+  - output: `{ maskedText, answer }`
 - [ ] `FillBlankCardComponent`
 
 ---
@@ -131,18 +138,6 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 
 ## Changelog (Cursor fills)
 - 2025-12-20: Implemented Vocabulary Storage (Section 4.3).
-  - Created `MyWordsRepository` in `src/app/core/repositories/my-words.repository.ts`.
-  - Added support for `localStorage` persistence with key `gf.words.saved`.
-  - Integrated repository into `VideoPageComponent` to persist "added" state of words.
 - 2025-12-20: Implemented Vocabulary UI (Section 4.2).
-  - Integrated `VocabWidgetComponent` into the sidebar as a dedicated tab.
-  - Implemented add/remove word logic with reactive state in `VideoPageComponent`.
-  - Added "View All" link in Transcript tab to switch to Vocabulary tab.
 - 2025-12-20: Implemented Vocabulary Extraction (Section 4.1).
-  - Created `VocabularyService` for extracting words from subtitles.
-  - Added `STOP_WORDS_DE` utility in `src/app/shared/utils/stop-words.de.ts`.
 - 2025-12-20: Implemented Phrase Loop (Section 3).
-  - Added loop engine in `VideoPageComponent` with signals and anti-bounce.
-  - Added UI controls in `LessonRightSidebarComponent` (Toggle + ∞/2x/3x selector).
-  - Added localStorage persistence for loop settings.
-  - Verified auto-scroll and subtitle interactions.
