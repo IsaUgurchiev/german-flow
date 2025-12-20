@@ -136,9 +136,9 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## 6) Progress & XP
-- [ ] `XpService`
-- [ ] Award XP for exercises
-- [ ] Show XP in header
+- [x] `XpService`
+- [x] Award XP for exercises
+- [x] Show XP in header
 
 ---
 
@@ -156,6 +156,15 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Integrated reactive XP display in the header (Section 6).
+  - Modified `AppHeaderComponent` to inject `XpService` and use a `computed` signal for display.
+  - Removed static mock XP value from `AppShellComponent`.
+- 2025-12-20: Implemented XP awarding for correct fill-blank answers (Section 6).
+  - Modified `FillBlankCardComponent` to award +10 XP using `XpService` upon correct answer.
+  - Added protection to ensure XP is only awarded once per exercise.
+- 2025-12-20: Implemented `XpService` (Section 6).
+  - Created logic to track and persist total XP in `localStorage`.
+  - Files: `src/app/core/services/xp.service.ts`.
 - 2025-12-20: Updated Exercises layout to full-width cards.
   - Changed grid to vertical list in `ExercisesSectionComponent`.
 - 2025-12-20: Implemented batch Exercises Set (Section 5.2).

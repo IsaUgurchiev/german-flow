@@ -1,5 +1,6 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { XpService } from '../../../../core/services/xp.service';
 
 export interface FillBlankExerciseItem {
   maskedText: string;
@@ -66,6 +67,7 @@ export interface FillBlankExerciseItem {
   styles: [`:host { display: contents; }`]
 })
 export class FillBlankCardComponent {
+  private xpService = inject(XpService);
   exercise = input.required<FillBlankExerciseItem>();
   
   userAnswer = signal('');
@@ -73,6 +75,8 @@ export class FillBlankCardComponent {
   showError = signal(false);
 
   checkAnswer() {
+    if (this.isCorrect()) return;
+
     const answer = this.exercise().answer;
     if (!answer) return;
 
@@ -82,6 +86,7 @@ export class FillBlankCardComponent {
     if (normalizedUser === normalizedCorrect) {
       this.isCorrect.set(true);
       this.showError.set(false);
+      this.xpService.addXp(10);
     } else {
       this.showError.set(true);
       setTimeout(() => this.showError.set(false), 2000);

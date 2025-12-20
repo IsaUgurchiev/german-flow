@@ -9,7 +9,7 @@ import { videoPageMockData } from '../../features/video/data/video-page.mock';
   imports: [RouterOutlet, AppHeaderComponent],
   template: `
     <div class="bg-background-light dark:bg-background-dark font-display text-text-primary antialiased h-screen flex flex-col overflow-hidden">
-      <app-header [xpText]="xpText" />
+      <app-header />
 
       <div class="flex-1 flex flex-col min-h-0 overflow-hidden">
         <router-outlet />
@@ -18,7 +18,5 @@ import { videoPageMockData } from '../../features/video/data/video-page.mock';
   `,
   styles: [`:host { display: block; height: 100vh; }`],
 })
-export class AppShellComponent {
-  xpText = videoPageMockData.xpText;
-}
+export class AppShellComponent {}
 

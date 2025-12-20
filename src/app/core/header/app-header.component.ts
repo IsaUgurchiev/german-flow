@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, input, inject, computed } from '@angular/core';
+import { XpService } from '../services/xp.service';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,7 @@ import { Component, input } from '@angular/core';
         <div class="flex items-center gap-4">
           <button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-text-primary text-sm font-bold leading-normal shadow-sm hover:shadow-md transition-all">
             <span class="material-symbols-outlined !text-[20px] mr-1">bolt</span>
-            <span class="truncate">{{ xpText() }}</span>
+            <span class="truncate">{{ displayXp() }}</span>
           </button>
           <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-white shadow-sm cursor-pointer" data-alt="User profile avatar portrait" [style.background-image]="'url(' + avatarUrl() + ')'"></div>
         </div>
@@ -29,7 +30,13 @@ import { Component, input } from '@angular/core';
   styles: [],
 })
 export class AppHeaderComponent {
-  xpText = input('1,240 XP');
+  private xpService = inject(XpService);
+  
   avatarUrl = input('https://lh3.googleusercontent.com/aida-public/AB6AXuBDWepGUi0dJKnWGYXPXwcfCSH-Y-dq6c1nRVdMIxBzzXHQHeHEQ5l7JrEdVf_wapHU0QrdTUYx_r0AmTZQDOazt82UyEOn56MgyUzkRV93eOdjKKyA1SOR2tJwS9miSyK3kxaBSBiGUso095ylxKAwctweQebQf0dWpIsE3dGOylDdMbQPOfjL9xVm9rQuOviWd4m9STDQG528jIF9CzU8vR2P41bCQ0M5BD53zl_IgVFsVW39IX62U4_StyYboIj7r6IoVkRNCBij');
+
+  displayXp = computed(() => {
+    const xp = this.xpService.getXp();
+    return `${xp.toLocaleString()} XP`;
+  });
 }
 
