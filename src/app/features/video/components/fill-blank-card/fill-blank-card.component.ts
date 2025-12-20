@@ -12,7 +12,17 @@ export interface FillBlankExerciseItem {
   standalone: true,
   imports: [FormsModule],
   template: `
-    <div class="bg-white dark:bg-[#1e1e12] rounded-2xl p-6 border border-[#f0f0eb] dark:border-[#33332a] shadow-sm hover:shadow-md transition-shadow flex flex-col items-start gap-4">
+    <div 
+      class="bg-white dark:bg-[#1e1e12] rounded-2xl p-6 border transition-all duration-500 shadow-sm flex flex-col items-start gap-4"
+      [class.border-[#f0f0eb]]="!showSuccessEffect()"
+      [class.dark:border-[#33332a]]="!showSuccessEffect()"
+      [class.border-green-500]="showSuccessEffect()"
+      [class.bg-green-50/50]="showSuccessEffect()"
+      [class.dark:bg-green-900/10]="showSuccessEffect()"
+      [class.shadow-lg]="showSuccessEffect()"
+      [class.scale-[1.01]]="showSuccessEffect()"
+      [class.hover:shadow-md]="!showSuccessEffect()"
+    >
       <div class="size-12 rounded-full bg-[#f9f506]/20 flex items-center justify-center text-[#d1ce05] dark:text-primary">
         <span class="material-symbols-outlined !text-[28px]">edit_note</span>
       </div>
@@ -52,13 +62,22 @@ export interface FillBlankExerciseItem {
               </div>
             }
             
-            <button 
-              (click)="checkAnswer()"
-              [disabled]="isCorrect() || !userAnswer().trim()"
-              class="w-full h-10 rounded-full bg-primary text-text-primary text-sm font-bold hover:bg-[#e6e205] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm cursor-pointer mt-1"
-            >
-              {{ isCorrect() ? 'Completed' : 'Check Answer' }}
-            </button>
+            <div class="relative w-full">
+              <button 
+                (click)="checkAnswer()"
+                [disabled]="isCorrect() || !userAnswer().trim()"
+                class="w-full h-10 rounded-full bg-primary text-text-primary text-sm font-bold hover:bg-[#e6e205] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm cursor-pointer mt-1"
+              >
+                {{ isCorrect() ? 'Completed' : 'Check Answer' }}
+              </button>
+
+              @if (showXpBurst()) {
+                <div class="absolute -top-10 right-0 flex items-center gap-1 bg-green-500 text-white px-3 py-1.5 rounded-full text-[11px] font-black shadow-xl animate-in fade-out zoom-out slide-out-to-top-12 duration-1000 fill-mode-forwards pointer-events-none z-10">
+                  <span class="material-symbols-outlined !text-[14px]">bolt</span>
+                  +10 XP
+                </div>
+              }
+            </div>
           }
         </div>
       </div>
@@ -73,6 +92,8 @@ export class FillBlankCardComponent {
   userAnswer = signal('');
   isCorrect = signal(false);
   showError = signal(false);
+  showSuccessEffect = signal(false);
+  showXpBurst = signal(false);
 
   checkAnswer() {
     if (this.isCorrect()) return;
@@ -87,6 +108,18 @@ export class FillBlankCardComponent {
       this.isCorrect.set(true);
       this.showError.set(false);
       this.xpService.addXp(10);
+      
+      // Trigger success effects
+      this.showSuccessEffect.set(true);
+      this.showXpBurst.set(true);
+      
+      setTimeout(() => {
+        this.showSuccessEffect.set(false);
+      }, 800);
+      
+      setTimeout(() => {
+        this.showXpBurst.set(false);
+      }, 1000); // slightly longer for the badge animation
     } else {
       this.showError.set(true);
       setTimeout(() => this.showError.set(false), 2000);

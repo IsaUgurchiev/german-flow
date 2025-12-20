@@ -156,6 +156,9 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Enhanced `FillBlankCardComponent` with success effects.
+  - Added temporary green highlight and "+10 XP" burst animation on correct answer.
+  - Ensured effects trigger only once per exercise.
 - 2025-12-20: Improved visibility of lesson level labels in the catalog.
   - Changed level badge from transparent/yellow-text to solid yellow background with dark text.
 - 2025-12-20: Implemented Catalog MVP (Section 7).
