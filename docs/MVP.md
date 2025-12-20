@@ -254,6 +254,7 @@ DoD:
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Replaced native popups with beautiful confirmation modal and toast on Progress page.
 - 2025-12-20: Integrated "My Progress" link into the App Header (Section 9.6).
 - 2025-12-20: Added Quick Actions ("Continue learning") and last lesson persistence (Section 9.5).
 - 2025-12-20: Implemented XP Activity Log and displayed it on Progress page (Section 9.4).

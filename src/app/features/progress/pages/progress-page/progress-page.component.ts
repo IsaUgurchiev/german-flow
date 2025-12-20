@@ -77,18 +77,18 @@ import { RouterLink, Router } from '@angular/router';
                     <span class="material-symbols-outlined !text-[16px]">content_copy</span>
                     Copy all
                   </button>
-                  <button 
-                    (click)="clearAll()"
-                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-red-500 bg-red-50 dark:bg-red-500/10 border border-red-100 dark:border-red-500/20 hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors cursor-pointer"
-                  >
-                    <span class="material-symbols-outlined !text-[16px]">delete</span>
-                    Clear all
-                  </button>
-                </div>
-              }
+              <button 
+                (click)="confirmClear()"
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-red-500 bg-red-50 dark:bg-red-500/10 border border-red-100 dark:border-red-500/20 hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors cursor-pointer"
+              >
+                <span class="material-symbols-outlined !text-[16px]">delete</span>
+                Clear all
+              </button>
             </div>
+          }
+        </div>
 
-            <div class="p-6">
+        <div class="p-6">
               @if (savedWords().length === 0) {
                 <div class="py-12 flex flex-col items-center justify-center text-center">
                   <span class="material-symbols-outlined text-gray-200 dark:text-gray-700 !text-[64px] mb-4">book</span>
@@ -145,6 +145,48 @@ import { RouterLink, Router } from '@angular/router';
         </div>
       </div>
     </div>
+
+    <!-- Confirmation Modal -->
+    @if (showClearModal()) {
+      <div class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200" (click)="showClearModal.set(false)">
+        <div 
+          class="bg-white dark:bg-[#1e1e12] rounded-[32px] p-8 w-full max-w-sm shadow-2xl border border-[#f0f0eb] dark:border-[#33332a] animate-in zoom-in-95 duration-200"
+          (click)="$event.stopPropagation()"
+        >
+          <div class="size-16 rounded-full bg-red-50 dark:bg-red-500/10 flex items-center justify-center text-red-500 mb-6 mx-auto">
+            <span class="material-symbols-outlined !text-[32px]">delete_forever</span>
+          </div>
+          
+          <h3 class="text-xl font-bold text-text-primary dark:text-white text-center mb-2">Clear all words?</h3>
+          <p class="text-text-secondary dark:text-gray-400 text-center mb-8 text-sm">This action cannot be undone. All your saved vocabulary will be removed.</p>
+          
+          <div class="flex flex-col gap-3">
+            <button 
+              (click)="clearAll()"
+              class="w-full h-12 rounded-2xl bg-red-500 text-white font-bold hover:bg-red-600 transition-colors shadow-lg shadow-red-500/20 cursor-pointer"
+            >
+              Yes, clear all
+            </button>
+            <button 
+              (click)="showClearModal.set(false)"
+              class="w-full h-12 rounded-2xl bg-gray-50 dark:bg-[#2a2a1a] text-text-primary dark:text-white font-bold hover:bg-gray-100 dark:hover:bg-[#333] transition-colors cursor-pointer"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- Copy Success Toast -->
+    @if (showCopyToast()) {
+      <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] animate-in slide-in-from-bottom-4 fade-in duration-300 pointer-events-none">
+        <div class="bg-text-primary dark:bg-white text-white dark:text-text-primary px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10">
+          <span class="material-symbols-outlined text-primary !text-[20px]">check_circle</span>
+          <span class="text-sm font-bold tracking-tight">Copied to clipboard!</span>
+        </div>
+      </div>
+    }
   `,
   styles: [`:host { display: block; }`]
 })
@@ -155,6 +197,9 @@ export class ProgressPageComponent {
   private router = inject(Router);
   
   private refreshTrigger = signal(0);
+  
+  showClearModal = signal(false);
+  showCopyToast = signal(false);
   
   savedWords = computed(() => {
     this.refreshTrigger();
@@ -182,15 +227,19 @@ export class ProgressPageComponent {
   copyAll() {
     const text = this.savedWords().join(', ');
     navigator.clipboard.writeText(text).then(() => {
-      alert('Words copied to clipboard!');
+      this.showCopyToast.set(true);
+      setTimeout(() => this.showCopyToast.set(false), 2000);
     });
   }
 
+  confirmClear() {
+    this.showClearModal.set(true);
+  }
+
   clearAll() {
-    if (confirm('Are you sure you want to clear all saved words?')) {
-      this.myWordsRepository.clearAll();
-      this.refreshTrigger.update(n => n + 1);
-    }
+    this.myWordsRepository.clearAll();
+    this.refreshTrigger.update(n => n + 1);
+    this.showClearModal.set(false);
   }
 }
 
