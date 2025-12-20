@@ -21,10 +21,10 @@ import type { SubtitleLine } from '../../../../core/services/subtitle.service';
             <button
               (click)="toggleLoop.emit()"
               [class]="'flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-200 ' +
-                       (loopEnabled() ? 'bg-primary/10 border-primary/50 text-primary shadow-sm' : 'bg-transparent border-[#e6e6e0] dark:border-[#33332a] text-[#66665c] dark:text-[#99998a] hover:border-[#cbcbc0]')"
+                       (loopEnabled() ? 'bg-primary border-primary text-text-primary shadow-sm' : 'bg-transparent border-[#e6e6e0] dark:border-[#33332a] text-[#66665c] dark:text-[#99998a] hover:border-[#cbcbc0]')"
             >
               <span class="material-symbols-outlined !text-[18px]">repeat</span>
-              <span class="text-xs font-semibold cursor-pointer">Loop line</span>
+              <span class="text-xs font-bold cursor-pointer">Loop line</span>
             </button>
 
             @if (loopEnabled()) {
@@ -33,7 +33,7 @@ import type { SubtitleLine } from '../../../../core/services/subtitle.service';
                   <button
                     (click)="setLoopCount.emit(count)"
                     [class]="'min-w-[32px] px-2 py-1 rounded-md text-[11px] font-bold transition-all cursor-pointer ' +
-                             (loopCount() === count ? 'bg-white dark:bg-[#44443a] shadow-sm text-primary' : 'text-[#66665c] dark:text-[#99998a] hover:text-primary')"
+                             (loopCount() === count ? 'bg-white dark:bg-[#44443a] shadow-sm text-text-primary dark:text-white' : 'text-[#66665c] dark:text-[#99998a] hover:text-primary')"
                   >
                     {{ count === 1 ? '∞' : count + 'x' }}
                   </button>

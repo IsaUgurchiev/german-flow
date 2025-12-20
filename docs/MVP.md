@@ -254,6 +254,8 @@ DoD:
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Improved contrast for "Loop line" button and loop count selector.
+  - Changed enabled state to use solid yellow background with dark text for better visibility.
 - 2025-12-20: Replaced native popups with beautiful confirmation modal and toast on Progress page.
 - 2025-12-20: Integrated "My Progress" link into the App Header (Section 9.6).
 - 2025-12-20: Added Quick Actions ("Continue learning") and last lesson persistence (Section 9.5).
