@@ -5,6 +5,7 @@ import { videoPageMockData, VocabRow } from '../../data/video-page.mock';
 import { SubtitleService, SubtitleLine } from '../../../../core/services/subtitle.service';
 import { VocabularyService } from '../../../../core/services/vocabulary.service';
 import { MyWordsRepository } from '../../../../core/repositories/my-words.repository';
+import { FillBlankSetService, FillBlankSetItem } from '../../../../core/services/fill-blank-set.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -19,7 +20,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
         [levelText]="data.levelText"
         [durationText]="data.durationText"
         [thumbnailUrl]="thumbnailUrl"
-        [activeSubtitle]="activeSubtitle()?.text || ''"
+        [exerciseSet]="exerciseSet()"
         (timeUpdate)="onTimeUpdate($event)"
         #leftColumn
       />
@@ -42,6 +43,7 @@ export class VideoPageComponent {
   private subtitleService = inject(SubtitleService);
   private vocabularyService = inject(VocabularyService);
   private myWordsRepository = inject(MyWordsRepository);
+  private fillBlankSetService = inject(FillBlankSetService);
   
   data = videoPageMockData;
   thumbnailUrl = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAFlQlVSPwcm1uAkSonM7dvZowkP5cuhc1wjixJfC1hMHF2Z2Jzd5kxfFNRmfFjqWOafbmaArDTo2BsIT7531kov0_9eJxW7F8E3NhUf5gGO0caSKcTN0IbQBFCPquGWwh-HPyqa9OpuEGMwk12m1sb0CBUOA8s22gYcLrfg3EwLzH5JCgAuGgUwH4Grb6Qn3rag6AUysg0vNWeqNOvE1zH5pmpnH3WO-7VSW_EY0Yv0JS-mQ2OiP9PYXfYliz_tDEFmWlICy3E4Pk';
@@ -49,6 +51,7 @@ export class VideoPageComponent {
   currentTime = signal(0);
   subtitles = toSignal(this.subtitleService.parseVtt('assets/subtitles/lesson-1.vtt'));
   vocabRows = signal<VocabRow[]>([]);
+  exerciseSet = signal<FillBlankSetItem[]>([]);
 
   activeSubtitle = computed(() => {
     const time = this.currentTime();
@@ -56,10 +59,11 @@ export class VideoPageComponent {
   });
 
   constructor() {
-    // Automatically extract vocabulary when subtitles are loaded
+    // Automatically extract vocabulary and generate exercise set when subtitles are loaded
     effect(() => {
       const lines = this.subtitles();
       if (lines && lines.length > 0) {
+        // Vocabulary
         const extracted = this.vocabularyService.extractPotentialWords(lines);
         const rows: VocabRow[] = extracted.map(item => ({
           word: item.word,
@@ -68,6 +72,10 @@ export class VideoPageComponent {
           added: this.myWordsRepository.isSaved(item.word)
         }));
         this.vocabRows.set(rows);
+
+        // Exercise Set (Section 5.2)
+        const set = this.fillBlankSetService.generateExerciseSet(lines);
+        this.exerciseSet.set(set);
       }
     });
   }

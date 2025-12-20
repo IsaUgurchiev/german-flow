@@ -111,14 +111,14 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 
 ### 5.1 Fill-in-the-blank (single card)
 - [x] `FillBlankService`
-- [ ] `FillBlankCardComponent`
+- [x] `FillBlankCardComponent`
   - input: `exercise: { maskedText: string; answer: string }`
   - UI: maskedText + input + Check + feedback
   - Must not crash if `answer` is empty: show "Нет подходящих слов" and disable Check
   - NOTE: Card must be reusable for rendering a list of exercises (no direct binding to video playback)
 
 ### 5.2 Exercise Set (10 random tasks per lesson on page load)
-- [ ] Create `ExercisesSetService` (or `FillBlankSetService`)
+- [x] Create `ExercisesSetService` (or `FillBlankSetService`)
   - input: `SubtitleLine[]` (lesson subtitles)
   - output: `FillBlankExercise[]` length = 10
     - `FillBlankExercise` = `{ id: string; sourceText: string; maskedText: string; answer: string }`
@@ -128,7 +128,7 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
     - random sample each page reload (MVP). No need to persist.
     - if not enough valid lines: return as many as possible (>=0), do not crash
 
-- [ ] Render Exercises section as a LIST of 10 FillBlankCardComponent items
+- [x] Render Exercises section as a LIST of 10 FillBlankCardComponent items
   - Source: the generated exercise set (not active line, not currentTime)
   - UI: show all exercises сразу (scrollable if needed)
   - Optional: "Regenerate" button to re-roll the 10 tasks (nice-to-have, only if trivial)
@@ -156,6 +156,11 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Implemented batch Exercises Set (Section 5.2).
+  - Created `FillBlankSetService` to generate up to 10 random tasks from lesson subtitles.
+  - Refactored `ExercisesSectionComponent` to render a list of cards generated on page load.
+  - Updated `VideoPageComponent` to trigger set generation when subtitles are available.
+- 2025-12-20: Refactored `FillBlankCardComponent` to take `exercise` input and handle empty answers (Section 5.1).
 - 2025-12-20: Implemented `FillBlankCardComponent` and integrated it into `ExercisesSection`.
   - Replaced mock exercise cards with a dynamic fill-in-the-blank exercise based on active subtitle.
   - Added logic to check answers and provide visual feedback.

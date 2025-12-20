@@ -2,6 +2,7 @@ import { Component, input, output, ViewChild } from '@angular/core';
 import { VideoPlayerComponent } from '../video-player/video-player.component';
 import { LessonMetaComponent } from '../lesson-meta/lesson-meta.component';
 import { ExercisesSectionComponent } from '../exercises-section/exercises-section.component';
+import { FillBlankSetItem } from '../../../../core/services/fill-blank-set.service';
 
 @Component({
   selector: 'app-lesson-left-column',
@@ -30,7 +31,7 @@ import { ExercisesSectionComponent } from '../exercises-section/exercises-sectio
       <div class="h-px w-full bg-[#f0f0eb] dark:bg-[#33332a] my-2"></div>
       <!-- Exercises Section -->
       <app-exercises-section
-        [activeSubtitle]="activeSubtitle()"
+        [exerciseSet]="exerciseSet()"
       />
     </div>
   `,
@@ -62,7 +63,7 @@ export class LessonLeftColumnComponent {
   levelText = input.required<string>();
   durationText = input.required<string>();
   thumbnailUrl = input('');
-  activeSubtitle = input<string>('');
+  exerciseSet = input<FillBlankSetItem[]>([]);
 
   timeUpdate = output<number>();
 
