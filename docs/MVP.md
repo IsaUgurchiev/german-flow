@@ -137,6 +137,10 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Fix regression in sidebar UI.
+  - Restricted mini-vocabulary widget in Transcript tab to top 3 items.
+  - Added `min-h-0` to scrollable container to ensure proper flex shrinking.
+  - Ensured Transcript tab main content (subtitles) is prioritized and visible.
 - 2025-12-20: Implemented Vocabulary MVP (Section 4).
   - Created `VocabularyService` for lesson-based extraction from subtitles.
   - Implemented `MyWordsRepository` for `localStorage` persistence of saved words.

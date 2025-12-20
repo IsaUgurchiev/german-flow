@@ -18,14 +18,14 @@ export class VocabularyService {
    */
   extractPotentialWords(lines: SubtitleLine[]): VocabItem[] {
     const wordStats = new Map<string, { count: number; example: string }>();
-    
+
     lines.forEach(line => {
       // Remove punctuation and split by whitespace
       const words = line.text
         .toLowerCase()
         .replace(/[.,!?;:()"]/g, '')
         .split(/\s+/);
-        
+
       words.forEach(word => {
         if (this.isValidWord(word)) {
           const stats = wordStats.get(word) || { count: 0, example: line.text };

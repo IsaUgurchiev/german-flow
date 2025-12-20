@@ -14,7 +14,7 @@ import type { SubtitleLine } from '../../../../core/services/subtitle.service';
       <!-- Tabs -->
       <app-sidebar-tabs [activeTab]="activeTab()" (tabChange)="activeTab.set($event)" />
       <!-- Scrollable Content -->
-      <div class="flex-1 overflow-y-auto custom-scroll relative">
+      <div class="flex-1 min-h-0 overflow-y-auto custom-scroll relative">
         @if (activeTab() === 'transcript') {
           <!-- Loop Controls -->
           <div class="sticky top-0 z-10 flex items-center justify-between px-4 py-2 border-b border-[#e6e6e0] dark:border-[#33332a] bg-white/95 dark:bg-[#1a1a0b]/95 backdrop-blur-sm">
@@ -56,9 +56,9 @@ import type { SubtitleLine } from '../../../../core/services/subtitle.service';
         }
       </div>
       <!-- Vocab Widget (Fixed at bottom of right column, only shown in transcript tab) -->
-      @if (activeTab() === 'transcript') {
+      @if (activeTab() === 'transcript' && vocabRows().length > 0) {
         <app-vocab-widget
-          [vocabRows]="vocabRows()"
+          [vocabRows]="vocabRows().slice(0, 3)"
           (toggleWord)="toggleWord.emit($event)"
           (viewAll)="activeTab.set('vocabulary')"
         />
