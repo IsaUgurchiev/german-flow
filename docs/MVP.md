@@ -88,20 +88,20 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 > Saved words are a separate persistence layer.
 
 ### 4.1 Extraction
-- [x] Create `VocabularyService`
+- [ ] Create `VocabularyService`
   - input: `SubtitleLine[]`
   - output: `VocabItem[] { word, count, example }`
   - source of words: **subtitle text only**
-- [x] Add `shared/utils/stop-words.de.ts`
+- [ ] Add `shared/utils/stop-words.de.ts`
 
 ### 4.2 UI
-- [x] Vocabulary tab in Video sidebar
+- [ ] Vocabulary tab in Video sidebar
   - displays words extracted from current lesson subtitles
-- [x] Add/remove word UI state
+- [ ] Add/remove word UI state
   - reflects saved state from `MyWordsRepository`
 
 ### 4.3 Storage
-- [x] `MyWordsRepository` (localStorage)
+- [ ] `MyWordsRepository` (localStorage)
   - persists user-selected words only
   - does NOT define lesson vocabulary list
 
@@ -137,7 +137,8 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
-- 2025-12-20: Implemented Vocabulary Storage (Section 4.3).
-- 2025-12-20: Implemented Vocabulary UI (Section 4.2).
-- 2025-12-20: Implemented Vocabulary Extraction (Section 4.1).
 - 2025-12-20: Implemented Phrase Loop (Section 3).
+  - Added loop engine in `VideoPageComponent` with signals and anti-bounce.
+  - Added UI controls in `LessonRightSidebarComponent` (Toggle + ∞/2x/3x selector).
+  - Added localStorage persistence for loop settings.
+  - Verified auto-scroll and subtitle interactions.

@@ -3,7 +3,6 @@ import { LessonLeftColumnComponent } from '../../components/lesson-left-column/l
 import { LessonRightSidebarComponent } from '../../components/lesson-right-sidebar/lesson-right-sidebar.component';
 import { videoPageMockData } from '../../data/video-page.mock';
 import { SubtitleService, SubtitleLine } from '../../../../core/services/subtitle.service';
-import { MyWordsRepository } from '../../../../core/repositories/my-words.repository';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -24,13 +23,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
       />
       <app-lesson-right-sidebar
         [subtitles]="subtitles() || []"
-        [vocabRows]="vocabRows()"
+        [vocabRows]="data.vocabRows"
         [currentTime]="currentTime()"
         [loopEnabled]="loopEnabled()"
         [loopCount]="loopCount()"
         (toggleLoop)="toggleLoop()"
         (setLoopCount)="setLoopCount($event)"
-        (toggleWord)="onToggleWord($event)"
         (seek)="onSeek($event)"
       />
     </main>
@@ -39,17 +37,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class VideoPageComponent {
   private subtitleService = inject(SubtitleService);
-  private myWordsRepository = inject(MyWordsRepository);
   
   data = videoPageMockData;
   thumbnailUrl = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAFlQlVSPwcm1uAkSonM7dvZowkP5cuhc1wjixJfC1hMHF2Z2Jzd5kxfFNRmfFjqWOafbmaArDTo2BsIT7531kov0_9eJxW7F8E3NhUf5gGO0caSKcTN0IbQBFCPquGWwh-HPyqa9OpuEGMwk12m1sb0CBUOA8s22gYcLrfg3EwLzH5JCgAuGgUwH4Grb6Qn3rag6AUysg0vNWeqNOvE1zH5pmpnH3WO-7VSW_EY0Yv0JS-mQ2OiP9PYXfYliz_tDEFmWlICy3E4Pk';
   
   currentTime = signal(0);
   subtitles = toSignal(this.subtitleService.parseVtt('assets/subtitles/lesson-1.vtt'));
-  vocabRows = signal(this.data.vocabRows.map(row => ({
-    ...row,
-    added: this.myWordsRepository.isSaved(row.word)
-  })));
 
   // Loop settings
   loopEnabled = signal(localStorage.getItem('gf.loop.enabled') === 'true');
@@ -136,20 +129,6 @@ export class VideoPageComponent {
     this.loopsDone.set(0);
   }
 
-  onToggleWord(word: string) {
-    const isSaved = this.myWordsRepository.isSaved(word);
-    if (isSaved) {
-      this.myWordsRepository.remove(word);
-    } else {
-      this.myWordsRepository.add(word);
-    }
-
-    // Refresh state
-    this.vocabRows.update(rows => 
-      rows.map(row => row.word === word ? { ...row, added: !isSaved } : row)
-    );
-  }
-
   onSeek(time: number, isInternalLoop = false) {
     if (!isInternalLoop) {
       this.loopsDone.set(0);
@@ -158,4 +137,3 @@ export class VideoPageComponent {
     this.leftColumn.videoPlayer.seekTo(time);
   }
 }
-

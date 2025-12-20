@@ -6,7 +6,11 @@ import { ExercisesSectionComponent } from '../exercises-section/exercises-sectio
 @Component({
   selector: 'app-lesson-left-column',
   standalone: true,
-  imports: [VideoPlayerComponent, LessonMetaComponent, ExercisesSectionComponent],
+  imports: [
+    VideoPlayerComponent, 
+    LessonMetaComponent, 
+    ExercisesSectionComponent
+  ],
   template: `
     <div class="flex flex-col gap-6">
       <!-- Video Player -->
@@ -16,6 +20,7 @@ import { ExercisesSectionComponent } from '../exercises-section/exercises-sectio
         (timeUpdate)="timeUpdate.emit($event)"
         #videoPlayer
       />
+
       <!-- Title & Meta Data -->
       <app-lesson-meta
         [title]="title()"
