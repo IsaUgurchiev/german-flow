@@ -55,14 +55,6 @@ import type { SubtitleLine } from '../../../../core/services/subtitle.service';
           />
         }
       </div>
-      <!-- Vocab Widget (Fixed at bottom of right column, only shown in transcript tab) -->
-      @if (activeTab() === 'transcript' && vocabRows().length > 0) {
-        <app-vocab-widget
-          [vocabRows]="vocabRows().slice(0, 3)"
-          (toggleWord)="toggleWord.emit($event)"
-          (viewAll)="activeTab.set('vocabulary')"
-        />
-      }
     </div>
   `,
   styles: [`:host { display: contents; }`],

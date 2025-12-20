@@ -137,6 +137,9 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Simplified sidebar UI for MVP.
+  - Removed mini-vocabulary widget from the Transcript tab.
+  - Subtitles now occupy the full height of the sidebar in the Transcript tab.
 - 2025-12-20: Fix regression in sidebar UI.
   - Restricted mini-vocabulary widget in Transcript tab to top 3 items.
   - Added `min-h-0` to scrollable container to ensure proper flex shrinking.
