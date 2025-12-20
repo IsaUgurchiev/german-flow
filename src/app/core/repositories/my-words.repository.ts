@@ -51,6 +51,13 @@ export class MyWordsRepository {
     return this.getAll().includes(word.toLowerCase().trim());
   }
 
+  /**
+   * Clears all saved words.
+   */
+  clearAll(): void {
+    localStorage.removeItem(this.STORAGE_KEY);
+  }
+
   private save(words: string[]): void {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(words));
   }

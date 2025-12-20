@@ -20,4 +20,11 @@ export const routes: Routes = [
         (m) => m.VideoPageComponent
       ),
   },
+  {
+    path: 'progress',
+    loadComponent: () =>
+      import('./features/progress/pages/progress-page/progress-page.component').then(
+        (m) => m.ProgressPageComponent
+      ),
+  },
 ];

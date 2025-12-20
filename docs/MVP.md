@@ -155,7 +155,111 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 
 ---
 
+## 9) My Progress (local-only, no backend)
+
+> Goal: show user learning progress using existing localStorage data.
+> No backend. No advanced analytics. MVP-level clarity only.
+
+### 9.1 Route & Page shell
+- [x] Create `/progress` route
+- [x] Create `ProgressPageComponent`
+  - title: "My Progress"
+  - simple layout container (no complex UI yet)
+
+DoD:
+- Page opens at `/progress`
+- No errors if localStorage is empty
+
+---
+
+### 9.2 Progress Summary (stats cards)
+- [x] Create `ProgressSummaryService`
+  - aggregates data from:
+    - `XpService` (total XP)
+    - `MyWordsRepository` (saved words count)
+  - output:
+    ```ts
+    {
+      totalXp: number;
+      savedWordsCount: number;
+    }
+    ```
+
+- [x] Display summary cards on Progress page:
+  - Total XP
+  - Saved words
+
+DoD:
+- Values reflect real localStorage data
+- Empty state shows `0` safely
+
+---
+
+### 9.3 My Words Preview
+- [x] Show preview list of saved words
+  - source: `MyWordsRepository.getAll()`
+  - show first 10 words max
+- [x] Add actions:
+  - "Copy all" → copies words to clipboard (newline or comma-separated)
+  - "Clear all" → clears saved words (with confirm)
+
+DoD:
+- Clearing updates UI immediately
+- Copy works without errors
+
+---
+
+### 9.4 XP Activity Log (optional but recommended)
+- [x] Extend XP persistence with log:
+  - new key: `gf.xp.log`
+  - entry format:
+    ```ts
+    { ts: number; amount: number; reason: string }
+    ```
+- [x] Update XP awarding logic to append log entry
+- [x] Show last 10 XP events on Progress page
+
+DoD:
+- XP total still works even if log is empty
+- Log rendering is optional-safe
+
+---
+
+### 9.5 Quick Actions
+- [x] Add "Continue learning" button:
+  - if `gf.last.lessonId` exists → `/video/:id`
+  - else → `/catalog`
+- [x] Add "Go to catalog" button
+
+DoD:
+- Buttons navigate correctly
+- Missing last lesson handled gracefully
+
+---
+
+### 9.6 Header Integration (optional)
+- [x] Add link/button to `/progress` in header
+
+DoD:
+- Navigation works with hash routing
+- No layout break
+
+---
+
+## Notes
+- Do NOT add charts, graphs, or backend calls.
+- Do NOT refactor existing XP or Vocabulary logic beyond what is specified.
+- Keep components dumb; aggregation logic lives in services.
+
+---
+
 ## Changelog (Cursor fills)
+- 2025-12-20: Integrated "My Progress" link into the App Header (Section 9.6).
+- 2025-12-20: Added Quick Actions ("Continue learning") and last lesson persistence (Section 9.5).
+- 2025-12-20: Implemented XP Activity Log and displayed it on Progress page (Section 9.4).
+- 2025-12-20: Added "My Words" preview with Copy/Clear actions on Progress page (Section 9.3).
+- 2025-12-20: Implemented `ProgressSummaryService` and stats cards on Progress page (Section 9.2).
+- 2025-12-20: Created `/progress` route and `ProgressPageComponent` shell (Section 9.1).
 - 2025-12-20: Enhanced `FillBlankCardComponent` with success effects.
   - Added temporary green highlight and "+10 XP" burst animation on correct answer.
   - Ensured effects trigger only once per exercise.

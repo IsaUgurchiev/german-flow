@@ -1,4 +1,4 @@
-import { Component, inject, signal, ViewChild, effect, computed } from '@angular/core';
+import { Component, inject, signal, ViewChild, effect, computed, OnInit } from '@angular/core';
 import { LessonLeftColumnComponent } from '../../components/lesson-left-column/lesson-left-column.component';
 import { LessonRightSidebarComponent } from '../../components/lesson-right-sidebar/lesson-right-sidebar.component';
 import { videoPageMockData, VocabRow } from '../../data/video-page.mock';
@@ -7,6 +7,7 @@ import { VocabularyService } from '../../../../core/services/vocabulary.service'
 import { MyWordsRepository } from '../../../../core/repositories/my-words.repository';
 import { FillBlankSetService, FillBlankSetItem } from '../../../../core/services/fill-blank-set.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-video-page',
@@ -39,11 +40,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
   `,
   styles: [`:host { display: flex; flex: 1; min-height: 0; }`],
 })
-export class VideoPageComponent {
+export class VideoPageComponent implements OnInit {
   private subtitleService = inject(SubtitleService);
   private vocabularyService = inject(VocabularyService);
   private myWordsRepository = inject(MyWordsRepository);
   private fillBlankSetService = inject(FillBlankSetService);
+  private route = inject(ActivatedRoute);
   
   data = videoPageMockData;
   thumbnailUrl = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAFlQlVSPwcm1uAkSonM7dvZowkP5cuhc1wjixJfC1hMHF2Z2Jzd5kxfFNRmfFjqWOafbmaArDTo2BsIT7531kov0_9eJxW7F8E3NhUf5gGO0caSKcTN0IbQBFCPquGWwh-HPyqa9OpuEGMwk12m1sb0CBUOA8s22gYcLrfg3EwLzH5JCgAuGgUwH4Grb6Qn3rag6AUysg0vNWeqNOvE1zH5pmpnH3WO-7VSW_EY0Yv0JS-mQ2OiP9PYXfYliz_tDEFmWlICy3E4Pk';
@@ -57,6 +59,13 @@ export class VideoPageComponent {
     const time = this.currentTime();
     return this.subtitles()?.find(s => time >= s.start && time < s.end);
   });
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      localStorage.setItem('gf.last.lessonId', id);
+    }
+  }
 
   constructor() {
     // Automatically extract vocabulary and generate exercise set when subtitles are loaded
