@@ -112,7 +112,7 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 - [x] `FillBlankService`
   - input: active subtitle text
   - output: `{ maskedText, answer }`
-- [ ] `FillBlankCardComponent`
+- [x] `FillBlankCardComponent`
 
 ---
 
@@ -137,6 +137,10 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Implemented `FillBlankCardComponent` and integrated it into `ExercisesSection`.
+  - Replaced mock exercise cards with a dynamic fill-in-the-blank exercise based on active subtitle.
+  - Added logic to check answers and provide visual feedback.
+  - Updated `VideoPageComponent` and `LessonLeftColumnComponent` to pass the active subtitle text.
 - 2025-12-20: Implemented `FillBlankService` (Section 5.1).
   - Created logic to mask a single non-stop-word from subtitle text.
   - Preserves punctuation and spacing in the masked text.

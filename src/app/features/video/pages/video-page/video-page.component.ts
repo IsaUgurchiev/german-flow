@@ -1,4 +1,4 @@
-import { Component, inject, signal, ViewChild, effect } from '@angular/core';
+import { Component, inject, signal, ViewChild, effect, computed } from '@angular/core';
 import { LessonLeftColumnComponent } from '../../components/lesson-left-column/lesson-left-column.component';
 import { LessonRightSidebarComponent } from '../../components/lesson-right-sidebar/lesson-right-sidebar.component';
 import { videoPageMockData, VocabRow } from '../../data/video-page.mock';
@@ -19,7 +19,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
         [levelText]="data.levelText"
         [durationText]="data.durationText"
         [thumbnailUrl]="thumbnailUrl"
-        [exercises]="exercises"
+        [activeSubtitle]="activeSubtitle()?.text || ''"
         (timeUpdate)="onTimeUpdate($event)"
         #leftColumn
       />
@@ -50,6 +50,11 @@ export class VideoPageComponent {
   subtitles = toSignal(this.subtitleService.parseVtt('assets/subtitles/lesson-1.vtt'));
   vocabRows = signal<VocabRow[]>([]);
 
+  activeSubtitle = computed(() => {
+    const time = this.currentTime();
+    return this.subtitles()?.find(s => time >= s.start && time < s.end);
+  });
+
   constructor() {
     // Automatically extract vocabulary when subtitles are loaded
     effect(() => {
@@ -76,23 +81,6 @@ export class VideoPageComponent {
   private ignoreNextUpdate = false;
 
   @ViewChild('leftColumn') leftColumn!: LessonLeftColumnComponent;
-
-  exercises = [
-    {
-      iconName: 'quiz',
-      title: 'Comprehension Check',
-      description: 'Test your understanding of the dialogue in the cafe scene.',
-      buttonText: 'Start Quiz',
-      badgeText: '3 Questions',
-    },
-    {
-      iconName: 'edit_note',
-      title: 'Grammar: Accusative',
-      description: 'Fill in the blanks using the correct accusative case articles.',
-      buttonText: 'Start Practice',
-      badgeText: '5 Questions',
-    },
-  ];
 
   onTimeUpdate(time: number) {
     if (this.ignoreNextUpdate) {

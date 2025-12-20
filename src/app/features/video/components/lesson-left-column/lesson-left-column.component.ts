@@ -30,8 +30,7 @@ import { ExercisesSectionComponent } from '../exercises-section/exercises-sectio
       <div class="h-px w-full bg-[#f0f0eb] dark:bg-[#33332a] my-2"></div>
       <!-- Exercises Section -->
       <app-exercises-section
-        [tasksCount]="exercises().length"
-        [exercises]="exercises()"
+        [activeSubtitle]="activeSubtitle()"
       />
     </div>
   `,
@@ -63,13 +62,7 @@ export class LessonLeftColumnComponent {
   levelText = input.required<string>();
   durationText = input.required<string>();
   thumbnailUrl = input('');
-  exercises = input.required<Array<{
-    iconName: string;
-    title: string;
-    description: string;
-    buttonText: string;
-    badgeText?: string;
-  }>>();
+  activeSubtitle = input<string>('');
 
   timeUpdate = output<number>();
 
