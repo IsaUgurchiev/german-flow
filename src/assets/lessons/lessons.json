@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "title": "Aladdin und die Wunderlampe",
+    "level": "A2",
+    "durationMin": 13,
+    "thumbnailUrl": "assets/images/lesson-1.png",
+    "videoSrc": "assets/videos/lesson-1.mp4",
+    "subtitlesSrc": "assets/subtitles/lesson-1.vtt"
+  },
+  {
+    "id": "2",
+    "title": "Der Wolf und die sieben Geißlein",
+    "level": "A1",
+    "durationMin": 8,
+    "thumbnailUrl": "assets/images/lesson-2.png",
+    "videoSrc": "assets/videos/lesson-2.mp4",
+    "subtitlesSrc": "assets/subtitles/lesson-2.vtt"
+  },
+  {
+    "id": "3",
+    "title": "Rotkäppchen auf Deutsch",
+    "level": "A1",
+    "durationMin": 10,
+    "thumbnailUrl": "assets/images/lesson-3.png",
+    "videoSrc": "assets/videos/lesson-3.mp4",
+    "subtitlesSrc": "assets/subtitles/lesson-3.vtt"
+  }
+]
+

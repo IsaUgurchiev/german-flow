@@ -7,36 +7,60 @@ import { VocabularyService } from '../../../../core/services/vocabulary.service'
 import { MyWordsRepository } from '../../../../core/repositories/my-words.repository';
 import { FillBlankSetService, FillBlankSetItem } from '../../../../core/services/fill-blank-set.service';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { LessonsService } from '../../../../core/services/lessons.service';
+import { switchMap, map, of, catchError, shareReplay } from 'rxjs';
 
 @Component({
   selector: 'app-video-page',
   standalone: true,
-  imports: [LessonLeftColumnComponent, LessonRightSidebarComponent],
+  imports: [LessonLeftColumnComponent, LessonRightSidebarComponent, RouterLink],
   template: `
-    <main class="flex-1 flex overflow-hidden w-full max-w-[1440px] mx-auto min-h-0">
-      <app-lesson-left-column
-        [videoUrl]="'assets/videos/lesson-1.mp4'"
-        [title]="data.title"
-        [levelText]="data.levelText"
-        [durationText]="data.durationText"
-        [thumbnailUrl]="thumbnailUrl"
-        [exerciseSet]="exerciseSet()"
-        (timeUpdate)="onTimeUpdate($event)"
-        #leftColumn
-      />
-      <app-lesson-right-sidebar
-        [subtitles]="subtitles() || []"
-        [vocabRows]="vocabRows()"
-        [currentTime]="currentTime()"
-        [loopEnabled]="loopEnabled()"
-        [loopCount]="loopCount()"
-        (toggleLoop)="toggleLoop()"
-        (setLoopCount)="setLoopCount($event)"
-        (toggleWord)="onToggleWord($event)"
-        (seek)="onSeek($event)"
-      />
-    </main>
+    @if (lesson(); as meta) {
+      <main class="flex-1 flex overflow-hidden w-full max-w-[1440px] mx-auto min-h-0">
+        <app-lesson-left-column
+          [videoUrl]="meta.videoSrc"
+          [title]="meta.title"
+          [levelText]="meta.level"
+          [durationText]="meta.durationMin + 'm'"
+          [thumbnailUrl]="meta.thumbnailUrl || ''"
+          [exerciseSet]="exerciseSet()"
+          (timeUpdate)="onTimeUpdate($event)"
+          #leftColumn
+        />
+        <app-lesson-right-sidebar
+          [subtitles]="subtitles() || []"
+          [vocabRows]="vocabRows()"
+          [currentTime]="currentTime()"
+          [loopEnabled]="loopEnabled()"
+          [loopCount]="loopCount()"
+          (toggleLoop)="toggleLoop()"
+          (setLoopCount)="setLoopCount($event)"
+          (toggleWord)="onToggleWord($event)"
+          (seek)="onSeek($event)"
+        />
+      </main>
+    } @else if (isLoaded()) {
+      <div class="flex-1 flex flex-col items-center justify-center p-6 text-center">
+        <span class="material-symbols-outlined text-gray-300 dark:text-gray-600 !text-[64px] mb-4">error</span>
+        <h2 class="text-2xl font-bold text-text-primary dark:text-white mb-2">Lesson not found</h2>
+        <p class="text-text-secondary dark:text-gray-400 mb-8 max-w-md">
+          The lesson you're looking for doesn't exist or has been moved.
+        </p>
+        <a 
+          routerLink="/catalog"
+          class="px-6 py-3 rounded-2xl bg-primary text-text-primary font-bold shadow-lg shadow-primary/20 hover:bg-[#e6e205] transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined">grid_view</span>
+          Back to Catalog
+        </a>
+      </div>
+    } @else {
+      <div class="flex-1 flex flex-col items-center justify-center p-6">
+        <div class="size-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin mb-4"></div>
+        <p class="text-text-secondary animate-pulse font-medium">Loading lesson...</p>
+      </div>
+    }
   `,
   styles: [`:host { display: flex; flex: 1; min-height: 0; }`],
 })
@@ -45,13 +69,42 @@ export class VideoPageComponent implements OnInit {
   private vocabularyService = inject(VocabularyService);
   private myWordsRepository = inject(MyWordsRepository);
   private fillBlankSetService = inject(FillBlankSetService);
+  private lessonsService = inject(LessonsService);
   private route = inject(ActivatedRoute);
   
-  data = videoPageMockData;
-  thumbnailUrl = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAFlQlVSPwcm1uAkSonM7dvZowkP5cuhc1wjixJfC1hMHF2Z2Jzd5kxfFNRmfFjqWOafbmaArDTo2BsIT7531kov0_9eJxW7F8E3NhUf5gGO0caSKcTN0IbQBFCPquGWwh-HPyqa9OpuEGMwk12m1sb0CBUOA8s22gYcLrfg3EwLzH5JCgAuGgUwH4Grb6Qn3rag6AUysg0vNWeqNOvE1zH5pmpnH3WO-7VSW_EY0Yv0JS-mQ2OiP9PYXfYliz_tDEFmWlICy3E4Pk';
+  private lessonId$ = this.route.paramMap.pipe(
+    map(params => params.get('id') || ''),
+    shareReplay(1)
+  );
   
+  isLoaded = signal(false);
+
+  lesson = toSignal(this.lessonId$.pipe(
+    switchMap(id => this.lessonsService.getLessonById(id)),
+    map(lesson => {
+      this.isLoaded.set(true);
+      return lesson;
+    }),
+    catchError(() => {
+      this.isLoaded.set(true);
+      return of(null);
+    })
+  ));
+
+  subtitles = toSignal(this.lessonId$.pipe(
+    switchMap(id => this.lessonsService.getLessonById(id)),
+    switchMap(lesson => {
+      if (!lesson) return of([]);
+      return this.subtitleService.parseVtt(lesson.subtitlesSrc).pipe(
+        catchError(err => {
+          console.error('Error loading subtitles:', err);
+          return of([]);
+        })
+      );
+    })
+  ));
+
   currentTime = signal(0);
-  subtitles = toSignal(this.subtitleService.parseVtt('assets/subtitles/lesson-1.vtt'));
   vocabRows = signal<VocabRow[]>([]);
   exerciseSet = signal<FillBlankSetItem[]>([]);
 

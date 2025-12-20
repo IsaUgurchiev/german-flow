@@ -253,7 +253,139 @@ DoD:
 
 ---
 
+
+# Content Pipeline Roadmap (Cursor)
+
+## 10) Content Pipeline (Lesson autoload, no backend)
+
+Goal:
+- Add new lessons without touching TS/HTML.
+- Lessons are loaded from static assets + JSON metadata.
+- Pipeline does NOT generate videos or subtitles.
+
+---
+
+### 10.1 Lesson data model
+[x] Define LessonMeta interface
+
+LessonMeta fields:
+- id: string
+- title: string
+- level: A1 | A2 | B1
+- durationMin: number
+- videoSrc: string (relative path, assets/lessons/{id}/video.mp4)
+- subtitlesSrc: string (relative path, assets/lessons/{id}/subtitles.vtt)
+
+Definition of Done:
+- Single shared interface
+- No runtime logic
+- No duplicate lesson formats
+
+---
+
+### 10.2 Lessons registry
+[x] Create lessons registry file
+
+File:
+- src/assets/lessons/lessons.json
+
+Rules:
+- JSON array of LessonMeta
+- Relative paths only (assets/...)
+- 2–3 lessons are enough
+
+Definition of Done:
+- File loads via HttpClient
+- No hardcoded lesson lists in TS
+
+---
+
+### 10.3 LessonsService
+[x] Create LessonsService
+
+Responsibilities:
+- Load lessons.json
+- Cache result in memory
+- API:
+  - getAllLessons()
+  - getLessonById(id)
+
+Definition of Done:
+- lessons.json loaded once
+- Safe fallback on error
+- Components never import JSON directly
+
+---
+
+### 10.4 Catalog page integration
+[x] Migrate /catalog to LessonsService
+
+Definition of Done:
+- Catalog renders lessons from pipeline
+- Adding JSON entry shows lesson automatically
+
+---
+
+### 10.5 Video page integration
+[x] Migrate VideoPage to pipeline
+
+Rules:
+- lessonId from route
+- Load LessonMeta via LessonsService
+- Use videoSrc and subtitlesSrc from metadata
+
+Definition of Done:
+- No hardcoded asset paths
+- All features still work
+
+---
+
+### 10.6 Error handling
+[x] Handle invalid lesson and missing assets
+
+Definition of Done:
+- Invalid lessonId handled gracefully
+- Missing video/subtitles do not crash app
+
+---
+
+### 10.7 Developer workflow
+[x] Document lesson adding steps
+
+**Steps to add a new lesson:**
+1.  **Prepare Assets**:
+    *   Create a folder for the lesson: `src/assets/lessons/{lessonId}/` (optional, but recommended for organization).
+    *   Place `video.mp4` and `subtitles.vtt` in their respective folders or the lesson folder.
+2.  **Update Registry**:
+    *   Add a new entry to `src/assets/lessons/lessons.json`:
+        ```json
+        {
+          "id": "new-id",
+          "title": "Lesson Title",
+          "level": "A1",
+          "durationMin": 10,
+          "thumbnailUrl": "https://...",
+          "videoSrc": "assets/videos/new-video.mp4",
+          "subtitlesSrc": "assets/subtitles/new-subtitles.vtt"
+        }
+        ```
+3.  **Done**: No code changes required. The new lesson will automatically appear in the Catalog and be accessible via `/video/new-id`.
+
+Definition of Done:
+- Zero TS/HTML changes needed
+- Works on GitHub Pages
+
+---
+
 ## Changelog (Cursor fills)
+- 2025-12-20: Fixed video poster (thumbnail) not being displayed on the video page.
+- 2025-12-20: Completed Content Pipeline (Section 10). Documented developer workflow for adding lessons.
+- 2025-12-20: Added error handling and "Not Found" state to `VideoPageComponent` (Section 10.6).
+- 2025-12-20: Migrated `VideoPageComponent` to use `LessonsService` (Section 10.5).
+- 2025-12-20: Migrated `/catalog` to `LessonsService` (Section 10.4).
+- 2025-12-20: Implemented `LessonsService` with caching and error handling (Section 10.3).
+- 2025-12-20: Created `lessons.json` registry with 3 lessons (Section 10.2).
+- 2025-12-20: Defined `LessonMeta` data model (Section 10.1).
 - 2025-12-20: Improved contrast for "Loop line" button and loop count selector.
   - Changed enabled state to use solid yellow background with dark text for better visibility.
 - 2025-12-20: Replaced native popups with beautiful confirmation modal and toast on Progress page.

@@ -9,6 +9,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild, input, signal, output 
         #videoPlayer
         class="w-full h-full object-cover"
         [src]="videoUrl()"
+        [poster]="thumbnailUrl()"
         (click)="togglePlay()"
       ></video>
 
