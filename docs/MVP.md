@@ -98,7 +98,7 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 - [x] Add/remove word UI state
 
 ### 4.3 Storage
-- [ ] `MyWordsRepository` (localStorage)
+- [x] `MyWordsRepository` (localStorage)
 
 ---
 
@@ -130,6 +130,10 @@ MVP is ready when **all items in sections 1–8** are `[x]`.
 ---
 
 ## Changelog (Cursor fills)
+- 2025-12-20: Implemented Vocabulary Storage (Section 4.3).
+  - Created `MyWordsRepository` in `src/app/core/repositories/my-words.repository.ts`.
+  - Added support for `localStorage` persistence with key `gf.words.saved`.
+  - Integrated repository into `VideoPageComponent` to persist "added" state of words.
 - 2025-12-20: Implemented Vocabulary UI (Section 4.2).
   - Integrated `VocabWidgetComponent` into the sidebar as a dedicated tab.
   - Implemented add/remove word logic with reactive state in `VideoPageComponent`.
