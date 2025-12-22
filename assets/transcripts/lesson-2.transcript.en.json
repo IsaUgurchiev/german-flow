@@ -1,0 +1,359 @@
+{
+  "version": 1,
+  "source": {
+    "lang": "de"
+  },
+  "target": {
+    "lang": "en"
+  },
+  "lines": [
+    {
+      "startSec": 0.0,
+      "endSec": 18.0,
+      "de": "Warum verstecken sich denn die Geißlein überall in der Stube?",
+      "en": "Why are the little goats hiding all over the room?"
+    },
+    {
+      "startSec": 18.0,
+      "endSec": 25.0,
+      "de": "Und wie ist der Wolf ins Haus gekommen?",
+      "en": "And how did the wolf get into the house?"
+    },
+    {
+      "startSec": 25.0,
+      "endSec": 35.0,
+      "de": "Oh je, ob das mal gut geht? Lass uns doch mal schauen.",
+      "en": "Oh dear, will that ever work? Let's have a look."
+    },
+    {
+      "startSec": 35.0,
+      "endSec": 45.0,
+      "de": "Es war einmal eine alte Geiß, die hatte sieben Kinder.",
+      "en": "Once upon a time there was an old goat who had seven children."
+    },
+    {
+      "startSec": 45.0,
+      "endSec": 49.0,
+      "de": "Eines Tages wollte sie in den Wald gehen und Futter holen.",
+      "en": "One day she wanted to go into the forest to get some food."
+    },
+    {
+      "startSec": 49.0,
+      "endSec": 53.0,
+      "de": "Darum rief sie die Geißlein zusammen und sagte",
+      "en": "So she called the little goats together and said"
+    },
+    {
+      "startSec": 53.0,
+      "endSec": 61.0,
+      "de": "Liebe Kinder, ich gehe raus in den Wald. Ihr bleibt hier, aber hütet euch vor dem Wolf.",
+      "en": "Dear children, I'm going out into the forest. You stay here, but beware of the wolf."
+    },
+    {
+      "startSec": 61.0,
+      "endSec": 65.0,
+      "de": "Er darf nicht hereinkommen, sonst frisst er euch.",
+      "en": "He must not come in or he will eat you."
+    },
+    {
+      "startSec": 65.0,
+      "endSec": 74.0,
+      "de": "Der Wolf verstellt sich oft, aber ihr erkennt ihn an seiner rauen Stimme und an seinen schwarzen Pfoten.",
+      "en": "The wolf often disguises itself, but you can recognize it by its raspy voice and black paws."
+    },
+    {
+      "startSec": 74.0,
+      "endSec": 81.0,
+      "de": "Dann machte sich die Geiß auf den Weg.",
+      "en": "Then the goat set off."
+    },
+    {
+      "startSec": 81.0,
+      "endSec": 87.0,
+      "de": "Kurze Zeit später klopfte es an der Haustür. Eine Stimme sagte",
+      "en": "A short time later, there was a knock at the front door. A voice said"
+    },
+    {
+      "startSec": 87.0,
+      "endSec": 98.0,
+      "de": "Macht auf liebe Kinder, ich bin's, eure Mutter und ich habe jedem von euch etwas mitgebracht.",
+      "en": "Open up, dear children, it's me, your mother, and I've brought something for each of you."
+    },
+    {
+      "startSec": 98.0,
+      "endSec": 104.0,
+      "de": "Aber die Geißlein erkannten an der rauen Stimme, dass es der Wolf war und riefen",
+      "en": "But the little goats recognized by the rough voice that it was the wolf and called out"
+    },
+    {
+      "startSec": 104.0,
+      "endSec": 110.0,
+      "de": "Du bist nicht unsere Mutter, denn die hat eine feine und liebliche Stimme.",
+      "en": "You are not our mother, because she has a fine and sweet voice."
+    },
+    {
+      "startSec": 110.0,
+      "endSec": 117.0,
+      "de": "Du eine tiefe und raue Stimme. Du bist der Wolf.",
+      "en": "You have a deep and rough voice. You are the wolf."
+    },
+    {
+      "startSec": 117.0,
+      "endSec": 123.0,
+      "de": "Da ging der Wolf zum Krämer und kaufte sich ein großes Stück Kreide.",
+      "en": "So the wolf went to the grocer and bought a large piece of chalk."
+    },
+    {
+      "startSec": 123.0,
+      "endSec": 128.0,
+      "de": "Er aß sie und machte so seine Stimme hell und fein.",
+      "en": "He ate them and thus made his voice bright and fine."
+    },
+    {
+      "startSec": 128.0,
+      "endSec": 133.0,
+      "de": "Dann ging er zurück, klopfte erneut an die Haustür und sagte",
+      "en": "Then he went back, knocked on the front door again and said"
+    },
+    {
+      "startSec": 133.0,
+      "endSec": 144.0,
+      "de": "Macht auf liebe Kinder, ich bin's, eure Mutter und ich habe jedem von euch etwas mitgebracht.",
+      "en": "Open up, dear children, it's me, your mother, and I've brought something for each of you."
+    },
+    {
+      "startSec": 144.0,
+      "endSec": 150.0,
+      "de": "Doch der Wolf hatte seine schwarze Pfote ans Fenster gelegt und die Geißlein riefen",
+      "en": "But the wolf had put his black paw on the window and the little goats called out"
+    },
+    {
+      "startSec": 150.0,
+      "endSec": 160.0,
+      "de": "Wir machen nicht auf. Unsere Mutter hat keinen schwarzen Fuß wie du. Du bist der Wolf.",
+      "en": "We don't open the door. Our mother doesn't have a black foot like you. You are the wolf."
+    },
+    {
+      "startSec": 160.0,
+      "endSec": 164.0,
+      "de": "Daraufhin lief der Wolf zum Bäcker und sagte",
+      "en": "The wolf then ran to the baker and said"
+    },
+    {
+      "startSec": 164.0,
+      "endSec": 169.0,
+      "de": "Streich mir Teig auf die Pfote. Anschließend ging er zum Müller und befahl",
+      "en": "Spread dough on my paw. He then went to the miller and ordered"
+    },
+    {
+      "startSec": 169.0,
+      "endSec": 173.0,
+      "de": "Streu mir weißes Mehl über die Pfote.",
+      "en": "Sprinkle white flour over my paw."
+    },
+    {
+      "startSec": 173.0,
+      "endSec": 178.0,
+      "de": "Der Müller ahnte, dass der Wolf etwas böses vorhatte.",
+      "en": "The miller suspected that the wolf was up to something nasty."
+    },
+    {
+      "startSec": 178.0,
+      "endSec": 182.0,
+      "de": "Doch als er sich weigerte, drohte der Wolf ihm und sagte",
+      "en": "But when he refused, the wolf threatened him and said"
+    },
+    {
+      "startSec": 182.0,
+      "endSec": 187.0,
+      "de": "Er würde ihn auffressen, wenn er nicht gehorche.",
+      "en": "He would eat him up if he didn't obey."
+    },
+    {
+      "startSec": 187.0,
+      "endSec": 192.0,
+      "de": "Da hatte der Müller Angst und streute ihm das Mehl über die Pfote.",
+      "en": "The miller was afraid and sprinkled the flour over his paw."
+    },
+    {
+      "startSec": 195.0,
+      "endSec": 201.0,
+      "de": "Der Wolf ging zum dritten Mal zum Haus der Geißlein, klopfte an die Tür und sagte",
+      "en": "The wolf went to the goats' house for the third time, knocked on the door and said"
+    },
+    {
+      "startSec": 201.0,
+      "endSec": 212.0,
+      "de": "Macht auf liebe Kinder, eure liebe Mutter ist nach Hause gekommen und hat jedem von euch etwas mitgebracht.",
+      "en": "Open up dear children, your dear mother has come home and has brought something for each of you."
+    },
+    {
+      "startSec": 212.0,
+      "endSec": 219.0,
+      "de": "Die Geißlein riefen, zeig uns erst deine Pfote, damit wir wissen, dass du auch unsere Mutter bist.",
+      "en": "The little goats called out, \"First show us your paw so that we know that you are also our mother."
+    },
+    {
+      "startSec": 219.0,
+      "endSec": 227.0,
+      "de": "Da legte der Wolf seine weiße Pfote ins Fenster und die Geißlein öffneten die Tür.",
+      "en": "Then the wolf put his white paw in the window and the little goats opened the door."
+    },
+    {
+      "startSec": 227.0,
+      "endSec": 235.0,
+      "de": "Als sie sahen, dass es der Wolf war, erschraken die Geißlein sehr und versteckten sich so schnell es ging.",
+      "en": "When they saw that it was the wolf, the little goats were very frightened and hid as quickly as they could."
+    },
+    {
+      "startSec": 235.0,
+      "endSec": 243.0,
+      "de": "Das erste sprang unter den Tisch, das zweite ins Bett, das dritte in den Ofen, das vierte in die Küche,",
+      "en": "The first jumped under the table, the second into the bed, the third into the oven, the fourth into the kitchen,"
+    },
+    {
+      "startSec": 243.0,
+      "endSec": 254.0,
+      "de": "das fünfte in den Schrank, das sechste unter die Waschschüssel und das siebte und kleinste in den Kasten der großen Wanduhr.",
+      "en": "the fifth in the cupboard, the sixth under the washbasin and the seventh and smallest in the box of the large wall clock."
+    },
+    {
+      "startSec": 254.0,
+      "endSec": 260.0,
+      "de": "Aber der Wolf fand sie alle und verschlang eines nach dem anderen.",
+      "en": "But the wolf found them all and devoured them one by one."
+    },
+    {
+      "startSec": 261.0,
+      "endSec": 267.0,
+      "de": "Nur das jüngste Geißlein im Uhrenkasten, das fand er nicht.",
+      "en": "Only the youngest goat in the clock case, he did not find."
+    },
+    {
+      "startSec": 270.0,
+      "endSec": 279.0,
+      "de": "Der Wolf war satt und müde und legte sich draußen auf der Wiese unter einen großen Baum. Dort schlief er ein.",
+      "en": "The wolf was full and tired and lay down outside in the meadow under a large tree. There he fell asleep."
+    },
+    {
+      "startSec": 290.0,
+      "endSec": 298.0,
+      "de": "Kurz darauf kam die alte Geiß nach Hause. Sie erschrak fürchterlich, als sie das Haus sah.",
+      "en": "Shortly afterwards, the old goat came home. She was terribly frightened when she saw the house."
+    },
+    {
+      "startSec": 298.0,
+      "endSec": 305.0,
+      "de": "Die Haustür stand sperrangelweit auf, Tische, Stühle und Bänke waren umgeworfen,",
+      "en": "The front door was wide open, tables, chairs and benches had been knocked over,"
+    },
+    {
+      "startSec": 305.0,
+      "endSec": 310.0,
+      "de": "die Waschschüssel zerbrochen und Decken und Kissen lagen auf dem Boden.",
+      "en": "the wash bowl was broken and blankets and pillows were lying on the floor."
+    },
+    {
+      "startSec": 310.0,
+      "endSec": 317.0,
+      "de": "Die Geiß suchte ihre Kinder und rief ihren Namen, doch sie waren nirgends zu finden.",
+      "en": "The goat looked for her children and called their names, but they were nowhere to be found."
+    },
+    {
+      "startSec": 317.0,
+      "endSec": 323.0,
+      "de": "Als sie den Namen des jüngsten Kindes rief, sagte eine Stimme aus dem Uhrenkasten,",
+      "en": "When she called out the name of the youngest child, a voice from the clock case said,"
+    },
+    {
+      "startSec": 323.0,
+      "endSec": 333.0,
+      "de": "liebe Mutter, ich bin hier. Die Mutter holte das Geißlein heraus und es erzählte ihr, was passiert war.",
+      "en": "dear mother, I am here. The mother brought the little goat out and it told her what had happened."
+    },
+    {
+      "startSec": 337.0,
+      "endSec": 345.0,
+      "de": "Die Geiß ging traurig mit ihrem Kind nach draußen und sah auf der Wiese den Wolf schnarchend unterm Baum liegen.",
+      "en": "The goat sadly went outside with her child and saw the wolf snoring under the tree in the meadow."
+    },
+    {
+      "startSec": 346.0,
+      "endSec": 355.0,
+      "de": "Da bemerkte sie, dass in seinem dicken Bauch etwas zappelte. Sofort dachte die Geiß, dass das ihre Kinder seien.",
+      "en": "Then she noticed that something was wriggling in his fat belly. The goat immediately thought it was her children."
+    },
+    {
+      "startSec": 355.0,
+      "endSec": 361.0,
+      "de": "Sie schickte das Geißlein ins Haus, um Schere, Nadel und Faden zu holen.",
+      "en": "She sent the little goat into the house to fetch scissors, needle and thread."
+    },
+    {
+      "startSec": 361.0,
+      "endSec": 369.0,
+      "de": "Dann schnitt sie dem Wolf den Bauch auf und die Geißlein sprangen eins nach dem anderen heraus.",
+      "en": "Then she cut open the wolf's belly and the little goats jumped out one by one."
+    },
+    {
+      "startSec": 369.0,
+      "endSec": 381.0,
+      "de": "Sie freuten sich sehr und rückten ihre Mutter. Die Geiß forderte ihre Kinder auf, große Steine zu holen.",
+      "en": "They were very happy and moved their mother. The goat asked her children to fetch large stones."
+    },
+    {
+      "startSec": 388.0,
+      "endSec": 394.0,
+      "de": "Damit füllten sie den Bauch des Wolfs und nähten ihn mit Nadel und Faden wieder zu.",
+      "en": "They filled the wolf's belly with it and sewed it up again with a needle and thread."
+    },
+    {
+      "startSec": 400.0,
+      "endSec": 411.0,
+      "de": "Als der Wolf aufwachte, hatte er schrecklichen Durst. Darum wollte er zum Brunnen gehen, um zu trinken.",
+      "en": "When the wolf woke up, he was terribly thirsty. So he wanted to go to the well to drink."
+    },
+    {
+      "startSec": 411.0,
+      "endSec": 417.0,
+      "de": "Dabei fingen die Steine in seinem Bauch an, sich hin und her zu bewegen.",
+      "en": "The stones in his stomach began to move back and forth."
+    },
+    {
+      "startSec": 417.0,
+      "endSec": 431.0,
+      "de": "Der Wolf rief, was rumpelt und pumpelt da in meinem Bauch herum. Ich dachte, es wären sechs Geißlein. So sind's lauter Wackerstein.",
+      "en": "The wolf cried, what's that rumbling and pumping around in my belly? I thought it was six little goats. But it's all Wackerstein."
+    },
+    {
+      "startSec": 433.0,
+      "endSec": 446.0,
+      "de": "Als er am Brunnen ankam, beugte er sich vor. Die schweren Steine in seinem Bauch zogen ihn jedoch in den Brunnenschacht hinein und der Wolf ertrank.",
+      "en": "When he arrived at the well, he bent over. However, the heavy stones in his stomach pulled him into the well shaft and the wolf drowned."
+    },
+    {
+      "startSec": 448.0,
+      "endSec": 456.0,
+      "de": "Die sieben Geißlein aber liefen hin, freuten sich und tanzten mit ihrer Mutter fröhlich um den Brunnen herum.",
+      "en": "But the seven little goats ran, rejoiced and danced happily around the well with their mother."
+    },
+    {
+      "startSec": 461.0,
+      "endSec": 472.0,
+      "de": "Jetzt kennst du das Märchen vom Wolf und den sieben Geißlein. Aber hast du auch unseren kleinen Wichtel entdeckt?",
+      "en": "Now you know the fairy tale of the wolf and the seven little goats. But have you also discovered our little elf?"
+    },
+    {
+      "startSec": 478.0,
+      "endSec": 487.0,
+      "de": "Hallo, hat dir unser Märchen gefallen? Dann abonnier hier unseren Kanal, um die neuesten Märchen zu sehen.",
+      "en": "Hello, did you like our fairy tale? Then subscribe to our channel here to see the latest fairy tales."
+    },
+    {
+      "startSec": 487.0,
+      "endSec": 492.0,
+      "de": "Hier bin ich. Du möchtest direkt weitere Märchen sehen? Dann klick hier.",
+      "en": "Here I am. Would you like to see more fairy tales straight away? Then click here."
+    }
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "version": 1,
+  "lessonId": "2",
+  "source": {
+    "lang": "de",
+    "format": "vtt",
+    "vttFile": "lesson-2.vtt"
+  },
+  "generatedAtTs": 1766400000,
+  "exerciseSets": [
+    {
+      "type": "word_translation_mcq",
+      "items": [
+        {
+          "id": "2:word_translation_mcq:0.0-18.0:1",
+          "prompt": "What does “Geißlein” mean?",
+          "choices": ["forest", "stones", "little kids (young goats)", "wolf"],
+          "answerIndex": 2,
+          "rationale": "“Geißlein” are the young goats (the goat’s children).",
+          "sourceRef": { "startSec": 0.0, "endSec": 18.0, "text": "Warum verstecken sich denn die Geißlein überall in der Stube?" }
+        },
+        {
+          "id": "2:word_translation_mcq:53.0-61.0:2",
+          "prompt": "What does “hütet euch (vor dem Wolf)” mean?",
+          "choices": ["feed the wolf", "call the wolf", "hide quickly", "beware (of the wolf)"],
+          "answerIndex": 3,
+          "rationale": "“hütet euch” means “be careful / beware”.",
+          "sourceRef": { "startSec": 53.0, "endSec": 61.0, "text": "Liebe Kinder, ich gehe raus in den Wald. Ihr bleibt hier, aber hütet euch vor dem Wolf." }
+        },
+        {
+          "id": "2:word_translation_mcq:105.0-114.0:3",
+          "prompt": "What does “raue Stimme” mean?",
+          "choices": ["rough voice", "soft voice", "happy voice", "quiet voice"],
+          "answerIndex": 0,
+          "rationale": "“rau” describes a harsh/rough voice quality.",
+          "sourceRef": { "startSec": 65.0, "endSec": 74.0, "text": "Der Wolf verstellt sich oft, aber ihr erkennt ihn an seiner rauen Stimme und an seinen schwarzen Pfoten." }
+        },
+        {
+          "id": "2:word_translation_mcq:65.0-74.0:4",
+          "prompt": "What does “Pfote” mean?",
+          "choices": ["tail", "paw", "ear", "mouth"],
+          "answerIndex": 1,
+          "rationale": "A “Pfote” is a paw (especially of an animal like a wolf).",
+          "sourceRef": { "startSec": 65.0, "endSec": 74.0, "text": "… an seiner rauen Stimme und an seinen schwarzen Pfoten." }
+        },
+        {
+          "id": "2:word_translation_mcq:117.0-123.0:5",
+          "prompt": "What does “Krämer” mean here?",
+          "choices": ["hunter", "miller", "grocer / shopkeeper", "baker"],
+          "answerIndex": 2,
+          "rationale": "A “Krämer” is a small shopkeeper/merchant.",
+          "sourceRef": { "startSec": 117.0, "endSec": 123.0, "text": "Da ging der Wolf zum Krämer und kaufte sich ein großes Stück Kreide." }
+        },
+        {
+          "id": "2:word_translation_mcq:123.0-128.0:6",
+          "prompt": "What does “Kreide” mean?",
+          "choices": ["chalk", "flour", "dough", "needle"],
+          "answerIndex": 0,
+          "rationale": "“Kreide” means chalk (the wolf eats it to change his voice).",
+          "sourceRef": { "startSec": 123.0, "endSec": 128.0, "text": "Er aß sie und machte so seine Stimme hell und fein." }
+        },
+        {
+          "id": "2:word_translation_mcq:164.0-173.0:7",
+          "prompt": "What does “Mehl” mean?",
+          "choices": ["salt", "milk", "sand", "flour"],
+          "answerIndex": 3,
+          "rationale": "“Mehl” is flour (used to make the wolf’s paw look white).",
+          "sourceRef": { "startSec": 169.0, "endSec": 173.0, "text": "Streu mir weißes Mehl über die Pfote." }
+        },
+        {
+          "id": "2:word_translation_mcq:233.0-247.0:8",
+          "prompt": "What does “verschlingen” mean?",
+          "choices": ["to wake up", "to swallow / devour", "to hide", "to sew"],
+          "answerIndex": 1,
+          "rationale": "“verschlingen” means to swallow/devour quickly.",
+          "sourceRef": { "startSec": 254.0, "endSec": 260.0, "text": "Aber der Wolf fand sie alle und verschlang eines nach dem anderen." }
+        },
+        {
+          "id": "2:word_translation_mcq:270.0-279.0:9",
+          "prompt": "What does “Wiese” mean?",
+          "choices": ["clock", "mountain", "meadow", "kitchen"],
+          "answerIndex": 2,
+          "rationale": "A “Wiese” is a meadow/field of grass.",
+          "sourceRef": { "startSec": 270.0, "endSec": 279.0, "text": "Der Wolf war satt und müde und legte sich draußen auf der Wiese unter einen großen Baum." }
+        },
+        {
+          "id": "2:word_translation_mcq:298.0-305.0:10",
+          "prompt": "What does “sperrangelweit” mean?",
+          "choices": ["broken", "wide open", "locked", "slightly open"],
+          "answerIndex": 1,
+          "rationale": "“sperrangelweit offen” means completely wide open.",
+          "sourceRef": { "startSec": 298.0, "endSec": 305.0, "text": "Die Haustür stand sperrangelweit auf…" }
+        },
+        {
+          "id": "2:word_translation_mcq:346.0-354.0:11",
+          "prompt": "What does “Bauch” mean?",
+          "choices": ["back", "head", "belly", "hand"],
+          "answerIndex": 2,
+          "rationale": "“Bauch” means belly/stomach.",
+          "sourceRef": { "startSec": 346.0, "endSec": 354.0, "text": "… in seinem dicken Bauch etwas zappelte." }
+        },
+        {
+          "id": "2:word_translation_mcq:361.0-369.0:12",
+          "prompt": "What does “Nadel und Faden” mean?",
+          "choices": ["chalk and paper", "stone and rope", "needle and thread", "knife and fork"],
+          "answerIndex": 2,
+          "rationale": "“Nadel und Faden” are used for sewing (needle and thread).",
+          "sourceRef": { "startSec": 355.0, "endSec": 361.0, "text": "Sie schickte das Geißlein ins Haus, um Schere, Nadel und Faden zu holen." }
+        }
+      ]
+    },
+    {
+      "type": "sentence_translation_mcq",
+      "items": [
+        {
+          "id": "2:sentence_translation_mcq:35.0-45.0:1",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "Once upon a time there was an old goat who had one child.",
+            "Once upon a time there was an old goat who had seven children.",
+            "Once upon a time there was an old wolf who had seven children.",
+            "Once upon a time there was an old miller who had seven children."
+          ],
+          "answerIndex": 1,
+          "rationale": "“Es war einmal … eine alte Geiß … sieben Kinder.”",
+          "sourceRef": { "startSec": 35.0, "endSec": 45.0, "text": "Es war einmal eine alte Geiß, die hatte sieben Kinder." }
+        },
+        {
+          "id": "2:sentence_translation_mcq:53.0-61.0:2",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "Dear children, I’m going into the forest. You come with me, and don’t fear the wolf.",
+            "Dear children, I’m going into the forest. You stay here, but beware of the wolf.",
+            "Dear children, I’m going into the river. You stay here and open the door.",
+            "Dear children, I’m going to the palace. You stay here and feed the wolf."
+          ],
+          "answerIndex": 1,
+          "rationale": "It says she goes into the forest and warns them to beware of the wolf.",
+          "sourceRef": { "startSec": 53.0, "endSec": 61.0, "text": "Liebe Kinder, ich gehe raus in den Wald. Ihr bleibt hier, aber hütet euch vor dem Wolf." }
+        },
+        {
+          "id": "2:sentence_translation_mcq:87.0-94.0:3",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "But the kids recognized from the singing that it was the baker.",
+            "But the kids recognized from the quiet voice that it was the goat.",
+            "But the kids recognized from the rough voice that it was the wolf.",
+            "But the kids recognized from the white paw that it was their mother."
+          ],
+          "answerIndex": 2,
+          "rationale": "They recognize him by the rough voice.",
+          "sourceRef": { "startSec": 87.0, "endSec": 94.0, "text": "Aber die Geißlein erkannten an der rauen Stimme, dass es der Wolf war…" }
+        },
+        {
+          "id": "2:sentence_translation_mcq:117.0-128.0:4",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "Then the wolf went to the hunter and bought a big piece of meat.",
+            "Then the wolf went to the baker and bought a big piece of dough.",
+            "Then the wolf went to the shopkeeper and bought a big piece of chalk.",
+            "Then the wolf went to the miller and bought a big bag of flour."
+          ],
+          "answerIndex": 2,
+          "rationale": "“Krämer” + “Kreide” = shopkeeper + chalk.",
+          "sourceRef": { "startSec": 117.0, "endSec": 123.0, "text": "Da ging der Wolf zum Krämer und kaufte sich ein großes Stück Kreide." }
+        },
+        {
+          "id": "2:sentence_translation_mcq:150.0-160.0:5",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "The kids said: Bring us food first so we know you are our mother.",
+            "The kids said: Show us your voice first so we know you are our mother.",
+            "The kids said: Show us your paw first so we know you are our mother.",
+            "The kids said: Leave the house now so we know you are the wolf."
+          ],
+          "answerIndex": 2,
+          "rationale": "They ask to see the paw first.",
+          "sourceRef": { "startSec": 152.0, "endSec": 159.0, "text": "Die Geißlein riefen, zeig uns erst deine Pfote, damit wir wissen, dass du auch unsere Mutter bist." }
+        },
+        {
+          "id": "2:sentence_translation_mcq:159.0-167.0:6",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "The wolf put his paw under the table and the kids opened the door.",
+            "The wolf put his white paw on the window and the kids opened the door.",
+            "The wolf put his paw on the roof and the kids opened the door.",
+            "The wolf put his black paw on the window and the kids opened the door."
+          ],
+          "answerIndex": 1,
+          "rationale": "He shows a white paw, and then they open the door.",
+          "sourceRef": { "startSec": 159.0, "endSec": 167.0, "text": "Da legte der Wolf seine weiße Pfote ins Fenster und die Geißlein öffneten die Tür." }
+        },
+        {
+          "id": "2:sentence_translation_mcq:254.0-260.0:7",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "But the wolf found them all and set them free one after another.",
+            "But the wolf found them all and devoured one after another.",
+            "But the wolf found only one and fell asleep immediately.",
+            "But the wolf found none of them and went home hungry."
+          ],
+          "answerIndex": 1,
+          "rationale": "“verschlang eines nach dem anderen” means he devoured them one by one.",
+          "sourceRef": { "startSec": 254.0, "endSec": 260.0, "text": "Aber der Wolf fand sie alle und verschlang eines nach dem anderen." }
+        },
+        {
+          "id": "2:sentence_translation_mcq:361.0-369.0:8",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "She sent the little kid into the palace to get gold and jewels.",
+            "She sent the little kid into the forest to get bread, flour, and milk.",
+            "She sent the little kid into the house to get scissors, needle, and thread.",
+            "She sent the little kid into the house to get stones and chalk."
+          ],
+          "answerIndex": 2,
+          "rationale": "The items listed are scissors, needle, and thread.",
+          "sourceRef": { "startSec": 355.0, "endSec": 361.0, "text": "Sie schickte das Geißlein ins Haus, um Schere, Nadel und Faden zu holen." }
+        }
+      ]
+    },
+    {
+      "type": "comprehension_mcq",
+      "items": [
+        {
+          "id": "2:comprehension_mcq:65.0-74.0:1",
+          "prompt": "How can the kids recognize the wolf when he disguises himself?",
+          "choices": [
+            "By his friendly smile and gifts",
+            "By his rough voice and black paws",
+            "By his red coat and hat",
+            "By his white fur and small ears"
+          ],
+          "answerIndex": 1,
+          "rationale": "The mother warns them they can recognize him by his rough voice and black paws.",
+          "sourceRef": { "startSec": 65.0, "endSec": 74.0, "text": "… ihr erkennt ihn an seiner rauen Stimme und an seinen schwarzen Pfoten." }
+        },
+        {
+          "id": "2:comprehension_mcq:117.0-128.0:2",
+          "prompt": "Why does the wolf eat the chalk?",
+          "choices": [
+            "To fall asleep quickly",
+            "To turn his paws white",
+            "To make his voice sound light and fine",
+            "To become stronger and faster"
+          ],
+          "answerIndex": 2,
+          "rationale": "He eats chalk to change his voice so it sounds bright and fine.",
+          "sourceRef": { "startSec": 117.0, "endSec": 128.0, "text": "… kaufte … Kreide. Er aß sie und machte so seine Stimme hell und fein."
+          }
+        },
+        {
+          "id": "2:comprehension_mcq:144.0-173.0:3",
+          "prompt": "What does the wolf do to trick the kids about his paw?",
+          "choices": [
+            "He hides it behind the door",
+            "He covers it with dough and white flour",
+            "He paints it black again",
+            "He washes it in the river"
+          ],
+          "answerIndex": 1,
+          "rationale": "He gets dough on the paw and then white flour so it looks like the mother’s.",
+          "sourceRef": { "startSec": 144.0, "endSec": 173.0, "text": "Streich mir Teig auf die Pfote… Streu mir weißes Mehl über die Pfote." }
+        },
+        {
+          "id": "2:comprehension_mcq:167.0-279.0:4",
+          "prompt": "Which kid survives because the wolf cannot find it?",
+          "choices": [
+            "The second kid in the bed",
+            "The youngest kid hiding in the clock case",
+            "The fourth kid in the kitchen",
+            "The first kid under the table"
+          ],
+          "answerIndex": 1,
+          "rationale": "The subtitles say only the youngest in the clock case is not found.",
+          "sourceRef": { "startSec": 261.0, "endSec": 267.0, "text": "Nur das jüngste Geißlein im Uhrenkasten, das fand er nicht." }
+        },
+        {
+          "id": "2:comprehension_mcq:355.0-369.0:5",
+          "prompt": "How do the kids get rescued after the mother finds the sleeping wolf?",
+          "choices": [
+            "The kids escape through the window at night",
+            "The wolf decides to let them go",
+            "A hunter comes and chases the wolf away",
+            "The mother cuts open the wolf’s belly and the kids jump out"
+          ],
+          "answerIndex": 3,
+          "rationale": "She cuts open the wolf’s belly and the kids jump out one by one.",
+          "sourceRef": { "startSec": 361.0, "endSec": 369.0, "text": "Dann schnitt sie dem Wolf den Bauch auf und die Geißlein sprangen eins nach dem anderen heraus." }
+        },
+        {
+          "id": "2:comprehension_mcq:400.0-446.0:6",
+          "prompt": "Why does the wolf fall into the well and drown at the end?",
+          "choices": [
+            "He slips on ice near the well",
+            "The heavy stones in his belly pull him into the well",
+            "The mother pushes him into the well",
+            "He jumps into the well to hide"
+          ],
+          "answerIndex": 1,
+          "rationale": "The subtitles say the heavy stones in his belly pull him into the well shaft.",
+          "sourceRef": { "startSec": 433.0, "endSec": 446.0, "text": "Die schweren Steine in seinem Bauch zogen ihn jedoch in den Brunnenschacht hinein und der Wolf ertrank." }
+        }
+      ]
+    }
+  ]
+}

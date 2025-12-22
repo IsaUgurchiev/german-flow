@@ -1,0 +1,293 @@
+{
+  "version": 1,
+  "lessonId": "1",
+  "source": {
+    "lang": "de",
+    "format": "vtt",
+    "vttFile": "lesson-1.vtt"
+  },
+  "generatedAtTs": 1766400000,
+  "exerciseSets": [
+    {
+      "type": "word_translation_mcq",
+      "items": [
+        {
+          "id": "1:word_translation_mcq:0.0-2.0:1",
+          "prompt": "What does “Wunderlampe” mean?",
+          "choices": ["storm cloud", "market stall", "magic lamp", "desert well"],
+          "answerIndex": 2,
+          "rationale": "“Wunderlampe” refers to a lamp with magical powers.",
+          "sourceRef": { "startSec": 0.0, "endSec": 2.0, "text": "Aladdin und die Wunderlampe." }
+        },
+        {
+          "id": "1:word_translation_mcq:3.68-6.68:2",
+          "prompt": "What does “verdunkelte” mean in this context?",
+          "choices": ["became dark", "became loud", "became empty", "became warm"],
+          "answerIndex": 0,
+          "rationale": "“sich verdunkeln” means to darken (the sky became dark).",
+          "sourceRef": { "startSec": 3.68, "endSec": 6.68, "text": "Eines Nachts verdunkelte sich der Himmel plötzlich." }
+        },
+        {
+          "id": "1:word_translation_mcq:12.64-16.32:3",
+          "prompt": "What does “Sandsturm” mean?",
+          "choices": ["earthquake", "rainbow", "snowfall", "sandstorm"],
+          "answerIndex": 3,
+          "rationale": "“Sandsturm” is a storm with sand carried by strong wind.",
+          "sourceRef": { "startSec": 12.64, "endSec": 16.32, "text": "Ein Sandsturm begann, der stundenlang andauern sollte." }
+        },
+        {
+          "id": "1:word_translation_mcq:36.8-40.92:4",
+          "prompt": "What does “Armut” mean?",
+          "choices": ["beauty", "happiness", "victory", "poverty"],
+          "answerIndex": 3,
+          "rationale": "“in Armut aufwachsen” means to grow up in poverty.",
+          "sourceRef": { "startSec": 36.8, "endSec": 40.92, "text": "Aladdin wuchs in diesen Ländern zusammen mit seiner Mutter in Armut auf." }
+        },
+        {
+          "id": "1:word_translation_mcq:45.16-49.48:5",
+          "prompt": "What does “Markt” mean here?",
+          "choices": ["market", "ship", "forest", "palace"],
+          "answerIndex": 0,
+          "rationale": "“auf dem Markt arbeiten” means to work at the market.",
+          "sourceRef": { "startSec": 45.16, "endSec": 49.48, "text": "Er arbeitete auf dem Markt, um Geld nach Hause zu bringen." }
+        },
+        {
+          "id": "1:word_translation_mcq:51.8-56.28:6",
+          "prompt": "What does “prächtig” mean?",
+          "choices": ["tiny", "secret", "magnificent", "broken"],
+          "answerIndex": 2,
+          "rationale": "“prächtig” describes something splendid or magnificent.",
+          "sourceRef": { "startSec": 51.8, "endSec": 56.28, "text": "Im prächtigen Palast des selben Reiches lebte Prinzessin Jasmin," }
+        },
+        {
+          "id": "1:word_translation_mcq:19.64-24.76:7",
+          "prompt": "What does “Schleier” mean?",
+          "choices": ["veil", "ring", "carpet", "rope"],
+          "answerIndex": 0,
+          "rationale": "A “Schleier” is something used to cover the face (a veil).",
+          "sourceRef": { "startSec": 19.64, "endSec": 24.76, "text": "Manchmal verhüllte Jasmin ihr Gesicht mit einem Schleier und ging hinunter auf den Marktplatz." }
+        },
+        {
+          "id": "1:word_translation_mcq:47.76-53.84:8",
+          "prompt": "What does “Brunnen” mean?",
+          "choices": ["bridge", "tower", "door", "well"],
+          "answerIndex": 3,
+          "rationale": "“Brunnen” is a well (a deep hole for water).",
+          "sourceRef": { "startSec": 47.76, "endSec": 53.84, "text": "der an einem alten Brunnen stand." }
+        },
+        {
+          "id": "1:word_translation_mcq:57.76-63.76:9",
+          "prompt": "What does “Seil” mean?",
+          "choices": ["mirror", "rope", "candle", "knife"],
+          "answerIndex": 1,
+          "rationale": "A “Seil” is a rope used to lower or pull someone/something.",
+          "sourceRef": { "startSec": 57.76, "endSec": 63.76, "text": "Dann band er ein langes, dickes Seil um Alladins Taille." }
+        },
+        {
+          "id": "1:word_translation_mcq:44.76-48.76:10",
+          "prompt": "What does “Juwelen” mean?",
+          "choices": ["stairs", "letters", "jewels", "shadows"],
+          "answerIndex": 2,
+          "rationale": "“Juwelen” are precious stones (jewels).",
+          "sourceRef": { "startSec": 44.76, "endSec": 48.76, "text": "Die Wände des Brunnens waren mit funkelnden Juwelen bedeckt." }
+        },
+        {
+          "id": "1:word_translation_mcq:49.76-56.76:11",
+          "prompt": "What does “staubig” mean?",
+          "choices": ["shiny", "wet", "dusty", "dangerous"],
+          "answerIndex": 2,
+          "rationale": "“staubig” describes something covered with dust.",
+          "sourceRef": { "startSec": 49.76, "endSec": 56.76, "text": "Und direkt vor ihm stand eine alte, staubige Lampe." }
+        },
+        {
+          "id": "1:word_translation_mcq:53.76-59.76:12",
+          "prompt": "What does “Rauch” mean?",
+          "choices": ["sand", "smoke", "water", "music"],
+          "answerIndex": 1,
+          "rationale": "“Rauch” is smoke that fills a room when something burns or appears magically.",
+          "sourceRef": { "startSec": 53.76, "endSec": 59.76, "text": "Doch sobald sie die Lampe rieb, füllte Rauch den Raum und ein blauer Djinn erschien." }
+        }
+      ]
+    },
+    {
+      "type": "sentence_translation_mcq",
+      "items": [
+        {
+          "id": "1:sentence_translation_mcq:3.68-6.68:1",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "One night, the sky suddenly grew dark.",
+            "One night, the palace suddenly vanished.",
+            "One night, the sun suddenly rose.",
+            "One night, the market suddenly closed."
+          ],
+          "answerIndex": 0,
+          "rationale": "“verdunkelte sich der Himmel” means the sky darkened.",
+          "sourceRef": { "startSec": 3.68, "endSec": 6.68, "text": "Eines Nachts verdunkelte sich der Himmel plötzlich." }
+        },
+        {
+          "id": "1:sentence_translation_mcq:36.8-40.92:2",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "Aladdin grew up alone in the desert without his mother.",
+            "Aladdin grew up wealthy and famous in those lands.",
+            "Aladdin grew up in poverty in those lands with his mother.",
+            "Aladdin grew up in a palace with the Sultan."
+          ],
+          "answerIndex": 2,
+          "rationale": "The sentence explicitly says he grew up with his mother in poverty.",
+          "sourceRef": { "startSec": 36.8, "endSec": 40.92, "text": "Aladdin wuchs in diesen Ländern zusammen mit seiner Mutter in Armut auf." }
+        },
+        {
+          "id": "1:sentence_translation_mcq:51.8-56.28:3",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "In a secret cave lived Princess Jasmine.",
+            "In the market of the same realm worked Princess Jasmine.",
+            "In the magnificent palace of the same realm lived Princess Jasmine.",
+            "In a small hut by the sea lived Princess Jasmine."
+          ],
+          "answerIndex": 2,
+          "rationale": "“im prächtigen Palast … lebte Prinzessin Jasmin” matches the correct option.",
+          "sourceRef": { "startSec": 51.8, "endSec": 56.28, "text": "Im prächtigen Palast des selben Reiches lebte Prinzessin Jasmin," }
+        },
+        {
+          "id": "1:sentence_translation_mcq:19.64-24.76:4",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "Sometimes Jasmine covered her face with a veil and went down to the marketplace.",
+            "Sometimes Jasmine hid her ring and ran into the desert.",
+            "Sometimes Jasmine bought jewels and returned to the palace guards.",
+            "Sometimes Jasmine painted her face and stayed inside the palace."
+          ],
+          "answerIndex": 0,
+          "rationale": "She covered her face with a veil and went to the marketplace.",
+          "sourceRef": { "startSec": 19.64, "endSec": 24.76, "text": "Manchmal verhüllte Jasmin ihr Gesicht mit einem Schleier und ging hinunter auf den Marktplatz." }
+        },
+        {
+          "id": "1:sentence_translation_mcq:18.76-25.76:5",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "The man shouted at Aladdin angrily and said: if you leave, I will punish you.",
+            "The man leaned toward Aladdin mysteriously and said: if you help me, I will give you a sack full of gold.",
+            "The man walked away silently without saying anything.",
+            "The man smiled at Aladdin and said: if you help me, you can marry the princess."
+          ],
+          "answerIndex": 1,
+          "rationale": "He promises a sack of gold in exchange for help.",
+          "sourceRef": { "startSec": 18.76, "endSec": 25.76, "text": "Der Mann beugte sich geheimnisvoll zu Aladdin und sagte, wenn du mir hilfst, gebe ich dir einen Sack voller Gold." }
+        },
+        {
+          "id": "1:sentence_translation_mcq:43.76-47.76:6",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "Aladdin refused to give the man the lamp and climbed out safely.",
+            "The man gave Aladdin the lamp and pulled him up quickly.",
+            "Hardly had Aladdin handed the man the lamp when the man let go of the rope.",
+            "Aladdin threw the rope away and ran home with the lamp."
+          ],
+          "answerIndex": 2,
+          "rationale": "He lets go of the rope right after receiving the lamp.",
+          "sourceRef": { "startSec": 43.76, "endSec": 47.76, "text": "Kaum hatte Aladdin dem Mann die Lampe gereicht, ließ dieser das Seil los." }
+        },
+        {
+          "id": "1:sentence_translation_mcq:49.76-54.76:7",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "Aladdin couldn't hold on and fell screaming back into the well.",
+            "Aladdin jumped out of the well and laughed loudly.",
+            "Aladdin found a door and walked out calmly.",
+            "Aladdin climbed out of the well carrying bags of gold."
+          ],
+          "answerIndex": 0,
+          "rationale": "He fell back into the well, screaming.",
+          "sourceRef": { "startSec": 49.76, "endSec": 54.76, "text": "Aladdin konnte sich nicht halten und stürzte schreiend zurück in den Brunnen." }
+        },
+        {
+          "id": "1:sentence_translation_mcq:5.57-6.01:8",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "Aladdin immediately said that he wanted to sell the ring.",
+            "Aladdin immediately said that he wanted to forget Jasmine.",
+            "Aladdin immediately said that he wanted to get out of the well.",
+            "Aladdin immediately said that he wanted to stay in the palace."
+          ],
+          "answerIndex": 2,
+          "rationale": "He wishes to get out of the well.",
+          "sourceRef": { "startSec": 5.57, "endSec": 6.01, "text": "Aladdin sagte sofort, dass er aus dem Brunnen herauskommen wollte." }
+        }
+      ]
+    },
+    {
+      "type": "comprehension_mcq",
+      "items": [
+        {
+          "id": "1:comprehension_mcq:23.48-35.6:1",
+          "prompt": "Who is the baby that is born and later named in the story?",
+          "choices": ["Jasmine", "A merchant", "Aladdin", "The Sultan"],
+          "answerIndex": 2,
+          "rationale": "The subtitles say: “Der Name dieses Babys war Aladdin.”",
+          "sourceRef": {
+            "startSec": 23.48,
+            "endSec": 35.6,
+            "text": "In diesen geheimnisvollen Ländern wurde ein Baby geboren, dessen Schicksal mit außergewöhnlichen Ereignissen verwoben sein sollte. Der Name dieses Babys war Aladdin."
+          }
+        },
+        {
+          "id": "1:comprehension_mcq:19.64-35.8:2",
+          "prompt": "Why does Jasmine go down to the marketplace in disguise?",
+          "choices": [
+            "To look for the magic lamp",
+            "To forget her loneliness among the crowds",
+            "To buy jewels for the Sultan",
+            "To announce her wedding in public"
+          ],
+          "answerIndex": 1,
+          "rationale": "She wanders through the crowds to forget her loneliness, and no one recognizes her.",
+          "sourceRef": {
+            "startSec": 19.64,
+            "endSec": 35.8,
+            "text": "Manchmal verhüllte Jasmin ihr Gesicht mit einem Schleier und ging hinunter auf den Marktplatz. Sie wanderte durch die Menschenmengen, um ihre Einsamkeit zu vergessen. Und niemand erkannte, dass sie Prinzessin Jasmin aus dem Palast war."
+          }
+        },
+        {
+          "id": "1:comprehension_mcq:18.76-25.76:3",
+          "prompt": "What does the strange man offer Aladdin in exchange for help?",
+          "choices": ["A sack full of gold", "A flying carpet", "A jewel-covered ring", "A job in the palace"],
+          "answerIndex": 0,
+          "rationale": "He promises “einen Sack voller Gold” if Aladdin helps him.",
+          "sourceRef": { "startSec": 18.76, "endSec": 25.76, "text": "Der Mann beugte sich geheimnisvoll zu Aladdin und sagte, wenn du mir hilfst, gebe ich dir einen Sack voller Gold." }
+        },
+        {
+          "id": "1:comprehension_mcq:44.76-61.76:4",
+          "prompt": "What does Aladdin find at the bottom of the well that the man wants?",
+          "choices": ["A tiny colorful bird", "A bag of gold", "An old, dusty lamp", "A palace key"],
+          "answerIndex": 2,
+          "rationale": "It explicitly says the old dusty lamp is what the man wanted.",
+          "sourceRef": {
+            "startSec": 44.76,
+            "endSec": 61.76,
+            "text": "Die Wände des Brunnens waren mit funkelnden Juwelen bedeckt... Und direkt vor ihm stand eine alte, staubige Lampe. Das war der Gegenstand, den der Mann wollte."
+          }
+        },
+        {
+          "id": "1:comprehension_mcq:5.38-6.07:5",
+          "prompt": "How does Aladdin get out of the well after being trapped?",
+          "choices": [
+            "The strange man pulls him up with the rope",
+            "Jasmine finds him and rescues him",
+            "He climbs out using the jewels as steps",
+            "A giant appears and grants his wish to be freed"
+          ],
+          "answerIndex": 3,
+          "rationale": "After he puts on the ring, a giant appears, offers wishes, and frees him when he wishes to get out.",
+          "sourceRef": {
+            "startSec": 5.38,
+            "endSec": 6.07,
+            "text": "In dem Moment... ein riesiger Riese erschien... du hast drei Wünsche... Aladdin sagte sofort, dass er aus dem Brunnen herauskommen wollte. Der Riese erfüllte seinen Wunsch."
+          }
+        }
+      ]
+    }
+  ]
+}
