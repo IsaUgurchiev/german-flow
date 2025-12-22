@@ -38,7 +38,7 @@
 
 > Важно для GitHub Pages: пути к assets **без ведущего слэша**
 > - `assets/videos/lesson-1.mp4`
-> - `assets/subtitles/lesson-1.vtt`
+> - `assets/transcripts/lesson-1.transcript.en.json`
 
 ### 1.2 Видео-плеер (реальный, не mock)
 - `VideoPlayerComponent` на базе `<video>`

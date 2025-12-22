@@ -29,7 +29,7 @@ export class FillBlankSetService {
         const exercise = this.fillBlankService.generateExercise(line.text);
         if (exercise && exercise.answer) {
           return {
-            id: `${line.start}-${line.end}-${index}`,
+            id: `${line.startSec}-${line.endSec}-${index}`,
             sourceText: line.text,
             ...exercise,
           };

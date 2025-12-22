@@ -19,6 +19,7 @@ import { switchMap, map, of, catchError, shareReplay } from 'rxjs';
     @if (lesson(); as meta) {
       <main class="flex-1 flex overflow-hidden w-full max-w-[1440px] mx-auto min-h-0">
         <app-lesson-left-column
+          [lessonId]="meta.id"
           [videoUrl]="meta.videoSrc"
           [title]="meta.title"
           [levelText]="meta.level"
@@ -47,7 +48,7 @@ import { switchMap, map, of, catchError, shareReplay } from 'rxjs';
         <p class="text-text-secondary dark:text-gray-400 mb-8 max-w-md">
           The lesson you're looking for doesn't exist or has been moved.
         </p>
-        <a 
+        <a
           routerLink="/catalog"
           class="px-6 py-3 rounded-2xl bg-primary text-text-primary font-bold shadow-lg shadow-primary/20 hover:bg-[#e6e205] transition-all flex items-center gap-2"
         >
@@ -71,12 +72,12 @@ export class VideoPageComponent implements OnInit {
   private fillBlankSetService = inject(FillBlankSetService);
   private lessonsService = inject(LessonsService);
   private route = inject(ActivatedRoute);
-  
+
   private lessonId$ = this.route.paramMap.pipe(
     map(params => params.get('id') || ''),
     shareReplay(1)
   );
-  
+
   isLoaded = signal(false);
 
   lesson = toSignal(this.lessonId$.pipe(
@@ -95,7 +96,7 @@ export class VideoPageComponent implements OnInit {
     switchMap(id => this.lessonsService.getLessonById(id)),
     switchMap(lesson => {
       if (!lesson) return of([]);
-      return this.subtitleService.parseVtt(lesson.subtitlesSrc).pipe(
+      return this.subtitleService.loadTranscript(lesson.subtitlesSrc).pipe(
         catchError(err => {
           console.error('Error loading subtitles:', err);
           return of([]);
@@ -110,7 +111,7 @@ export class VideoPageComponent implements OnInit {
 
   activeSubtitle = computed(() => {
     const time = this.currentTime();
-    return this.subtitles()?.find(s => time >= s.start && time < s.end);
+    return this.subtitles()?.find(s => time >= s.startSec && time < s.endSec);
   });
 
   ngOnInit() {
@@ -169,8 +170,8 @@ export class VideoPageComponent implements OnInit {
     if (!subs) return;
 
     // Use lastTime to find which line we were just in
-    const activeLine = subs.find(s => this.lastTime >= s.start && this.lastTime < s.end);
-    const lineKey = activeLine ? `${activeLine.start}-${activeLine.end}` : null;
+    const activeLine = subs.find(s => this.lastTime >= s.startSec && this.lastTime < s.endSec);
+    const lineKey = activeLine ? `${activeLine.startSec}-${activeLine.endSec}` : null;
 
     // Reset loopsDone when active line changes (manual seek or naturally moving to next line)
     if (lineKey !== this.lastLineKey()) {
@@ -181,16 +182,16 @@ export class VideoPageComponent implements OnInit {
     if (!activeLine) return;
 
     // Check if we just crossed the end of the current active line
-    if (time >= activeLine.end && this.lastTime < activeLine.end) {
+    if (time >= activeLine.endSec && this.lastTime < activeLine.endSec) {
       const count = this.loopCount();
 
       if (count === 1) {
         // Infinite loop
-        this.onSeek(activeLine.start, true);
+        this.onSeek(activeLine.startSec, true);
       } else if (this.loopsDone() < count - 1) {
         // Limited repetitions
         this.loopsDone.update(d => d + 1);
-        this.onSeek(activeLine.start, true);
+        this.onSeek(activeLine.startSec, true);
       }
     }
   }
@@ -219,7 +220,7 @@ export class VideoPageComponent implements OnInit {
     }
 
     // Refresh state
-    this.vocabRows.update(rows => 
+    this.vocabRows.update(rows =>
       rows.map(row => row.word === word ? { ...row, added: !isSaved } : row)
     );
   }

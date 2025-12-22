@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "lessonId": "3",
+  "source": {
+    "lang": "de",
+    "format": "vtt",
+    "vttFile": "lesson-3.vtt"
+  },
+  "generatedAtTs": 1766400000,
+  "exerciseSets": [
+    {
+      "type": "word_translation_mcq",
+      "items": [
+        {
+          "id": "3:word_translation_mcq:47.24-61.08:1",
+          "prompt": "What does “Gäste” mean?",
+          "choices": ["kings", "guests", "spindles", "forests"],
+          "answerIndex": 1,
+          "rationale": "“Gäste” are people invited to a celebration (guests).",
+          "sourceRef": {
+            "startSec": 47.24,
+            "endSec": 61.08,
+            "text": "beschloss der König ein großes Fest zu feiern. Viele Gäste wurden eingeladen…"
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:61.08-76.56:2",
+          "prompt": "What does “Teller” mean?",
+          "choices": ["plates", "candles", "doors", "spells"],
+          "answerIndex": 0,
+          "rationale": "“Teller” are plates used for eating.",
+          "sourceRef": {
+            "startSec": 61.08,
+            "endSec": 76.56,
+            "text": "Doch es gab nur zwölf goldene Teller…"
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:37.8-44.56:3",
+          "prompt": "What does “Spindel” mean?",
+          "choices": ["a spindle", "a crown", "a wolf", "a basket"],
+          "answerIndex": 0,
+          "rationale": "A “Spindel” is a spindle (used for spinning).",
+          "sourceRef": {
+            "startSec": 37.8,
+            "endSec": 44.56,
+            "text": "… an einer Spindel stechen …"
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:51.32-57.96:4",
+          "prompt": "What does “hundertjährig” mean?",
+          "choices": ["hundred-year", "one-day", "seven-year", "endless"],
+          "answerIndex": 0,
+          "rationale": "“hundertjährig” refers to something lasting 100 years.",
+          "sourceRef": {
+            "startSec": 51.32,
+            "endSec": 57.96,
+            "text": "… nur in einen hundertjährigen Schlaf fallen."
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:33.32-39.6:5",
+          "prompt": "What does “Dornenhecke” mean?",
+          "choices": ["thorn hedge", "golden plate", "stone well", "royal coach"],
+          "answerIndex": 0,
+          "rationale": "“Dornenhecke” is a hedge made of thorns.",
+          "sourceRef": {
+            "startSec": 33.32,
+            "endSec": 39.6,
+            "text": "Um das Schloss herum wuchs eine Dornenhäcke…"
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:47.64-51.56:6",
+          "prompt": "What does “retten” mean here?",
+          "choices": ["to decorate", "to rescue", "to hide", "to forget"],
+          "answerIndex": 1,
+          "rationale": "“retten” means to rescue/save someone.",
+          "sourceRef": {
+            "startSec": 47.64,
+            "endSec": 54.84,
+            "text": "… sie retten …"
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:103.16-111.68:7",
+          "prompt": "What does “verliebte sich” mean?",
+          "choices": ["fell in love", "fell asleep", "got angry", "ran away"],
+          "answerIndex": 0,
+          "rationale": "“sich verlieben” means to fall in love.",
+          "sourceRef": {
+            "startSec": 103.16,
+            "endSec": 111.68,
+            "text": "… der Prinz sich sofort in sie verliebte …"
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:6.58-7.12:8",
+          "prompt": "What does “Korb” mean?",
+          "choices": ["basket", "bed", "gun", "tower"],
+          "answerIndex": 0,
+          "rationale": "“Korb” is a basket (for carrying things).",
+          "sourceRef": {
+            "startSec": 7.04,
+            "endSec": 7.12,
+            "text": "Da nahm Rotkäppchen den Korb und ging los."
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:6.58-7.12:9",
+          "prompt": "What does “Großmutter” mean?",
+          "choices": ["grandmother", "mother", "aunt", "princess"],
+          "answerIndex": 0,
+          "rationale": "“Großmutter” means grandmother.",
+          "sourceRef": {
+            "startSec": 7.28,
+            "endSec": 7.44,
+            "text": "… zu meiner kranken Großmutter …"
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:8.0-8.07:10",
+          "prompt": "What does “pflücken” mean?",
+          "choices": ["to sew", "to pick (flowers)", "to drink", "to sleep"],
+          "answerIndex": 1,
+          "rationale": "“Blumen pflücken” means to pick flowers.",
+          "sourceRef": {
+            "startSec": 8.00,
+            "endSec": 8.19,
+            "text": "… um Blumen zu pflücken."
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:9.53-10.03:11",
+          "prompt": "What does “schnarchen” mean?",
+          "choices": ["to whisper", "to snore", "to laugh", "to sing"],
+          "answerIndex": 1,
+          "rationale": "“schnarchen” means to snore loudly.",
+          "sourceRef": {
+            "startSec": 9.53,
+            "endSec": 10.03,
+            "text": "… einschlief und laut schnarchte."
+          }
+        },
+        {
+          "id": "3:word_translation_mcq:10.17-10.25:12",
+          "prompt": "What does “Gewehr” mean?",
+          "choices": ["scissors", "rifle", "basket", "thread"],
+          "answerIndex": 1,
+          "rationale": "“Gewehr” is a gun/rifle.",
+          "sourceRef": {
+            "startSec": 10.17,
+            "endSec": 10.25,
+            "text": "Er wollte schon mit dem Gewehr auf den Wolf schießen."
+          }
+        }
+      ]
+    },
+    {
+      "type": "sentence_translation_mcq",
+      "items": [
+        {
+          "id": "3:sentence_translation_mcq:47.24-61.08:1",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "Because he was so happy, the king decided to celebrate a big feast.",
+            "Because he was so angry, the king decided to cancel the feast.",
+            "Because he was sick, the king decided to go to sleep.",
+            "Because he was poor, the king decided to sell the castle."
+          ],
+          "answerIndex": 0,
+          "rationale": "It says he was happy and decided to hold a big celebration.",
+          "sourceRef": {
+            "startSec": 47.24,
+            "endSec": 61.08,
+            "text": "Und weil er so glücklich war, beschloss der König ein großes Fest zu feiern."
+          }
+        },
+        {
+          "id": "3:sentence_translation_mcq:37.8-44.56:2",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "The princess should fall asleep on her 10th birthday and never wake up.",
+            "The princess should prick herself on a spindle on her 15th birthday and fall down dead.",
+            "The princess should marry a prince on her 15th birthday and celebrate.",
+            "The princess should prick the wolf on a spindle and run away."
+          ],
+          "answerIndex": 1,
+          "rationale": "The curse is: prick herself on her 15th birthday and die.",
+          "sourceRef": {
+            "startSec": 37.8,
+            "endSec": 44.56,
+            "text": "… die Prinzessin soll sich an ihrem 15. Geburtstag an einer Spindel stechen und tot umfallen."
+          }
+        },
+        {
+          "id": "3:sentence_translation_mcq:51.32-57.96:3",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "The princess should not die, but only fall into a hundred-year sleep.",
+            "The princess should not sleep, but only forget the spell.",
+            "The princess should not wake up, but only run into the forest.",
+            "The princess should not marry, but only stay at home."
+          ],
+          "answerIndex": 0,
+          "rationale": "The 12th wise woman changes death into a hundred-year sleep.",
+          "sourceRef": {
+            "startSec": 51.32,
+            "endSec": 57.96,
+            "text": "… die Prinzessin soll nicht sterben, sondern nur in einen hundertjährigen Schlaf fallen."
+          }
+        },
+        {
+          "id": "3:sentence_translation_mcq:47.64-51.56:4",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "The thorn hedge was too high and too dense and pricked everyone who came too close.",
+            "The thorn hedge was made of flowers and welcomed everyone.",
+            "The thorn hedge was too low and easy to cross.",
+            "The thorn hedge opened the door for the princes."
+          ],
+          "answerIndex": 0,
+          "rationale": "It describes the hedge as high, dense, and prickly.",
+          "sourceRef": {
+            "startSec": 53.54,
+            "endSec": 61.52,
+            "text": "… die Dornenhäcke war zu hoch und zu dicht und stach jeden, der ihr zu nahe kam."
+          }
+        },
+        {
+          "id": "3:sentence_translation_mcq:103.16-111.68:5",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "The prince fell asleep immediately and forgot the princess.",
+            "The prince ran away from the tower because he was afraid.",
+            "The prince fell in love with her at once and gave her a kiss.",
+            "The prince argued with the cook and left."
+          ],
+          "answerIndex": 2,
+          "rationale": "He falls in love and kisses her.",
+          "sourceRef": {
+            "startSec": 103.16,
+            "endSec": 111.68,
+            "text": "… der Prinz sich sofort in sie verliebte und ihr einen Kuss gab."
+          }
+        },
+        {
+          "id": "3:sentence_translation_mcq:7.28-7.44:6",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "On the way she met the hunter.",
+            "On the way she met the wolf.",
+            "On the way she met the king.",
+            "On the way she met the wise woman."
+          ],
+          "answerIndex": 1,
+          "rationale": "The subtitles say she meets the wolf on the way.",
+          "sourceRef": {
+            "startSec": 7.17,
+            "endSec": 7.28,
+            "text": "Unterwegs traf es den Wolf."
+          }
+        },
+        {
+          "id": "3:sentence_translation_mcq:8.00-8.19:7",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "Red Riding Hood stayed on the path and went straight home.",
+            "Red Riding Hood went off the path to pick flowers.",
+            "Red Riding Hood hid under the table to sleep.",
+            "Red Riding Hood painted the wolf’s paw white."
+          ],
+          "answerIndex": 1,
+          "rationale": "She leaves the path to pick flowers.",
+          "sourceRef": {
+            "startSec": 8.00,
+            "endSec": 8.07,
+            "text": "… ging vom Weg ab, um Blumen zu pflücken."
+          }
+        },
+        {
+          "id": "3:sentence_translation_mcq:10.33-10.43:8",
+          "prompt": "Choose the best English translation:",
+          "choices": [
+            "The hunter took a needle and sewed the wolf’s coat.",
+            "The hunter took a big stone and threw it at the wolf.",
+            "The hunter took scissors and cut open the sleeping wolf’s belly.",
+            "The hunter took chalk and made the wolf’s voice bright."
+          ],
+          "answerIndex": 2,
+          "rationale": "He uses scissors to cut open the wolf’s belly.",
+          "sourceRef": {
+            "startSec": 10.33,
+            "endSec": 10.43,
+            "text": "… nahm eine Schere und schnitt dem schlafenden Wolf den Bauch auf."
+          }
+        }
+      ]
+    },
+    {
+      "type": "comprehension_mcq",
+      "items": [
+        {
+          "id": "3:comprehension_mcq:61.08-76.56:1",
+          "prompt": "Why was the 13th wise woman not invited to the feast?",
+          "choices": [
+            "Because she was asleep for 100 years",
+            "Because there were only twelve golden plates",
+            "Because the king forgot her name",
+            "Because the queen was afraid of wolves"
+          ],
+          "answerIndex": 1,
+          "rationale": "There were only twelve golden plates, so one wise woman had to stay home.",
+          "sourceRef": {
+            "startSec": 61.08,
+            "endSec": 76.56,
+            "text": "Doch es gab nur zwölf goldene Teller… und darum musste eine von ihnen zu Hause bleiben."
+          }
+        },
+        {
+          "id": "3:comprehension_mcq:37.8-57.96:2",
+          "prompt": "What happens to the princess after the curse is softened?",
+          "choices": [
+            "She turns into a bird",
+            "She falls into a hundred-year sleep instead of dying",
+            "She becomes invisible forever",
+            "She runs away into the forest"
+          ],
+          "answerIndex": 1,
+          "rationale": "The 12th wise woman changes the curse to a hundred-year sleep.",
+          "sourceRef": {
+            "startSec": 51.32,
+            "endSec": 57.96,
+            "text": "… soll nicht sterben, sondern nur in einen hundertjährigen Schlaf fallen."
+          }
+        },
+        {
+          "id": "3:comprehension_mcq:33.32-51.56:3",
+          "prompt": "Why couldn’t the earlier princes reach Dornröschen in the castle?",
+          "choices": [
+            "Because the door was locked with a golden key",
+            "Because the thorn hedge was too high and dense",
+            "Because the castle was under water",
+            "Because they were scared of the cook"
+          ],
+          "answerIndex": 1,
+          "rationale": "The hedge pricked anyone who came too close; no prince could get in.",
+          "sourceRef": {
+            "startSec": 53.54,
+            "endSec": 61.52,
+            "text": "… die Dornenhäcke war zu hoch und zu dicht und stach jeden …"
+          }
+        },
+        {
+          "id": "3:comprehension_mcq:4.31-4.52:4",
+          "prompt": "What changes when the young prince arrives after 100 years?",
+          "choices": [
+            "The thorns turn into large beautiful flowers, so he can pass",
+            "The castle disappears into the clouds",
+            "The wolf falls asleep in the tower",
+            "The queen destroys all baskets"
+          ],
+          "answerIndex": 0,
+          "rationale": "The thorns transform into flowers and he can walk through easily.",
+          "sourceRef": {
+            "startSec": 4.31,
+            "endSec": 4.51,
+            "text": "… verwandelten sich die Dornen plötzlich in wunderschöne große Blumen."
+          }
+        },
+        {
+          "id": "3:comprehension_mcq:7.44-8.37:5",
+          "prompt": "Why does the wolf go to the grandmother’s house first in Rotkäppchen?",
+          "choices": [
+            "He wants to warn her about the forest",
+            "He wants to eat the grandmother and later Rotkäppchen",
+            "He wants to bring cake and wine",
+            "He wants to sleep in the kitchen"
+          ],
+          "answerIndex": 1,
+          "rationale": "He plans to snap up both the girl and the grandmother.",
+          "sourceRef": {
+            "startSec": 7.44,
+            "endSec": 8.26,
+            "text": "Der Wolf war böse… kann ich das Mädchen und die Großmutter schnappen… Der Wolf aber lief zum Haus der Großmutter… und verschlang sie."
+          }
+        },
+        {
+          "id": "3:comprehension_mcq:10.25-11.16:6",
+          "prompt": "Why doesn’t the hunter shoot the wolf immediately?",
+          "choices": [
+            "He has no bullets",
+            "He thinks the grandmother might still be alive in the wolf’s belly",
+            "He is afraid of the queen",
+            "He wants the wolf to run away"
+          ],
+          "answerIndex": 1,
+          "rationale": "He sees the big belly and realizes she might still be saved.",
+          "sourceRef": {
+            "startSec": 10.17,
+            "endSec": 10.33,
+            "text": "… Da sah er dessen dicken Bauch… vielleicht noch zu retten wäre. Der Jäger schoss nicht…"
+          }
+        }
+      ]
+    }
+  ]
+}

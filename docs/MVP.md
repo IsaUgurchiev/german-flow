@@ -355,7 +355,8 @@ Definition of Done:
 **Steps to add a new lesson:**
 1.  **Prepare Assets**:
     *   Create a folder for the lesson: `src/assets/lessons/{lessonId}/` (optional, but recommended for organization).
-    *   Place `video.mp4` and `subtitles.vtt` in their respective folders or the lesson folder.
+    *   Place `video.mp4` in the video assets or lesson folder.
+    *   Prepare `transcript.json` in `src/assets/transcripts/`.
 2.  **Update Registry**:
     *   Add a new entry to `src/assets/lessons/lessons.json`:
         ```json
@@ -364,12 +365,12 @@ Definition of Done:
           "title": "Lesson Title",
           "level": "A1",
           "durationMin": 10,
-          "thumbnailUrl": "https://...",
+          "thumbnailUrl": "assets/images/new-thumbnail.png",
           "videoSrc": "assets/videos/new-video.mp4",
-          "subtitlesSrc": "assets/subtitles/new-subtitles.vtt"
+          "subtitlesSrc": "assets/transcripts/new-lesson.transcript.en.json"
         }
         ```
-3.  **Done**: No code changes required. The new lesson will automatically appear in the Catalog and be accessible via `/video/new-id`.
+3.  **Done**: No code changes required. The new lesson will automatically appear in the Catalog and use the JSON subtitles with translations.
 
 Definition of Done:
 - Zero TS/HTML changes needed
@@ -377,7 +378,292 @@ Definition of Done:
 
 ---
 
+
+## 11) Subtitles Pipeline v2 (JSON + Translation, no VTT)
+
+Goal:
+- Replace legacy `.vtt` subtitles with unified JSON transcript format
+- Display original text + translation in subtitles UI
+- Remove VTT parsing logic completely
+- Keep all existing subtitle features working (sync, loop, vocab, exercises)
+
+---
+
+### 11.1 Transcript JSON format (source of truth)
+
+Rules:
+- [x] Subtitles are loaded ONLY from JSON files
+- [x] `.vtt` files are no longer used anywhere in the app
+- [x] `LessonMeta.subtitlesSrc` now points to a JSON file
+
+Expected JSON format:
+
+```json
+{
+  "version": 1,
+  "source": { "lang": "de" },
+  "target": { "lang": "en" },
+  "lines": [
+    {
+      "startSec": 0.0,
+      "endSec": 2.0,
+      "de": "Aladdin und die Wunderlampe.",
+      "en": "Aladdin and the magic lamp."
+    }
+  ]
+}
+```
+
+Definition of Done:
+- [x] JSON structure documented implicitly by usage
+- [x] No references to VTT remain as a source format
+
+---
+
+### 11.2 LessonMeta update (breaking but clean)
+
+Changes:
+- [x] `subtitlesSrc` now contains path to transcript JSON, not `.vtt`
+
+Example lesson entry:
+
+```json
+{
+  "id": "1",
+  "title": "Aladdin und die Wunderlampe",
+  "level": "A2",
+  "durationMin": 13,
+  "thumbnailUrl": "assets/images/lesson-1.png",
+  "videoSrc": "assets/videos/lesson-1.mp4",
+  "subtitlesSrc": "assets/transcripts/lesson-1.transcript.en.json"
+}
+```
+
+Definition of Done:
+- [x] All lessons use JSON subtitles
+- [x] No `.vtt` paths remain in lessons registry
+
+---
+
+### 11.3 Subtitle loading (JSON only)
+
+Tasks:
+- [x] Remove VTT loading via HttpClient with `responseType: 'text'`
+- [x] Remove VTT parsing logic entirely
+- [x] Implement transcript loading via `HttpClient.get<TranscriptJson>()`
+- [x] Map `lines[]` to internal `SubtitleLine[]`
+
+Internal SubtitleLine model:
+
+```ts
+{
+  startSec: number;
+  endSec: number;
+  text: string;          // German (line.de)
+  translation?: string;  // English (line.en)
+}
+```
+
+Rules:
+- [x] Mapping happens in exactly one place (service or adapter)
+- [x] Components never work with raw transcript JSON
+
+Definition of Done:
+- [x] Subtitle pipeline works without any VTT-related code
+- [x] Existing consumers (VideoPage, loop engine, vocab, exercises) still receive SubtitleLine[]
+
+---
+
+### 11.4 Subtitle rendering (original + translation)
+
+UI changes:
+- [x] Each subtitle item renders:
+  - timecode in format `MM:SS – MM:SS`
+  - German text as primary content
+  - English translation below, smaller font, muted color
+
+Rules:
+- [x] Translation rendering is optional-safe
+- [x] Styling remains minimal and consistent with current subtitles UI
+
+Definition of Done:
+- [x] Translation is visible under each subtitle line
+- [x] No layout or scrolling regressions
+
+---
+
+### 11.5 Feature compatibility check (non-negotiable)
+
+The following MUST continue to work:
+- [x] Active subtitle detection by currentTimeSec
+- [x] Highlight active subtitle line
+- [x] Click subtitle → seek video
+- [x] Auto-scroll active subtitle into view
+- [x] Phrase loop (∞ / 2x / 3x)
+- [x] Vocabulary extraction (from German text only)
+- [x] Exercise generation
+
+Rules:
+- [x] No feature regressions allowed
+- [x] No duplicated subtitle parsing logic
+
+Definition of Done:
+- [x] All MVP features behave identically using JSON subtitles
+
+---
+
+### 11.6 Cleanup & removal (mandatory)
+
+Tasks:
+- [x] Delete unused VTT parser files
+- [x] Remove `.vtt`-specific utilities, regex logic, and types
+- [x] Remove dead imports and unreachable code
+- [x] Ensure project builds cleanly
+
+Rules:
+- [x] No legacy subtitle code left in the repository
+- [x] JSON transcript is the only subtitle source
+
+Definition of Done:
+- [x] Codebase contains zero VTT-related logic
+- [x] Project contains no unused subtitle assets
+
+---
+
+## 12) Exercises v2 (Restore UX step-by-step: XP Burst + Wrong Answer Feedback)
+
+Goal:
+- Restore the previously working Exercises UX (XP burst animation + clear wrong-answer feedback)
+- Rebuild MCQ exercises and shared UI incrementally, one atomic sub-step at a time, to avoid regressions
+- Follow the existing design reference: `src/app/_design/code.html`
+
+Reference:
+- UI mockup: `src/app/_design/code.html`
+- Target behavior: as in the last known good state (XP burst + “wrong answer” feedback)
+
+---
+
+### 12.1 Restore XP Burst (Fill-in-the-Blank only)
+
+Tasks:
+- [x] Re-introduce the XP burst animation/effect exactly as it existed when it worked
+- [x] Ensure XP is awarded only once per exercise (no double-award on repeated clicks)
+
+Rules:
+- No refactors outside the Fill-in-the-Blank card
+- Keep styling and timing identical to the working version
+
+Definition of Done:
+- [x] Correct answer triggers XP burst and awards XP once
+- [x] No console errors
+- [x] Reloading the page does not break the card
+
+---
+
+### 12.2 Restore “Wrong answer” feedback text (MCQ + FillBlank)
+
+Tasks:
+- When user checks an answer and it is incorrect, show a clear feedback message (as it was before):
+  - Example: “Wrong answer” / “Incorrect” + (optional) small hint
+- Ensure feedback is hidden before the user presses Check
+
+Rules:
+- No correctness/answer leaks before Check
+- Minimal UI changes; follow existing look and feel
+
+Definition of Done:
+- Incorrect answer shows visible feedback text
+- Correct answer shows visible success feedback
+- No feedback shown before user action
+
+---
+
+### 12.3 MCQ: Fix pre-check styling leak (no “correct border” before Check)
+
+Tasks:
+- Ensure correct option is NOT visually distinguished before pressing Check
+- Unify MCQ state to enforce:
+  - pre-check: all options neutral (only selected state is allowed)
+  - post-check: show correct/incorrect feedback
+
+Rules:
+- Do not change exercise data format
+- Do not redesign components (minimal fix)
+
+Definition of Done:
+- Before Check, correct option has no special border/background
+- After Check, feedback is shown properly
+
+---
+
+### 12.4 MCQ: Add incorrect/correct option highlighting (post-check)
+
+Tasks:
+- After Check:
+  - selected wrong option gets incorrect highlight (red)
+  - correct option gets correct highlight (green)
+  - if selected is correct, it gets correct highlight
+
+Rules:
+- Highlight must be applied to the option container (label/div), not only the radio input
+- Keep styles consistent across MCQ types
+
+Definition of Done:
+- Wrong selections are clearly highlighted
+- Correct option is clearly highlighted
+- Works for all MCQ types
+
+---
+
+### 12.5 Deduplicate MCQ option rendering (shared component)
+
+Tasks:
+- Extract the repeated MCQ option list + state logic into a shared reusable component (or directive)
+- Refactor MCQ exercise components to use the shared component
+
+Rules:
+- No behavior changes while refactoring (refactor-only step)
+- Shared component must support:
+  - choices
+  - selectedIndex
+  - checked
+  - answerIndex
+  - feedback rendering hook (or event output)
+
+Definition of Done:
+- MCQ code duplication removed
+- Behavior identical to steps 12.2–12.4
+- Easier to maintain and extend
+
+---
+
+### 12.6 Tabs layout for exercise types (as in mockup)
+
+Tasks:
+- Render each exercise type in its own tab, following `src/app/_design/code.html`
+- Tabs hidden/disabled if type has no items
+
+Rules:
+- No redesign; follow mockup
+- Switching tabs does not reset solved state within a session (MVP-level)
+
+Definition of Done:
+- Tabs work and match mockup
+- Each tab shows only its exercise type list
+- Empty types handled safely
+
+---
+
+
+
 ## Changelog (Cursor fills)
+- 2025-12-22: Completed Section 12.1: Restored XP Burst for Fill-in-the-Blank exercises with single-award protection (`xpAwarded` flag).
+- 2025-12-22: Implemented Section 11: Subtitles Pipeline v2 (JSON + Translation, no VTT).
+  - Replaced VTT parsing with JSON transcript loading in `SubtitleService`.
+  - Updated `SubtitleLine` model and all consumers to use `startSec`/`endSec`.
+  - Updated `LessonMeta` and `lessons.json` registry to use JSON transcripts.
+  - Enhanced Subtitles UI to show English translations and start timecodes (`MM:SS`).
+  - Removed legacy VTT parser logic and deleted `src/assets/subtitles/` folder.
 - 2025-12-20: Aligned `ProgressPageComponent` layout and styling with `CatalogPageComponent`.
 - 2025-12-20: Fixed video poster (thumbnail) not being displayed on the video page.
 - 2025-12-20: Completed Content Pipeline (Section 10). Documented developer workflow for adding lessons.

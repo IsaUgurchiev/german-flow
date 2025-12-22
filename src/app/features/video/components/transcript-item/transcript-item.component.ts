@@ -18,14 +18,12 @@ import { Component, input, effect, ElementRef, inject, output } from '@angular/c
         <span class="text-xs font-bold pt-1 font-mono transition-colors duration-300" [class.text-text-primary]="active()" [class.dark:text-primary]="active()" [class.text-text-secondary]="!active()" [class.dark:text-gray-500]="!active()">
           {{ timeLabel() }}
         </span>
-        <div class="transition-all duration-300">
+        <div class="transition-all duration-300 flex-1">
           <p class="leading-relaxed transition-all duration-300" [class.text-lg]="active()" [class.font-medium]="active()" [class.text-text-primary]="active()" [class.dark:text-white]="active()" [class.text-base]="!active()" [class.text-text-primary]="!active() && !dimmed()" [class.dark:text-gray-300]="!active()">
             {{ text() }}
           </p>
-          @if (active() && translation()) {
-            <div class="overflow-hidden transition-all duration-300 max-h-20 opacity-100 mt-1">
-              <p class="text-sm text-text-secondary dark:text-gray-400 italic">{{ translation() }}</p>
-            </div>
+          @if (translation()) {
+            <p class="text-sm text-text-secondary dark:text-gray-500 italic mt-1">{{ translation() }}</p>
           }
         </div>
       </div>

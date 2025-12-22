@@ -3,28 +3,31 @@
     "id": "1",
     "title": "Aladdin und die Wunderlampe",
     "level": "A2",
-    "durationMin": 13,
+    "durationMin": "13:33",
     "thumbnailUrl": "assets/images/lesson-1.png",
     "videoSrc": "assets/videos/lesson-1.mp4",
-    "subtitlesSrc": "assets/subtitles/lesson-1.vtt"
+    "subtitlesSrc": "assets/transcripts/lesson-1.transcript.en.json",
+    "exercisesSrc": "assets/exercises/exercises-1.json"
   },
   {
     "id": "2",
     "title": "Der Wolf und die sieben Geißlein",
     "level": "A1",
-    "durationMin": 8,
+    "durationMin": "8:16",
     "thumbnailUrl": "assets/images/lesson-2.png",
     "videoSrc": "assets/videos/lesson-2.mp4",
-    "subtitlesSrc": "assets/subtitles/lesson-2.vtt"
+    "subtitlesSrc": "assets/transcripts/lesson-2.transcript.en.json",
+    "exercisesSrc": "assets/exercises/exercises-2.json"
   },
   {
     "id": "3",
     "title": "Rotkäppchen auf Deutsch",
     "level": "A1",
-    "durationMin": 10,
+    "durationMin": "12:03",
     "thumbnailUrl": "assets/images/lesson-3.png",
     "videoSrc": "assets/videos/lesson-3.mp4",
-    "subtitlesSrc": "assets/subtitles/lesson-3.vtt"
+    "subtitlesSrc": "assets/transcripts/lesson-3.transcript.en.json",
+    "exercisesSrc": "assets/exercises/exercises-1.json"
   }
 ]
 

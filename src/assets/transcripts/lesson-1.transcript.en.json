@@ -1,0 +1,761 @@
+{
+  "version": 1,
+  "source": {
+    "lang": "de"
+  },
+  "target": {
+    "lang": "en"
+  },
+  "lines": [
+    {
+      "startSec": 0.0,
+      "endSec": 2.0,
+      "de": "Aladdin und die Wunderlampe.",
+      "en": "Aladdin and the magic lamp."
+    },
+    {
+      "startSec": 3.68,
+      "endSec": 6.68,
+      "de": "Eines Nachts verdunkelte sich der Himmel plötzlich.",
+      "en": "One night, the sky suddenly darkened."
+    },
+    {
+      "startSec": 8.0,
+      "endSec": 11.6,
+      "de": "Der Wind zog durch die geheimnisvollen Länder des Ostens.",
+      "en": "The wind swept through the mysterious lands of the East."
+    },
+    {
+      "startSec": 12.64,
+      "endSec": 16.32,
+      "de": "Ein Sandsturm begann, der stundenlang andauern sollte.",
+      "en": "A sandstorm began that lasted for hours."
+    },
+    {
+      "startSec": 17.28,
+      "endSec": 20.88,
+      "de": "Und genau in diesem Moment geschah etwas, von dem niemand wusste.",
+      "en": "And right at that moment, something happened that nobody knew about."
+    },
+    {
+      "startSec": 23.48,
+      "endSec": 27.04,
+      "de": "In diesen geheimnisvollen Ländern wurde ein Baby geboren,",
+      "en": "A baby was born in these mysterious lands,"
+    },
+    {
+      "startSec": 27.28,
+      "endSec": 31.48,
+      "de": "dessen Schicksal mit außergewöhnlichen Ereignissen verwoben sein sollte.",
+      "en": "whose fate was to be interwoven with extraordinary events."
+    },
+    {
+      "startSec": 32.76,
+      "endSec": 35.6,
+      "de": "Der Name dieses Babys war Aladdin.",
+      "en": "The name of this baby was Aladdin."
+    },
+    {
+      "startSec": 36.8,
+      "endSec": 40.92,
+      "de": "Aladdin wuchs in diesen Ländern zusammen mit seiner Mutter in Armut auf.",
+      "en": "Aladdin and his mother grew up in poverty in these countries."
+    },
+    {
+      "startSec": 45.16,
+      "endSec": 49.48,
+      "de": "Er arbeitete auf dem Markt, um Geld nach Hause zu bringen.",
+      "en": "He worked at the market to bring money home."
+    },
+    {
+      "startSec": 51.8,
+      "endSec": 56.28,
+      "de": "Im prächtigen Palast des selben Reiches lebte Prinzessin Jasmin,",
+      "en": "Princess Jasmine lived in the magnificent palace of the same kingdom,"
+    },
+    {
+      "startSec": 56.96,
+      "endSec": 62.88,
+      "de": "die am selben Tag wie Aladdin geboren wurde und deren Schönheit legendär war.",
+      "en": "who was born on the same day as Aladdin and whose beauty was legendary."
+    },
+    {
+      "startSec": 64.32,
+      "endSec": 70.56,
+      "de": "Obwohl sie nie finanzielle Sorgen kannte, trug sie in sich ein unerklärliches Gefühl der Leere.",
+      "en": "Although she had never known financial worries, she had an inexplicable feeling of emptiness inside her."
+    },
+    {
+      "startSec": 72.32,
+      "endSec": 77.2,
+      "de": "Ihre einzige Freundin war ein winziger Kolibri, der mit seinen Farben funkelte.",
+      "en": "Her only friend was a tiny hummingbird that sparkled with color."
+    },
+    {
+      "startSec": 79.64,
+      "endSec": 84.76,
+      "de": "Manchmal verhüllte Jasmin ihr Gesicht mit einem Schleier und ging hinunter auf den Marktplatz.",
+      "en": "Sometimes Jasmine covered her face with a veil and went down to the marketplace."
+    },
+    {
+      "startSec": 85.72,
+      "endSec": 90.2,
+      "de": "Sie wanderte durch die Menschenmengen, um ihre Einsamkeit zu vergessen.",
+      "en": "She wandered through the crowds to forget her loneliness."
+    },
+    {
+      "startSec": 91.24,
+      "endSec": 95.8,
+      "de": "Und niemand erkannte, dass sie Prinzessin Jasmin aus dem Palast war.",
+      "en": "And no one recognized that she was Princess Jasmine from the palace."
+    },
+    {
+      "startSec": 97.2,
+      "endSec": 101.04,
+      "de": "Eines Morgens machte sich Aladdin mit einer Schaufel in der Hand auf den Weg.",
+      "en": "One morning, Aladdin set off with a shovel in his hand."
+    },
+    {
+      "startSec": 103.04,
+      "endSec": 107.32,
+      "de": "Gerade als er zur Arbeit gehen wollte, bemerkte er einen seltsamen Mann,",
+      "en": "Just as he was about to leave for work, he noticed a strange man,"
+    },
+    {
+      "startSec": 107.76,
+      "endSec": 113.84,
+      "de": "der an einem alten Brunnen stand. Der Mann blickte nervös umher, als würde er etwas verbergen.",
+      "en": "who was standing by an old well. The man looked around nervously, as if he was hiding something."
+    },
+    {
+      "startSec": 115.76,
+      "endSec": 121.76,
+      "de": "Als Aladdin vorbeiging, rief der Mann plötzlich, hey, warte, schau mal hier her.",
+      "en": "As Aladdin walked past, the man suddenly called out, hey, wait, look over here."
+    },
+    {
+      "startSec": 123.76,
+      "endSec": 130.76,
+      "de": "Zuerst sah sich Aladdin um, aber als er niemanden sonst entdeckte, verstand er, dass der Mann ihn rief.",
+      "en": "At first Aladdin looked around, but when he saw no one else, he understood that the man was calling him."
+    },
+    {
+      "startSec": 131.76,
+      "endSec": 137.76,
+      "de": "Aladdin ging zu dem seltsam aussehenden Mann hinüber und sagte, ja, bitte.",
+      "en": "Aladdin walked over to the strange-looking man and said, yes, please."
+    },
+    {
+      "startSec": 138.76,
+      "endSec": 145.76,
+      "de": "Der Mann beugte sich geheimnisvoll zu Aladdin und sagte, wenn du mir hilfst, gebe ich dir einen Sack voller Gold.",
+      "en": "The man leaned mysteriously towards Aladdin and said, \"If you help me, I'll give you a sack full of gold."
+    },
+    {
+      "startSec": 146.76,
+      "endSec": 148.76,
+      "de": "Aladdin konnte seine Überraschung nicht verbergen.",
+      "en": "Aladdin could not hide his surprise."
+    },
+    {
+      "startSec": 149.76,
+      "endSec": 155.76,
+      "de": "Was? Ein Sack voller Gold? Wiederholte er die Worte des Mannes. Der Mann nickte gierig.",
+      "en": "What, a sack full of gold? He repeated the man's words. The man nodded greedily."
+    },
+    {
+      "startSec": 158.76,
+      "endSec": 166.76,
+      "de": "In diesem Moment dachte Aladdin, dass seine Mutter ohne Arbeit ein bequemes Leben führen könnte, wenn er dem Mann helfen würde.",
+      "en": "At that moment, Aladdin thought that his mother could lead a comfortable life without a job if he helped the man."
+    },
+    {
+      "startSec": 167.76,
+      "endSec": 169.76,
+      "de": "Dann nahm er das Angebot des Mannes an.",
+      "en": "Then he accepted the man's offer."
+    },
+    {
+      "startSec": 170.76,
+      "endSec": 176.76,
+      "de": "Der seltsame Mann sagte, er habe etwas in den Brunnen vor ihm fallen lassen.",
+      "en": "The strange man said he had dropped something down the well in front of him."
+    },
+    {
+      "startSec": 177.76,
+      "endSec": 182.76,
+      "de": "Dann band er ein langes, dickes Seil um Alladins Taille.",
+      "en": "Then he tied a long, thick rope around Alladin's waist."
+    },
+    {
+      "startSec": 183.76,
+      "endSec": 189.76,
+      "de": "Er wollte ihn in den Brunnen hinunterlassen, damit er den Gegenstand vom Boden holen konnte.",
+      "en": "He wanted to lower him into the well so that he could retrieve the object from the ground."
+    },
+    {
+      "startSec": 190.76,
+      "endSec": 196.76,
+      "de": "Obwohl Aladdin ein wenig Angst hatte, begann er langsam mit dem Seil in den Brunnen hinabzusteigen.",
+      "en": "Although Aladdin was a little afraid, he slowly began to descend into the well with the rope."
+    },
+    {
+      "startSec": 197.76,
+      "endSec": 200.76,
+      "de": "Während des Brunnens war es so dunkel, dass man den Boden nicht sehen konnte.",
+      "en": "During the fountain, it was so dark that you couldn't see the ground."
+    },
+    {
+      "startSec": 201.76,
+      "endSec": 207.76,
+      "de": "Doch Aladdin war mutig. Und obwohl sein Herz stark schlug, schaffte er es bis ganz nach unten.",
+      "en": "But Aladdin was brave. And although his heart was beating hard, he made it all the way to the bottom."
+    },
+    {
+      "startSec": 208.76,
+      "endSec": 211.76,
+      "de": "Dort unten konnte man nicht einmal die Hand vor Augen sehen.",
+      "en": "Down there, you couldn't even see your hand in front of your eyes."
+    },
+    {
+      "startSec": 212.76,
+      "endSec": 216.76,
+      "de": "Er zog sofort ein Streichholz aus seiner Tasche und zündete es an.",
+      "en": "He immediately pulled a match out of his pocket and lit it."
+    },
+    {
+      "startSec": 221.76,
+      "endSec": 223.76,
+      "de": "Und er konnte kaum glauben, was er sah.",
+      "en": "And he could hardly believe what he saw."
+    },
+    {
+      "startSec": 224.76,
+      "endSec": 228.76,
+      "de": "Die Wände des Brunnens waren mit funkelnden Juwelen bedeckt.",
+      "en": "The walls of the fountain were covered with sparkling jewels."
+    },
+    {
+      "startSec": 229.76,
+      "endSec": 236.76,
+      "de": "Smaragde, Rubine, goldene Funken. Und direkt vor ihm stand eine alte, staubige Lampe.",
+      "en": "Emeralds, rubies, golden sparks. And right in front of him was an old, dusty lamp."
+    },
+    {
+      "startSec": 238.76,
+      "endSec": 241.76,
+      "de": "Das war der Gegenstand, den der Mann wollte.",
+      "en": "That was the item the man wanted."
+    },
+    {
+      "startSec": 242.76,
+      "endSec": 247.76,
+      "de": "Als Aladdin die Lampe aufhob, rief er, ich glaube, ich habe gefunden, was sie wollten.",
+      "en": "When Aladdin picked up the lamp, he shouted, I think I've found what they wanted."
+    },
+    {
+      "startSec": 248.76,
+      "endSec": 250.76,
+      "de": "Sie steht direkt hier vor mir.",
+      "en": "She is standing right here in front of me."
+    },
+    {
+      "startSec": 250.76,
+      "endSec": 255.76,
+      "de": "Der Mann wurde sehr aufgeregt und zog am Seil, damit Aladdin die Lampe schnell heraufbrachte.",
+      "en": "The man became very excited and pulled on the rope so that Aladdin could bring the lamp up quickly."
+    },
+    {
+      "startSec": 259.76,
+      "endSec": 263.76,
+      "de": "Doch Aladdin konnte seinen Blick nicht von dem Gold um ihn herum abwenden.",
+      "en": "But Aladdin could not take his eyes off the gold around him."
+    },
+    {
+      "startSec": 264.76,
+      "endSec": 266.76,
+      "de": "Er wollte noch ein wenig länger dort bleiben.",
+      "en": "He wanted to stay there a little longer."
+    },
+    {
+      "startSec": 267.76,
+      "endSec": 272.76,
+      "de": "Aber da der Mann weiter am Seil zog, begann er mühsam hinaufzuklettern.",
+      "en": "But as the man continued to pull on the rope, he began to climb up with difficulty."
+    },
+    {
+      "startSec": 273.76,
+      "endSec": 279.76,
+      "de": "Gerade als er aus dem Brunnen heraussteigen wollte, sagte der Mann, gib mir die Lampe.",
+      "en": "Just as he was about to get out of the well, the man said, \"Give me the lamp."
+    },
+    {
+      "startSec": 280.76,
+      "endSec": 282.76,
+      "de": "Dann kannst du dich leichter festhalten.",
+      "en": "Then you can hold on more easily."
+    },
+    {
+      "startSec": 283.76,
+      "endSec": 287.76,
+      "de": "Kaum hatte Aladdin dem Mann die Lampe gereicht, ließ dieser das Seil los.",
+      "en": "As soon as Aladdin had handed the man the lamp, he let go of the rope."
+    },
+    {
+      "startSec": 289.76,
+      "endSec": 294.76,
+      "de": "Aladdin konnte sich nicht halten und stürzte schreiend zurück in den Brunnen.",
+      "en": "Aladdin couldn't hold on and plunged back into the well, screaming."
+    },
+    {
+      "startSec": 295.76,
+      "endSec": 298.76,
+      "de": "Doch der Mann konnte die Lampe ebenfalls nicht festhalten.",
+      "en": "But the man could not hold on to the lamp either."
+    },
+    {
+      "startSec": 299.76,
+      "endSec": 301.76,
+      "de": "Und sie fiel hinab und schlug Aladdin auf den Kopf.",
+      "en": "And she fell down and hit Aladdin on the head."
+    },
+    {
+      "startSec": 303.76,
+      "endSec": 305.76,
+      "de": "Der Mann wurde vor Wut wahnsinnig.",
+      "en": "The man went mad with rage."
+    },
+    {
+      "startSec": 306.76,
+      "endSec": 309.76,
+      "de": "Er ging weg, um eine andere Lösung zu finden.",
+      "en": "He left to find another solution."
+    },
+    {
+      "startSec": 312.76,
+      "endSec": 319.76,
+      "de": "Aber Aladdin blieb tagelang ganz allein mit der goldenen Lampe in dem kalten, dunklen und stillen Brunnen zurück.",
+      "en": "But Aladdin remained all alone for days with the golden lamp in the cold, dark and silent well."
+    },
+    {
+      "startSec": 323.76,
+      "endSec": 326.76,
+      "de": "Egal wie laut er rief, niemand hörte seine Stimme.",
+      "en": "No matter how loudly he shouted, no one heard his voice."
+    },
+    {
+      "startSec": 328.76,
+      "endSec": 332.76,
+      "de": "In diesem Moment blitzte ein winziges Licht in seinen Augen auf.",
+      "en": "At that moment, a tiny light flashed in his eyes."
+    },
+    {
+      "startSec": 332.76,
+      "endSec": 336.76,
+      "de": "Aladdin kroch auf das Licht zu und sah, dass es von einem Ring kam.",
+      "en": "Aladdin crawled towards the light and saw that it was coming from a ring."
+    },
+    {
+      "startSec": 338.76,
+      "endSec": 345.76,
+      "de": "In dem Moment, als er den Ring an seinen Finger steckte, erhellte sich der Grund des Brunnens wie am Tag.",
+      "en": "The moment he put the ring on his finger, the bottom of the well lit up like daylight."
+    },
+    {
+      "startSec": 346.76,
+      "endSec": 348.76,
+      "de": "Und ein riesiger Riese erschien vor ihm.",
+      "en": "And a huge giant appeared in front of him."
+    },
+    {
+      "startSec": 349.76,
+      "endSec": 356.76,
+      "de": "Der Riese sagte, du hast drei Wünsche. Wünsche dir, was du willst.",
+      "en": "The giant said you have three wishes. Wish for what you want."
+    },
+    {
+      "startSec": 357.76,
+      "endSec": 361.76,
+      "de": "Aladdin sagte sofort, dass er aus dem Brunnen herauskommen wollte.",
+      "en": "Aladdin immediately said that he wanted to get out of the well."
+    },
+    {
+      "startSec": 362.76,
+      "endSec": 367.76,
+      "de": "Der Riese erfüllte seinen Wunsch. Und Aladdin wurde aus dem Brunnen befreit.",
+      "en": "The giant granted his wish. And Aladdin was freed from the well."
+    },
+    {
+      "startSec": 369.76,
+      "endSec": 372.76,
+      "de": "Nur die goldene Lampe war bei ihm geblieben.",
+      "en": "Only the golden lamp had remained with him."
+    },
+    {
+      "startSec": 374.76,
+      "endSec": 382.76,
+      "de": "Als er eilig nach Hause rannte, stieß er mit Jasmine zusammen, die heimlich über den Markt schlenderte.",
+      "en": "As he hurried home, he bumped into Jasmine, who was secretly strolling through the market."
+    },
+    {
+      "startSec": 383.76,
+      "endSec": 390.76,
+      "de": "Aladdin war sprachlos angesichts ihrer Schönheit. Auch Jasmine konnte ihre Augen nicht von dem jungen Mann abwenden.",
+      "en": "Aladdin was speechless in the face of her beauty. Jasmine couldn't take her eyes off the young man either."
+    },
+    {
+      "startSec": 391.76,
+      "endSec": 399.76,
+      "de": "Obwohl sie sich entschuldigten und getrennte Wege gingen, blieb in ihren Herzen eine seltsame Aufregung zurück.",
+      "en": "Although they apologized and went their separate ways, a strange excitement remained in their hearts."
+    },
+    {
+      "startSec": 400.76,
+      "endSec": 406.76,
+      "de": "Als Aladdin zu Hause ankam, erzählte er seiner Mutter, was passiert war.",
+      "en": "When Aladdin arrived home, he told his mother what had happened."
+    },
+    {
+      "startSec": 407.76,
+      "endSec": 412.76,
+      "de": "Dann zeigte er ihr die Lampe in seiner Hand. Seine Mutter wollte die Lampe reinigen und verkaufen.",
+      "en": "Then he showed her the lamp in his hand. His mother wanted to clean the lamp and sell it."
+    },
+    {
+      "startSec": 413.76,
+      "endSec": 419.76,
+      "de": "Doch sobald sie die Lampe rieb, füllte Rauch den Raum und ein blauer Djinn erschien.",
+      "en": "But as soon as she rubbed the lamp, smoke filled the room and a blue djinn appeared."
+    },
+    {
+      "startSec": 421.76,
+      "endSec": 424.76,
+      "de": "Aladdin und seine Mutter konnten ihren Augen nicht trauen.",
+      "en": "Aladdin and his mother couldn't believe their eyes."
+    },
+    {
+      "startSec": 425.76,
+      "endSec": 434.76,
+      "de": "Der Djinn war seit Jahren in der Lampe gewesen und voller Freude über seine Befreiung schwor er, Aladdin für immer zu dienen.",
+      "en": "The djinn had been in the lamp for years and, delighted at his release, he swore to serve Aladdin forever."
+    },
+    {
+      "startSec": 434.76,
+      "endSec": 441.76,
+      "de": "Für seinen ersten Wunsch bat Aladdin den Djinn um ein prächtiges Festmahl mit allen erdenklichen Speisen.",
+      "en": "For his first wish, Aladdin asked the Djinn for a sumptuous feast with every imaginable dish."
+    },
+    {
+      "startSec": 442.76,
+      "endSec": 447.76,
+      "de": "Sofort erschien ein Bankett vor ihnen, auf dem alles stand, was sie wollten.",
+      "en": "A banquet immediately appeared in front of them with everything they wanted on it."
+    },
+    {
+      "startSec": 448.76,
+      "endSec": 453.76,
+      "de": "Dank des Djins wurden Aladdin und seine Mutter innerhalb weniger Tage reich.",
+      "en": "Thanks to the djin, Aladdin and his mother became rich within a few days."
+    },
+    {
+      "startSec": 454.76,
+      "endSec": 459.76,
+      "de": "Sie lebten nicht mehr in einem alten Haus, sondern in einem prächtigen Herrenhaus.",
+      "en": "They no longer lived in an old house, but in a magnificent mansion."
+    },
+    {
+      "startSec": 460.76,
+      "endSec": 469.76,
+      "de": "Inzwischen erzählten die Wachen des Sultans, dass Jasmine heimlich aus dem Palast entkam, um unter die Menschen zu gehen.",
+      "en": "Meanwhile, the Sultan's guards told him that Jasmine had secretly escaped from the palace to go out among the people."
+    },
+    {
+      "startSec": 470.76,
+      "endSec": 474.76,
+      "de": "Daraufhin sperrte ihr Vater, der Sultan, sie in ihr Zimmer.",
+      "en": "Her father, the Sultan, then locked her in her room."
+    },
+    {
+      "startSec": 476.76,
+      "endSec": 486.76,
+      "de": "Jasmine verbrachte ihre Tage damit, aus dem Fenster zu schauen und von dem gut aussehenden jungen Mann zu träumen, den sie auf dem Markt gesehen hatte.",
+      "en": "Jasmine spent her days looking out of the window and dreaming of the handsome young man she had seen at the market."
+    },
+    {
+      "startSec": 486.76,
+      "endSec": 495.76,
+      "de": "Aladdin. Als sich Aladins Reichtum herumsprach, ließ der Sultan ihn eines Tages in den Palast rufen, um die Quelle zu erfahren.",
+      "en": "Aladdin. As word of Aladdin's wealth spread, the Sultan summoned him to the palace one day to find out the source."
+    },
+    {
+      "startSec": 499.76,
+      "endSec": 507.76,
+      "de": "Er verlangte, dass Aladdin 40 Soldaten brachte, die jeweils eine Truhe voller Gold trugen.",
+      "en": "He demanded that Aladdin bring 40 soldiers, each carrying a chest full of gold."
+    },
+    {
+      "startSec": 508.76,
+      "endSec": 513.76,
+      "de": "Als Aladdin den Palast verließ, trafen sich seine Augen mit Jasmine's.",
+      "en": "As Aladdin left the palace, his eyes met Jasmine's."
+    },
+    {
+      "startSec": 514.76,
+      "endSec": 518.76,
+      "de": "Er erkannte sofort, dass sie das Mädchen vom Markt war.",
+      "en": "He immediately recognized that she was the girl from the market."
+    },
+    {
+      "startSec": 520.76,
+      "endSec": 524.76,
+      "de": "Um die Gunst des Sultans zu gewinnen, eilte er aufgeregt nach Hause.",
+      "en": "In order to win the Sultan's favor, he hurried home excitedly."
+    },
+    {
+      "startSec": 525.76,
+      "endSec": 535.76,
+      "de": "In der Zwischenzeit rannte Jasmine zu ihrem Vater und warf sich ihm zu Füßen und sagte, dass sie Gefühle für den jungen Mann habe, den sie gerade gesehen hatte.",
+      "en": "In the meantime, Jasmine ran to her father and threw herself at his feet, saying that she had feelings for the young man she had just seen."
+    },
+    {
+      "startSec": 536.76,
+      "endSec": 543.76,
+      "de": "Und dass sie ihn heiraten wolle. Ihr Vater, der Sultan, sagte, warten wir ab meine Tochter.",
+      "en": "And that she wanted to marry him. Her father, the Sultan, said, let's wait and see my daughter."
+    },
+    {
+      "startSec": 544.76,
+      "endSec": 553.76,
+      "de": "Zuerst muss er meine Wünsche erfüllen. Sobald Aladdin zu Hause ankam, strich er dreimal über die Lampe und der blaue Djinn erschien.",
+      "en": "First he has to fulfill my wishes. As soon as Aladdin arrived home, he stroked the lamp three times and the blue Djinn appeared."
+    },
+    {
+      "startSec": 554.76,
+      "endSec": 557.76,
+      "de": "Und erwünschte sich, was der Sultan verlangte.",
+      "en": "And asked for what the Sultan demanded."
+    },
+    {
+      "startSec": 558.76,
+      "endSec": 565.76,
+      "de": "Der Djinn schnippte mit den Fingern und sofort erschienen 40 Soldaten, die jeweils eine Truhe voller Gold trugen.",
+      "en": "The Djinn snapped his fingers and immediately 40 soldiers appeared, each carrying a chest full of gold."
+    },
+    {
+      "startSec": 569.76,
+      "endSec": 574.76,
+      "de": "Am nächsten Tag brachte Aladdin die 40 Soldaten in den Palast des Sultans.",
+      "en": "The next day, Aladdin brought the 40 soldiers to the sultan's palace."
+    },
+    {
+      "startSec": 575.76,
+      "endSec": 582.76,
+      "de": "Der Sultan war von diesem Reichtum sehr beeindruckt und stimmte zu, dass seine Tochter Aladdin heiraten durfte.",
+      "en": "The Sultan was very impressed by this wealth and agreed to allow his daughter to marry Aladdin."
+    },
+    {
+      "startSec": 587.76,
+      "endSec": 592.76,
+      "de": "Am Palast eine Hochzeit gefeiert, die für immer in Erinnerung blieb.",
+      "en": "Celebrated a wedding at the palace that will be remembered forever."
+    },
+    {
+      "startSec": 593.76,
+      "endSec": 598.76,
+      "de": "Eines Tages, als Aladdin nicht im Palast war, kam ein Hausierer durch die Palastgärten.",
+      "en": "One day, when Aladdin was not in the palace, a peddler came through the palace gardens."
+    },
+    {
+      "startSec": 601.76,
+      "endSec": 608.76,
+      "de": "Der Hausierer rief, alte Sachen zum Tauschen, alte Sachen, Hausierer.",
+      "en": "The peddler called, old things to swap, old things, peddlers."
+    },
+    {
+      "startSec": 609.76,
+      "endSec": 615.76,
+      "de": "Als Jasmine das hörte, fiel ihr die alte Lampe von Aladdin auf und sie gab sie dem Hausierer.",
+      "en": "When Jasmine heard this, she noticed Aladdin's old lamp and gave it to the peddler."
+    },
+    {
+      "startSec": 618.76,
+      "endSec": 623.76,
+      "de": "Dafür nahm sie eine schönere, neue Lampe.",
+      "en": "Instead, she took a nicer, new lamp."
+    },
+    {
+      "startSec": 624.76,
+      "endSec": 635.76,
+      "de": "Doch Jasmine merkte nicht, dass derjenige, dem sie die Lampe gab, derselbe böse Mann war, der Aladdin einst allein im Brunnen zurückgelassen hatte.",
+      "en": "But Jasmine didn't realize that the person she gave the lamp to was the same evil man who had once left Aladdin alone in the well."
+    },
+    {
+      "startSec": 636.76,
+      "endSec": 641.76,
+      "de": "Der Mann war überglücklich, als er die Lampe bekam.",
+      "en": "The man was overjoyed when he received the lamp."
+    },
+    {
+      "startSec": 642.76,
+      "endSec": 651.76,
+      "de": "Er rieb sie sofort und der blaue Djinn kam heraus und er befahl ihm, diesen schönen Palast samt der Prinzessin weit wegzubringen.",
+      "en": "He rubbed it immediately and the blue djinn came out and ordered him to take this beautiful palace and the princess far away."
+    },
+    {
+      "startSec": 652.76,
+      "endSec": 657.76,
+      "de": "Der Djinn erfüllte den Wunsch seines neuen Herrn.",
+      "en": "The djinn fulfilled his new master's wish."
+    },
+    {
+      "startSec": 658.76,
+      "endSec": 667.76,
+      "de": "Der Palast mit Jasmine und dem bösen Mandarin wurde weit hinaus in die verlorenen Wüstenlande getragen.",
+      "en": "The palace with Jasmine and the evil Mandarin was carried far out into the lost desert lands."
+    },
+    {
+      "startSec": 668.76,
+      "endSec": 673.76,
+      "de": "Als Aladdin zurückkehrte, waren weder Jasmine noch der Palast da.",
+      "en": "When Aladdin returned, neither Jasmine nor the palace were there."
+    },
+    {
+      "startSec": 674.76,
+      "endSec": 680.76,
+      "de": "Sofort erinnerte er sich an den Ring, den er im Brunnen gefunden hatte, und steckte ihn an seinen Finger.",
+      "en": "He immediately remembered the ring he had found in the well and put it on his finger."
+    },
+    {
+      "startSec": 681.76,
+      "endSec": 685.76,
+      "de": "Mit dem Ring erhellte sich alles wieder und der Riese erschien erneut.",
+      "en": "With the ring, everything brightened up again and the giant reappeared."
+    },
+    {
+      "startSec": 686.76,
+      "endSec": 693.76,
+      "de": "Der Riese sagte zu Aladdin, was wünschst du dir von mir? Du hast nur noch zwei Wünsche.",
+      "en": "The giant said to Aladdin, what do you want from me? You only have two wishes left."
+    },
+    {
+      "startSec": 693.76,
+      "endSec": 696.76,
+      "de": "Aladdin wünschte zu Jasmine zu gehen.",
+      "en": "Aladdin wanted to go to Jasmine."
+    },
+    {
+      "startSec": 697.76,
+      "endSec": 704.76,
+      "de": "Als der Riese in die Hände klatschte, fand sich Aladdin plötzlich auf einem fliegenden Teppich wieder.",
+      "en": "As the giant clapped his hands, Aladdin suddenly found himself on a flying carpet."
+    },
+    {
+      "startSec": 705.76,
+      "endSec": 708.76,
+      "de": "Aladdin schaffte es nur mit Mühe, sich auf den Teppich zu setzen.",
+      "en": "Aladdin only managed to sit down on the carpet with difficulty."
+    },
+    {
+      "startSec": 709.76,
+      "endSec": 715.76,
+      "de": "Und der fliegende Teppich trug ihn zu dem Palast in der entferntesten Ecke der Wüste.",
+      "en": "And the flying carpet carried him to the palace in the farthest corner of the desert."
+    },
+    {
+      "startSec": 716.76,
+      "endSec": 719.76,
+      "de": "Aladdin betrat leise den Palast.",
+      "en": "Aladdin quietly entered the palace."
+    },
+    {
+      "startSec": 720.76,
+      "endSec": 726.76,
+      "de": "In der Halle des Palastes sah er Jasmine, wie sie dem bösen Mann diente.",
+      "en": "In the hall of the palace, he saw Jasmine serving the evil man."
+    },
+    {
+      "startSec": 732.76,
+      "endSec": 736.76,
+      "de": "Und die Lampe des blauen Jinns lag im Schoß des Mannes.",
+      "en": "And the blue Jinn's lamp lay in the man's lap."
+    },
+    {
+      "startSec": 737.76,
+      "endSec": 740.76,
+      "de": "Aladdin steckte den Ring noch einmal auf seinen Finger.",
+      "en": "Aladdin put the ring on his finger once more."
+    },
+    {
+      "startSec": 741.76,
+      "endSec": 746.76,
+      "de": "Der Riese erschien erneut vor ihm und sagte, wünsche dir, was du willst.",
+      "en": "The giant appeared before him again and said, wish for whatever you want."
+    },
+    {
+      "startSec": 746.76,
+      "endSec": 751.76,
+      "de": "Aber dies wird dein letzter Wunsch sein. Vergiss das nicht.",
+      "en": "But this will be your last wish. Don't forget that."
+    },
+    {
+      "startSec": 752.76,
+      "endSec": 756.76,
+      "de": "Aladdin wünschte, dass der böse Mann sich in einen Vogel verwandelte.",
+      "en": "Aladdin wished that the bad man would turn into a bird."
+    },
+    {
+      "startSec": 757.76,
+      "endSec": 765.76,
+      "de": "Der Riese klatschte in die Hände und der Mann verwandelte sich sofort in einen Vogel und flog aus dem Palastfenster.",
+      "en": "The giant clapped his hands and the man immediately turned into a bird and flew out of the palace window."
+    },
+    {
+      "startSec": 766.76,
+      "endSec": 768.76,
+      "de": "Jasmine war schockiert über das, was sie sah.",
+      "en": "Jasmine was shocked by what she saw."
+    },
+    {
+      "startSec": 769.76,
+      "endSec": 772.76,
+      "de": "Endlich lief Aladdin zu Jasmine und umarmte sie.",
+      "en": "Aladdin finally ran to Jasmine and hugged her."
+    },
+    {
+      "startSec": 772.76,
+      "endSec": 776.76,
+      "de": "Und natürlich nahm er sofort die Lampe mit dem blauen Jin an sich.",
+      "en": "And of course he immediately took the lamp with the blue Jin."
+    },
+    {
+      "startSec": 778.76,
+      "endSec": 782.76,
+      "de": "Als er mehrmals daran rieb, erschien der blaue Jin.",
+      "en": "When he rubbed it several times, the blue Jin appeared."
+    },
+    {
+      "startSec": 783.76,
+      "endSec": 787.76,
+      "de": "Er bat ihn, den Palast an seinen ursprünglichen Ort zurückzubringen.",
+      "en": "He asked him to return the palace to its original location."
+    },
+    {
+      "startSec": 788.76,
+      "endSec": 790.76,
+      "de": "Der blaue Jin tat, was man ihm sagte.",
+      "en": "Blue Jin did as he was told."
+    },
+    {
+      "startSec": 791.76,
+      "endSec": 796.76,
+      "de": "Und der Palast schwebte durch den Himmel und kehrte an seinen alten Platz zurück.",
+      "en": "And the palace floated through the sky and returned to its old place."
+    },
+    {
+      "startSec": 796.76,
+      "endSec": 803.76,
+      "de": "Von diesem Tag an lebten Aladdin und Jasmine als das glücklichste Paar des Orients glücklich bis ans Ende ihrer Tage.",
+      "en": "From that day on, Aladdin and Jasmine lived happily ever after as the happiest couple in the Orient."
+    }
+  ]
+}

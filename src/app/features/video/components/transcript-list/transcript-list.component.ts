@@ -10,11 +10,12 @@ import type { SubtitleLine } from '../../../../core/services/subtitle.service';
     <div class="flex flex-col p-2 pb-24">
       @for (line of subtitles(); track $index) {
         <app-transcript-item
-          [timeLabel]="formatTime(line.start)"
-          [start]="line.start"
+          [timeLabel]="formatTime(line.startSec)"
+          [start]="line.startSec"
           [text]="line.text"
-          [active]="currentTime() >= line.start && currentTime() < line.end"
-          [dimmed]="currentTime() > line.end"
+          [translation]="line.translation"
+          [active]="currentTime() >= line.startSec && currentTime() < line.endSec"
+          [dimmed]="currentTime() > line.endSec"
           (seek)="seek.emit($event)"
         />
       }
