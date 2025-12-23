@@ -1,0 +1,85 @@
+# CHANGELOG
+
+All notable changes to this project are documented here.
+
+## Production
+- [2.1] Updated build pipeline for monorepo: added root `package.json` with delegated scripts for frontend. Verified hash routing and base-href configuration.
+- [0.1, 0.2] Restructured repository into monorepo: created `/frontend` and `/backend`, moved Angular app to `/frontend`, updated README and fixed relative paths.
+- [1.1, 1.2] Created root CHANGELOG.md and migrated historical MVP changelog from MVP.md.
+
+## MVP (historical)
+- 2025-12-22: Completed Section 12.1: Restored XP Burst for Fill-in-the-Blank exercises with single-award protection (`xpAwarded` flag).
+- 2025-12-22: Implemented Section 11: Subtitles Pipeline v2 (JSON + Translation, no VTT).
+  - Replaced VTT parsing with JSON transcript loading in `SubtitleService`.
+  - Updated `SubtitleLine` model and all consumers to use `startSec`/`endSec`.
+  - Updated `LessonMeta` and `lessons.json` registry to use JSON transcripts.
+  - Enhanced Subtitles UI to show English translations and start timecodes (`MM:SS`).
+  - Removed legacy VTT parser logic and deleted `src/assets/subtitles/` folder.
+- 2025-12-20: Aligned `ProgressPageComponent` layout and styling with `CatalogPageComponent`.
+- 2025-12-20: Fixed video poster (thumbnail) not being displayed on the video page.
+- 2025-12-20: Completed Content Pipeline (Section 10). Documented developer workflow for adding lessons.
+- 2025-12-20: Added error handling and "Not Found" state to `VideoPageComponent` (Section 10.6).
+- 2025-12-20: Migrated `VideoPageComponent` to use `LessonsService` (Section 10.5).
+- 2025-12-20: Migrated `/catalog` to `LessonsService` (Section 10.4).
+- 2025-12-20: Implemented `LessonsService` with caching and error handling (Section 10.3).
+- 2025-12-20: Created `lessons.json` registry with 3 lessons (Section 10.2).
+- 2025-12-20: Defined `LessonMeta` data model (Section 10.1).
+- 2025-12-20: Improved contrast for "Loop line" button and loop count selector.
+  - Changed enabled state to use solid yellow background with dark text for better visibility.
+- 2025-12-20: Replaced native popups with beautiful confirmation modal and toast on Progress page.
+- 2025-12-20: Integrated "My Progress" link into the App Header (Section 9.6).
+- 2025-12-20: Added Quick Actions ("Continue learning") and last lesson persistence (Section 9.5).
+- 2025-12-20: Implemented XP Activity Log and displayed it on Progress page (Section 9.4).
+- 2025-12-20: Added "My Words" preview with Copy/Clear actions on Progress page (Section 9.3).
+- 2025-12-20: Implemented `ProgressSummaryService` and stats cards on Progress page (Section 9.2).
+- 2025-12-20: Created `/progress` route and `ProgressPageComponent` shell (Section 9.1).
+- 2025-12-20: Enhanced `FillBlankCardComponent` with success effects.
+  - Added temporary green highlight and "+10 XP" burst animation on correct answer.
+  - Ensured effects trigger only once per exercise.
+- 2025-12-20: Improved visibility of lesson level labels in the catalog.
+  - Changed level badge from transparent/yellow-text to solid yellow background with dark text.
+- 2025-12-20: Implemented Catalog MVP (Section 7).
+  - Created `/catalog` route and `CatalogPageComponent` with mock lesson data.
+  - Added navigation from catalog to video page.
+  - Linked header navigation to the catalog page.
+- 2025-12-20: Integrated reactive XP display in the header (Section 6).
+  - Modified `AppHeaderComponent` to inject `XpService` and use a `computed` signal for display.
+  - Removed static mock XP value from `AppShellComponent`.
+- 2025-12-20: Implemented XP awarding for correct fill-blank answers (Section 6).
+  - Modified `FillBlankCardComponent` to award +10 XP using `XpService` upon correct answer.
+  - Added protection to ensure XP is only awarded once per exercise.
+- 2025-12-20: Implemented `XpService` (Section 6).
+  - Created logic to track and persist total XP in `localStorage`.
+  - Files: `src/app/core/services/xp.service.ts`.
+- 2025-12-20: Updated Exercises layout to full-width cards.
+  - Changed grid to vertical list in `ExercisesSectionComponent`.
+- 2025-12-20: Implemented batch Exercises Set (Section 5.2).
+  - Created `FillBlankSetService` to generate up to 10 random tasks from lesson subtitles.
+  - Refactored `ExercisesSectionComponent` to render a list of cards generated on page load.
+  - Updated `VideoPageComponent` to trigger set generation when subtitles are available.
+- 2025-12-20: Refactored `FillBlankCardComponent` to take `exercise` input and handle empty answers (Section 5.1).
+- 2025-12-20: Implemented `FillBlankCardComponent` and integrated it into `ExercisesSection`.
+  - Replaced mock exercise cards with a dynamic fill-in-the-blank exercise based on active subtitle.
+  - Added logic to check answers and provide visual feedback.
+  - Updated `VideoPageComponent` and `LessonLeftColumnComponent` to pass the active subtitle text.
+- 2025-12-20: Implemented `FillBlankService` (Section 5.1).
+  - Created logic to mask a single non-stop-word from subtitle text.
+  - Preserves punctuation and spacing in the masked text.
+  - Files: `src/app/core/services/fill-blank.service.ts`.
+- 2025-12-20: Simplified sidebar UI for MVP.
+  - Removed mini-vocabulary widget from the Transcript tab.
+  - Subtitles now occupy the full height of the sidebar in the Transcript tab.
+- 2025-12-20: Fix regression in sidebar UI.
+  - Restricted mini-vocabulary widget in Transcript tab to top 3 items.
+  - Added `min-h-0` to scrollable container to ensure proper flex shrinking.
+  - Ensured Transcript tab main content (subtitles) is prioritized and visible.
+- 2025-12-20: Implemented Vocabulary MVP (Section 4).
+  - Created `VocabularyService` for lesson-based extraction from subtitles.
+  - Implemented `MyWordsRepository` for `localStorage` persistence of saved words.
+  - Added Vocabulary tab to sidebar and updated `VocabWidgetComponent` with add/remove functionality.
+  - Integrated extraction logic into `VideoPageComponent` via signals and effects.
+- 2025-12-20: Implemented Phrase Loop (Section 3).
+  - Added loop engine in `VideoPageComponent` with signals and anti-bounce.
+  - Added UI controls in `LessonRightSidebarComponent` (Toggle + ∞/2x/3x selector).
+  - Added localStorage persistence for loop settings.
+  - Verified auto-scroll and subtitle interactions.

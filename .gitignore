@@ -1,26 +1,58 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# --------------------------------------------------
+# Frontend (Angular)
+# --------------------------------------------------
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# Build output
+/frontend/dist/
+/frontend/out-tsc/
+/frontend/tmp/
+/frontend/bazel-out/
+
+# Angular cache
+/frontend/.angular/
+/frontend/.angular/cache/
 
 # Node
-/node_modules
-npm-debug.log
-yarn-error.log
+/frontend/node_modules/
+/frontend/node_modules/.cache/
 
+# Logs
+/frontend/npm-debug.log
+/frontend/yarn-error.log
+*.log
+
+# --------------------------------------------------
+# Backend (Django / Python)
+# --------------------------------------------------
+
+# Python cache
+/backend/__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Virtual environments
+/backend/.venv/
+/venv/
+.env
+
+# Django
+/backend/staticfiles/
+/backend/media/
+*.sqlite3
+
+# --------------------------------------------------
 # IDEs and editors
+# --------------------------------------------------
+
 .idea/
 .project
 .classpath
 .c9/
-*.launch
 .settings/
+*.launch
 *.sublime-workspace
 
-# Visual Studio Code
+# VS Code (allow project settings)
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -28,16 +60,17 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
+# --------------------------------------------------
+# Tests & coverage
+# --------------------------------------------------
+
+/coverage/
 testem.log
-/typings
 __screenshots__/
 
+# --------------------------------------------------
 # System files
+# --------------------------------------------------
+
 .DS_Store
 Thumbs.db
