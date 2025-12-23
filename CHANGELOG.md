@@ -3,6 +3,7 @@
 All notable changes to this project are documented here.
 
 ## Production
+- [UI] Added header login/logout UI with Google Sign-In and profile display.
 - [Sync] Fixed data loss on login by implementing a merge strategy for local progress earned while logged out (`gf.sync.localDirty` flag).
 - [Sync] Fixed sync hydrate→push loop by implementing a hydration lock (released asynchronously) and a payload comparison guard (`lastPushedPayloadString`).
 - [Sync] Added defensive handling for empty or null arrays in sync payload.

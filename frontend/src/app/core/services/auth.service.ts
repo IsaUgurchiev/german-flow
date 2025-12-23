@@ -5,10 +5,9 @@ import { tap, catchError, of } from 'rxjs';
 
 export interface User {
   id: number;
-  username: string;
   email: string;
-  first_name: string;
-  last_name: string;
+  displayName: string;
+  avatarUrl: string;
 }
 
 export interface AuthResponse {
@@ -28,6 +27,19 @@ export class AuthService {
   token = signal<string | null>(localStorage.getItem(this.TOKEN_KEY));
 
   isAuthenticated = signal<boolean>(!!this.token());
+
+  isLoggedIn(): boolean {
+    return this.isAuthenticated();
+  }
+
+  me() {
+    return this.http.get<User>(`${environment.apiBaseUrl}/me`).pipe(
+      tap(user => {
+        this.currentUser.set(user);
+        localStorage.setItem(this.USER_KEY, JSON.stringify(user));
+      })
+    );
+  }
 
   initializeGoogleLogin(element: HTMLElement) {
     if (typeof (window as any).google === 'undefined') {
@@ -73,6 +85,10 @@ export class AuthService {
     this.token.set(null);
     this.currentUser.set(null);
     this.isAuthenticated.set(false);
+
+    if (typeof (window as any).google !== 'undefined') {
+      (window as any).google.accounts.id.disableAutoSelect();
+    }
   }
 
   private setSession(authResult: AuthResponse) {
