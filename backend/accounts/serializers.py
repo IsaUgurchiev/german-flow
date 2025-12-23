@@ -3,9 +3,24 @@ from django.contrib.auth.models import User
 from .models import UserState
 
 class UserSerializer(serializers.ModelSerializer):
+    displayName = serializers.SerializerMethodField()
+    avatarUrl = serializers.SerializerMethodField()
+
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name')
+        fields = ('id', 'email', 'displayName', 'avatarUrl')
+
+    def get_displayName(self, obj):
+        try:
+            return obj.profile.display_name or ""
+        except:
+            return ""
+
+    def get_avatarUrl(self, obj):
+        try:
+            return obj.profile.avatar_url or ""
+        except:
+            return ""
 
 class UserStateSerializer(serializers.ModelSerializer):
     # Map snake_case to camelCase as requested in Step 5.2 payload

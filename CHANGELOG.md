@@ -3,6 +3,9 @@
 All notable changes to this project are documented here.
 
 ## Production
+- [Sync] Fixed data loss on login by implementing a merge strategy for local progress earned while logged out (`gf.sync.localDirty` flag).
+- [Sync] Fixed sync hydrate→push loop by implementing a hydration lock (released asynchronously) and a payload comparison guard (`lastPushedPayloadString`).
+- [Sync] Added defensive handling for empty or null arrays in sync payload.
 - [7.1, 7.2] Implemented Frontend Sync Layer: added `SyncService` to pull state on login and push debounced updates on changes (XP, words, lesson). Refactored `MyWordsRepository` and added `UserProgressService` to use signals for reactive syncing.
 - [6.1, 6.2, 6.3] Integrated Google OAuth on frontend: added environments, `AuthService`, `authInterceptor`, and Google Login button in header.
 - [5.1, 5.2] Implemented `UserState` model and `/api/state` endpoints for syncing XP, vocabulary, and progress.

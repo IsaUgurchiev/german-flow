@@ -6,7 +6,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from google.oauth2 import id_token
 from google.auth.transport import requests
 from .serializers import UserSerializer, GoogleLoginSerializer, UserStateSerializer
-from .models import UserState
+from .models import UserState, UserProfile
 
 class GoogleLoginView(views.APIView):
     permission_classes = [permissions.AllowAny]
@@ -26,6 +26,8 @@ class GoogleLoginView(views.APIView):
             email = idinfo['email']
             first_name = idinfo.get('given_name', '')
             last_name = idinfo.get('family_name', '')
+            full_name = idinfo.get('name', '')
+            picture = idinfo.get('picture', '')
             
             # Create or fetch user
             user, created = User.objects.get_or_create(
@@ -39,6 +41,12 @@ class GoogleLoginView(views.APIView):
 
             # Ensure UserState exists
             UserState.objects.get_or_create(user=user)
+
+            # Create or update UserProfile
+            profile, _ = UserProfile.objects.get_or_create(user=user)
+            profile.display_name = full_name or f"{first_name} {last_name}".strip() or email
+            profile.avatar_url = picture
+            profile.save()
             
             # Issue JWT
             refresh = RefreshToken.for_user(user)
