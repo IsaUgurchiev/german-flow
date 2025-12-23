@@ -1,6 +1,5 @@
 import { Component, input, signal, inject, output, computed, effect } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { XpService } from '../../../../core/services/xp.service';
 import { FillBlankExerciseItem } from '../../models/exercise.model';
 import { ExerciseShellComponent } from '../exercise-shell/exercise-shell.component';
 import { ExerciseProgressService } from '../../../../core/services/exercise-progress';

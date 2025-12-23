@@ -10,14 +10,21 @@ import { XpService } from '../../../../core/services/xp.service';
 
 type ExerciseTabId = ExerciseType;
 
+const EXERCISE_CONFIG: Record<ExerciseType, { label: string; xp: number }> = {
+  'word_translation_mcq': { label: 'Word Translation', xp: 10 },
+  'sentence_translation_mcq': { label: 'Sentence Translation', xp: 10 },
+  'comprehension_mcq': { label: 'Comprehension', xp: 10 },
+  'fill_blank': { label: 'Fill in the Blank', xp: 15 },
+};
+
 @Component({
   selector: 'app-exercises-section',
   standalone: true,
   imports: [
-    CommonModule, 
-    FillBlankCardComponent, 
-    WordTranslationMcqComponent, 
-    SentenceTranslationMcqComponent, 
+    CommonModule,
+    FillBlankCardComponent,
+    WordTranslationMcqComponent,
+    SentenceTranslationMcqComponent,
     ComprehensionMcqComponent
   ],
   template: `
@@ -25,14 +32,14 @@ type ExerciseTabId = ExerciseType;
       <div class="flex items-center justify-between">
         <h3 class="text-text-primary dark:text-white text-2xl font-bold">Interactive Exercises</h3>
       </div>
-      
+
       <div class="bg-white dark:bg-[#1e1e12] rounded-2xl border border-[#e6e6e0] dark:border-[#33332a] shadow-sm flex flex-col w-full overflow-hidden relative">
         <!-- XP Burst Animation -->
         @if (showXpBurst()) {
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-50">
             <div class="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full text-lg font-black shadow-2xl animate-in fade-out zoom-out slide-out-to-top-24 duration-1000 fill-mode-forwards">
               <span class="material-symbols-outlined !text-[24px]">bolt</span>
-              +10 XP
+              +{{ lastXpAmount() }} XP
             </div>
           </div>
         }
@@ -40,7 +47,7 @@ type ExerciseTabId = ExerciseType;
         <!-- Tabs Header -->
         <div class="flex flex-row overflow-x-auto border-b border-[#e6e6e0] dark:border-[#33332a] hide-scrollbar" style="scrollbar-width: none;">
           @for (tab of exerciseTabs; track tab.id) {
-            <button 
+            <button
               (click)="activeTabId.set(tab.id)"
               [disabled]="tab.disabled"
               class="relative px-6 py-4 text-sm whitespace-nowrap transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
@@ -72,9 +79,9 @@ type ExerciseTabId = ExerciseType;
               @if (set.items[currentIndices()[set.type]]; as exercise) {
                 @switch (set.type) {
                   @case ('word_translation_mcq') {
-                    <app-word-translation-mcq 
-                      [exercise]="exercise" 
-                      [current]="currentIndices()[set.type] + 1" 
+                    <app-word-translation-mcq
+                      [exercise]="exercise"
+                      [current]="currentIndices()[set.type] + 1"
                       [total]="set.items.length"
                       [history]="exerciseResults()[set.type]"
                       (check)="onCheck(exercise, set.type, $event)"
@@ -82,9 +89,9 @@ type ExerciseTabId = ExerciseType;
                     />
                   }
                   @case ('sentence_translation_mcq') {
-                    <app-sentence-translation-mcq 
-                      [exercise]="exercise" 
-                      [current]="currentIndices()[set.type] + 1" 
+                    <app-sentence-translation-mcq
+                      [exercise]="exercise"
+                      [current]="currentIndices()[set.type] + 1"
                       [total]="set.items.length"
                       [history]="exerciseResults()[set.type]"
                       (check)="onCheck(exercise, set.type, $event)"
@@ -92,9 +99,9 @@ type ExerciseTabId = ExerciseType;
                     />
                   }
                   @case ('comprehension_mcq') {
-                    <app-comprehension-mcq 
-                      [exercise]="exercise" 
-                      [current]="currentIndices()[set.type] + 1" 
+                    <app-comprehension-mcq
+                      [exercise]="exercise"
+                      [current]="currentIndices()[set.type] + 1"
                       [total]="set.items.length"
                       [history]="exerciseResults()[set.type]"
                       (check)="onCheck(exercise, set.type, $event)"
@@ -102,9 +109,9 @@ type ExerciseTabId = ExerciseType;
                     />
                   }
                   @case ('fill_blank') {
-                    <app-fill-blank-card 
-                      [exercise]="exercise" 
-                      [current]="currentIndices()[set.type] + 1" 
+                    <app-fill-blank-card
+                      [exercise]="exercise"
+                      [current]="currentIndices()[set.type] + 1"
                       [total]="set.items.length"
                       [history]="exerciseResults()[set.type]"
                       (check)="onCheck(exercise, set.type, $event)"
@@ -147,20 +154,21 @@ export class ExercisesSectionComponent {
   private dataService = inject(ExerciseDataService);
   private progressService = inject(ExerciseProgressService);
   private xpService = inject(XpService);
-  
+
   lessonId = input.required<string>();
   exerciseSet = input<any[]>([]);
-  
+
   exerciseData = signal<ExerciseSet[]>([]);
   activeTabId = signal<ExerciseTabId>('word_translation_mcq');
   showXpBurst = signal(false);
+  lastXpAmount = signal(10);
   exerciseResults = signal<Record<ExerciseType, (boolean | null)[]>>({
     'word_translation_mcq': [],
     'sentence_translation_mcq': [],
     'comprehension_mcq': [],
     'fill_blank': []
   });
-  
+
   currentIndices = signal<Record<ExerciseType, number>>({
     'word_translation_mcq': 0,
     'sentence_translation_mcq': 0,
@@ -175,7 +183,7 @@ export class ExercisesSectionComponent {
         this.dataService.getExercisesForLesson(id).subscribe(data => {
           if (data) {
             this.exerciseData.set(data.exerciseSets);
-            
+
             // Initialize results arrays from history
             const attempts = this.progressService.getAttempts();
             const initialResults: Record<ExerciseType, (boolean | null)[]> = {
@@ -194,7 +202,7 @@ export class ExercisesSectionComponent {
                 return attempt ? attempt.isCorrect : null;
               });
             });
-            
+
             this.exerciseResults.set(initialResults);
 
             // Set first available tab as active
@@ -209,12 +217,11 @@ export class ExercisesSectionComponent {
   }
 
   get exerciseTabs() {
-    return [
-      { id: 'word_translation_mcq' as ExerciseTabId, label: 'Word Translation', disabled: !this.hasData('word_translation_mcq') },
-      { id: 'sentence_translation_mcq' as ExerciseTabId, label: 'Sentence Translation', disabled: !this.hasData('sentence_translation_mcq') },
-      { id: 'comprehension_mcq' as ExerciseTabId, label: 'Comprehension', disabled: !this.hasData('comprehension_mcq') },
-      { id: 'fill_blank' as ExerciseTabId, label: 'Fill-in-the-Blank', disabled: !this.hasData('fill_blank') },
-    ];
+    return (Object.keys(EXERCISE_CONFIG) as ExerciseType[]).map(type => ({
+      id: type as ExerciseTabId,
+      label: EXERCISE_CONFIG[type].label,
+      disabled: !this.hasData(type)
+    }));
   }
 
   activeSet = computed(() => {
@@ -238,8 +245,10 @@ export class ExercisesSectionComponent {
     const wasAlreadyCorrect = this.progressService.isCompleted(exercise.id);
 
     if (result.isCorrect && !wasAlreadyCorrect) {
+      const amount = EXERCISE_CONFIG[type].xp;
+      this.lastXpAmount.set(amount);
       this.showXpBurst.set(true);
-      this.xpService.addXp(10, `Completed ${type}`);
+      this.xpService.addXp(amount, `Completed ${EXERCISE_CONFIG[type].label}`);
       setTimeout(() => this.showXpBurst.set(false), 1000);
     }
 
