@@ -22,5 +22,6 @@ export interface ExerciseProgress {
 export interface FillBlankExerciseItem {
   maskedText: string;
   answer: string;
+  translation?: string;
 }
 

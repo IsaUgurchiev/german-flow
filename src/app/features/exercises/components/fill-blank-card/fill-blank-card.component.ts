@@ -29,6 +29,11 @@ import { ExerciseProgressService } from '../../../../core/services/exercise-prog
             <h3 class="text-xl font-bold text-text-primary dark:text-white leading-relaxed italic">
               "{{ exercise().maskedText }}"
             </h3>
+            @if (exercise().translation) {
+              <p class="mt-2 text-sm text-text-secondary dark:text-gray-400 opacity-80">
+                {{ exercise().translation }}
+              </p>
+            }
           </div>
         </div>
 

@@ -5,6 +5,7 @@ import { FillBlankService, FillBlankExercise } from './fill-blank.service';
 export interface FillBlankSetItem extends FillBlankExercise {
   id: string;
   sourceText: string;
+  translation?: string;
 }
 
 @Injectable({
@@ -25,12 +26,13 @@ export class FillBlankSetService {
 
     // Filter lines that can produce a valid exercise
     const validCandidates = lines
-      .map((line, index) => {
+      .map((line, index): FillBlankSetItem | null => {
         const exercise = this.fillBlankService.generateExercise(line.text);
         if (exercise && exercise.answer) {
           return {
             id: `${line.startSec}-${line.endSec}-${index}`,
             sourceText: line.text,
+            translation: line.translation,
             ...exercise,
           };
         }
