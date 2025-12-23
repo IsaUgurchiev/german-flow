@@ -3,6 +3,8 @@
 All notable changes to this project are documented here.
 
 ## Production
+- [4.1, 4.2] Implemented Google OAuth authentication and JWT issuance. Created `/api/auth/google` for login and `/api/me` for current user profile.
+- [3.1, 3.2, 3.3] Initialized Django backend in `/backend` with `requirements.txt`, environment-based settings, and a health check endpoint (`/api/health`).
 - [2.1] Updated build pipeline for monorepo: added root `package.json` with delegated scripts for frontend. Verified hash routing and base-href configuration.
 - [0.1, 0.2] Restructured repository into monorepo: created `/frontend` and `/backend`, moved Angular app to `/frontend`, updated README and fixed relative paths.
 - [1.1, 1.2] Created root CHANGELOG.md and migrated historical MVP changelog from MVP.md.

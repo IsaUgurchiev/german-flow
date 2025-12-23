@@ -78,8 +78,8 @@ DoD:
 ## 3) Backend v0 — Django Skeleton
 
 ### 3.1 Create Django project
-- [ ] Create Django project in /backend
-- [ ] Add requirements.txt:
+- [x] Create Django project in /backend
+- [x] Add requirements.txt:
   - Django
   - djangorestframework
   - django-cors-headers
@@ -94,10 +94,10 @@ DoD:
 ---
 
 ### 3.2 Environment-based settings
-- [ ] Read SECRET_KEY, DEBUG, ALLOWED_HOSTS from env
-- [ ] Configure DATABASE_URL via dj-database-url
-- [ ] Add CORS_ALLOWED_ORIGINS from env
-- [ ] Local dev works without DATABASE_URL (sqlite)
+- [x] Read SECRET_KEY, DEBUG, ALLOWED_HOSTS from env
+- [x] Configure DATABASE_URL via dj-database-url
+- [x] Add CORS_ALLOWED_ORIGINS from env
+- [x] Local dev works without DATABASE_URL (sqlite)
 
 DoD:
 - App runs locally and with Postgres
@@ -105,7 +105,7 @@ DoD:
 ---
 
 ### 3.3 Health endpoint
-- [ ] Add GET /api/health → { "ok": true }
+- [x] Add GET /api/health → { "ok": true }
 
 DoD:
 - Endpoint returns 200 JSON
@@ -115,12 +115,12 @@ DoD:
 ## 4) Backend v1 — Google OAuth + JWT
 
 ### 4.1 Google login endpoint
-- [ ] POST /api/auth/google
+- [x] POST /api/auth/google
   - input: { idToken: string }
   - output: { accessToken, user }
-- [ ] Verify Google ID token
-- [ ] Create or fetch user
-- [ ] Issue JWT
+- [x] Verify Google ID token
+- [x] Create or fetch user
+- [x] Issue JWT
 
 DoD:
 - Invalid token → 401
@@ -129,7 +129,7 @@ DoD:
 ---
 
 ### 4.2 /api/me
-- [ ] GET /api/me (JWT protected)
+- [x] GET /api/me (JWT protected)
 
 DoD:
 - 401 without token
