@@ -215,9 +215,9 @@ DoD:
 ## 8) Deployment v1
 
 ### 8.1 Backend deploy
-- [ ] Deploy backend to Render or Railway
-- [ ] Run migrations
-- [ ] Verify /api/health
+- [x] Deploy backend to Render or Railway
+- [x] Run migrations
+- [x] Verify /api/health
 
 DoD:
 - Backend reachable via HTTPS
