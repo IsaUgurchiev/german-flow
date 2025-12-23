@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, inject, AfterViewInit, signal } from '@angular/core';
+import {Component, ElementRef, ViewChild, inject, AfterViewInit, signal, effect} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../core/services/auth.service';
 
@@ -12,8 +12,8 @@ import { AuthService } from '../../core/services/auth.service';
         <div class="flex items-center gap-3 bg-gray-50 dark:bg-white/5 pl-1 pr-3 py-1 rounded-full border border-[#f0f0eb] dark:border-[#33332a]">
           <div class="relative size-8 flex-shrink-0">
             @if (auth.currentUser()?.avatarUrl) {
-              <img 
-                [src]="auth.currentUser()?.avatarUrl" 
+              <img
+                [src]="auth.currentUser()?.avatarUrl"
                 referrerpolicy="no-referrer"
                 crossorigin="anonymous"
                 class="size-full rounded-full object-cover ring-2 ring-white dark:ring-gray-800 shadow-sm"
@@ -29,7 +29,7 @@ import { AuthService } from '../../core/services/auth.service';
           <span class="text-sm font-bold text-text-primary dark:text-white max-w-[120px] truncate hidden sm:block">
             {{ auth.currentUser()?.displayName }}
           </span>
-          <button 
+          <button
             (click)="onLogout()"
             class="ml-1 p-1 hover:text-red-500 transition-colors cursor-pointer flex items-center justify-center"
             title="Logout"
