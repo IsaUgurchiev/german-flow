@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from google.oauth2 import id_token
 from google.auth.transport import requests
-from .serializers import UserSerializer, GoogleLoginSerializer
+from .serializers import UserSerializer, GoogleLoginSerializer, UserStateSerializer
+from .models import UserState
 
 class GoogleLoginView(views.APIView):
     permission_classes = [permissions.AllowAny]
@@ -35,6 +36,9 @@ class GoogleLoginView(views.APIView):
                     'last_name': last_name,
                 }
             )
+
+            # Ensure UserState exists
+            UserState.objects.get_or_create(user=user)
             
             # Issue JWT
             refresh = RefreshToken.for_user(user)
@@ -56,5 +60,20 @@ class MeView(views.APIView):
 
     def get(self, request):
         serializer = UserSerializer(request.user)
+        return Response(serializer.data)
+
+class StateView(views.APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        state, created = UserState.objects.get_or_create(user=request.user)
+        serializer = UserStateSerializer(state)
+        return Response(serializer.data)
+
+    def post(self, request):
+        state, created = UserState.objects.get_or_create(user=request.user)
+        serializer = UserStateSerializer(state, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
         return Response(serializer.data)
 

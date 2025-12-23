@@ -3,6 +3,9 @@
 All notable changes to this project are documented here.
 
 ## Production
+- [7.1, 7.2] Implemented Frontend Sync Layer: added `SyncService` to pull state on login and push debounced updates on changes (XP, words, lesson). Refactored `MyWordsRepository` and added `UserProgressService` to use signals for reactive syncing.
+- [6.1, 6.2, 6.3] Integrated Google OAuth on frontend: added environments, `AuthService`, `authInterceptor`, and Google Login button in header.
+- [5.1, 5.2] Implemented `UserState` model and `/api/state` endpoints for syncing XP, vocabulary, and progress.
 - [4.1, 4.2] Implemented Google OAuth authentication and JWT issuance. Created `/api/auth/google` for login and `/api/me` for current user profile.
 - [3.1, 3.2, 3.3] Initialized Django backend in `/backend` with `requirements.txt`, environment-based settings, and a health check endpoint (`/api/health`).
 - [2.1] Updated build pipeline for monorepo: added root `package.json` with delegated scripts for frontend. Verified hash routing and base-href configuration.

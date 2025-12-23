@@ -6,6 +6,7 @@ import { SubtitleService, SubtitleLine } from '../../../../core/services/subtitl
 import { VocabularyService } from '../../../../core/services/vocabulary.service';
 import { MyWordsRepository } from '../../../../core/repositories/my-words.repository';
 import { FillBlankSetService, FillBlankSetItem } from '../../../../core/services/fill-blank-set.service';
+import { UserProgressService } from '../../../../core/services/user-progress.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { LessonsService } from '../../../../core/services/lessons.service';
@@ -71,6 +72,7 @@ export class VideoPageComponent implements OnInit {
   private myWordsRepository = inject(MyWordsRepository);
   private fillBlankSetService = inject(FillBlankSetService);
   private lessonsService = inject(LessonsService);
+  private userProgressService = inject(UserProgressService);
   private route = inject(ActivatedRoute);
 
   private lessonId$ = this.route.paramMap.pipe(
@@ -117,7 +119,7 @@ export class VideoPageComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      localStorage.setItem('gf.last.lessonId', id);
+      this.userProgressService.setLastLessonId(id);
     }
   }
 

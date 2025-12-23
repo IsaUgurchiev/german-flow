@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppHeaderComponent } from '../header/app-header.component';
-import { videoPageMockData } from '../../features/video/data/video-page.mock';
+import { SyncService } from '../services/sync.service';
 
 @Component({
   selector: 'app-shell',
@@ -18,5 +18,7 @@ import { videoPageMockData } from '../../features/video/data/video-page.mock';
   `,
   styles: [`:host { display: block; height: 100vh; }`],
 })
-export class AppShellComponent {}
+export class AppShellComponent {
+  private syncService = inject(SyncService);
+}
 

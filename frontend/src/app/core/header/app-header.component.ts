@@ -1,11 +1,13 @@
-import { Component, input, inject, computed } from '@angular/core';
+import { Component, input, inject, computed, ViewChild, ElementRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { XpService } from '../services/xp.service';
+import { AuthService } from '../services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   template: `
     <header class="flex shrink-0 items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f5f5f0] bg-white dark:bg-[#1a1a0b] dark:border-[#33332a] px-10 py-3 z-20">
       <a routerLink="/" class="flex items-center gap-4 text-text-primary dark:text-white hover:opacity-80 transition-opacity">
@@ -24,7 +26,21 @@ import { XpService } from '../services/xp.service';
             <span class="material-symbols-outlined !text-[20px] mr-1">bolt</span>
             <span class="truncate">{{ displayXp() }}</span>
           </button>
-          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-white shadow-sm cursor-pointer" data-alt="User profile avatar portrait" [style.background-image]="'url(' + avatarUrl() + ')'"></div>
+          
+          @if (auth.isAuthenticated()) {
+            <div class="flex items-center gap-3">
+              <span class="text-sm font-medium text-text-secondary hidden sm:block">{{ auth.currentUser()?.first_name }}</span>
+              <div 
+                (click)="auth.logout()"
+                title="Logout"
+                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-white shadow-sm cursor-pointer" 
+                data-alt="User profile avatar portrait" 
+                [style.background-image]="'url(' + avatarUrl() + ')'"
+              ></div>
+            </div>
+          } @else {
+            <div #googleButtonContainer></div>
+          }
         </div>
       </div>
     </header>
@@ -33,8 +49,15 @@ import { XpService } from '../services/xp.service';
 })
 export class AppHeaderComponent {
   private xpService = inject(XpService);
+  auth = inject(AuthService);
   
-  avatarUrl = input('https://lh3.googleusercontent.com/aida-public/AB6AXuBDWepGUi0dJKnWGYXPXwcfCSH-Y-dq6c1nRVdMIxBzzXHQHeHEQ5l7JrEdVf_wapHU0QrdTUYx_r0AmTZQDOazt82UyEOn56MgyUzkRV93eOdjKKyA1SOR2tJwS9miSyK3kxaBSBiGUso095ylxKAwctweQebQf0dWpIsE3dGOylDdMbQPOfjL9xVm9rQuOviWd4m9STDQG528jIF9CzU8vR2P41bCQ0M5BD53zl_IgVFsVW39IX62U4_StyYboIj7r6IoVkRNCBij');
+  @ViewChild('googleButtonContainer') set googleButton(content: ElementRef) {
+    if (content) {
+      this.auth.initializeGoogleLogin(content.nativeElement);
+    }
+  }
+
+  avatarUrl = input('https://ui-avatars.com/api/?name=User&background=f0f000&color=1a1a0b');
 
   displayXp = computed(() => {
     const xp = this.xpService.getXp();

@@ -2,6 +2,7 @@ import { Component, inject, computed, signal } from '@angular/core';
 import { ProgressSummaryService } from '../../../../core/services/progress-summary.service';
 import { MyWordsRepository } from '../../../../core/repositories/my-words.repository';
 import { XpService } from '../../../../core/services/xp.service';
+import { UserProgressService } from '../../../../core/services/user-progress.service';
 import { DatePipe } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 
@@ -196,6 +197,7 @@ export class ProgressPageComponent {
   private summaryService = inject(ProgressSummaryService);
   private myWordsRepository = inject(MyWordsRepository);
   private xpService = inject(XpService);
+  private progressService = inject(UserProgressService);
   private router = inject(Router);
   
   private refreshTrigger = signal(0);
@@ -218,7 +220,7 @@ export class ProgressPageComponent {
   xpLog = computed(() => this.xpService.getLog().slice(0, 10));
 
   continueLearning() {
-    const lastId = localStorage.getItem('gf.last.lessonId');
+    const lastId = this.progressService.lastLessonId();
     if (lastId) {
       this.router.navigate(['/video', lastId]);
     } else {

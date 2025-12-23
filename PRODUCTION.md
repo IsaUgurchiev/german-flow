@@ -140,7 +140,7 @@ DoD:
 ## 5) Backend v1 — User State Sync
 
 ### 5.1 UserState model
-- [ ] Create UserState model (1:1 with user):
+- [x] Create UserState model (1:1 with user):
   - total_xp
   - xp_log (JSON)
   - my_words (JSON)
@@ -153,8 +153,8 @@ DoD:
 ---
 
 ### 5.2 State endpoints
-- [ ] GET /api/state
-- [ ] POST /api/state (last-write-wins)
+- [x] GET /api/state
+- [x] POST /api/state (last-write-wins)
 
 Payload:
 ```json
@@ -173,13 +173,13 @@ DoD:
 ## 6) Frontend v1 — Auth + API
 
 ### 6.1 Backend config
-- [ ] Add apiBaseUrl to environment config
+- [x] Add apiBaseUrl to environment config
 
 ### 6.2 Google login UI
-- [ ] Add Sign in with Google
-- [ ] Obtain Google id_token
-- [ ] Exchange for backend JWT
-- [ ] Persist token (MVP: localStorage OK)
+- [x] Add Sign in with Google
+- [x] Obtain Google id_token
+- [x] Exchange for backend JWT
+- [x] Persist token (MVP: localStorage OK)
 
 DoD:
 - Login survives reload
@@ -187,7 +187,7 @@ DoD:
 ---
 
 ### 6.3 API client
-- [ ] Attach Authorization: Bearer token to requests
+- [x] Attach Authorization: Bearer token to requests
 
 DoD:
 - /api/me works from frontend
@@ -197,15 +197,15 @@ DoD:
 ## 7) Frontend v1 — Sync Layer
 
 ### 7.1 Pull on login
-- [ ] GET /api/state after login
-- [ ] Hydrate existing localStorage keys
+- [x] GET /api/state after login
+- [x] Hydrate existing localStorage keys
 
 DoD:
 - Progress appears on new device
 
 ### 7.2 Push on change
-- [ ] Debounced POST /api/state on XP/words/lesson change
-- [ ] Fail silently if backend unavailable
+- [x] Debounced POST /api/state on XP/words/lesson change
+- [x] Fail silently if backend unavailable
 
 DoD:
 - Offline mode still works

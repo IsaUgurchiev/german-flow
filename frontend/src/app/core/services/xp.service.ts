@@ -7,9 +7,9 @@ export class XpService {
   private readonly STORAGE_KEY = 'gf.xp.total';
   private readonly LOG_KEY = 'gf.xp.log';
   
-  // Internal signal to track XP for reactive UI updates within the app
-  private totalXp = signal<number>(this.loadXp());
-  private xpLog = signal<XpLogEntry[]>(this.loadLog());
+  // Internal signals to track XP for reactive UI updates within the app
+  totalXp = signal<number>(this.loadXp());
+  xpLog = signal<XpLogEntry[]>(this.loadLog());
 
   /**
    * Returns current total XP.
@@ -74,6 +74,16 @@ export class XpService {
 
   private saveLog(log: XpLogEntry[]): void {
     localStorage.setItem(this.LOG_KEY, JSON.stringify(log));
+  }
+
+  /**
+   * Hydrates the service state from an external source (e.g., backend sync).
+   */
+  hydrate(totalXp: number, log: XpLogEntry[]): void {
+    this.totalXp.set(totalXp);
+    this.xpLog.set(log);
+    this.saveXp(totalXp);
+    this.saveLog(log);
   }
 }
 
