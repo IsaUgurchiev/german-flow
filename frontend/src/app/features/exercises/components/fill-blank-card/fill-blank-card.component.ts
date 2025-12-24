@@ -19,6 +19,7 @@ import { ExerciseProgressService } from '../../../../core/services/exercise-prog
       [correctLabel]="exercise().answer"
       (check)="onCheck()"
       (next)="onNext()"
+      (goTo)="goTo.emit($event)"
     >
       <div class="flex flex-col gap-8">
         <div>
@@ -77,6 +78,7 @@ export class FillBlankCardComponent {
 
   check = output<{ isCorrect: boolean; selectedIndex: number; userAnswer?: string }>();
   next = output<void>();
+  goTo = output<number>();
   
   userAnswer = signal('');
   checked = signal(false);

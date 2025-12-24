@@ -1,30 +1,20 @@
-import { Component, input, output, computed } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ExerciseProgressComponent } from '../exercise-progress/exercise-progress.component';
 
 @Component({
   selector: 'app-exercise-shell',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ExerciseProgressComponent],
   template: `
     <div class="flex flex-col h-full">
-      <!-- Header with Progress -->
-      <div class="flex items-center justify-between mb-8">
-        <span class="text-xs font-bold text-text-secondary dark:text-gray-400 uppercase tracking-widest">
-          Question {{ current() }} / {{ total() }}
-        </span>
-        <div class="flex gap-1.5">
-          @for (step of stepsArray(); track $index) {
-            <div 
-              class="h-2 w-10 rounded-full transition-colors duration-500"
-              [class.bg-green-500]="history()[$index] === true"
-              [class.bg-red-500]="history()[$index] === false"
-              [class.bg-primary]="$index === current() - 1 && (history()[$index] === null || history()[$index] === undefined)"
-              [class.bg-[#f0f0eb]]="$index !== current() - 1 && (history()[$index] === null || history()[$index] === undefined)"
-              [class.dark:bg-[#33332a]]="$index !== current() - 1 && (history()[$index] === null || history()[$index] === undefined)"
-            ></div>
-          }
-        </div>
-      </div>
+      <!-- Header with Progress Component -->
+      <app-exercise-progress
+        [current]="current()"
+        [total]="total()"
+        [history]="history()"
+        (goTo)="goTo.emit($event)"
+      />
 
       <!-- Content -->
       <div class="flex-1">
@@ -32,7 +22,7 @@ import { CommonModule } from '@angular/common';
       </div>
 
       <!-- Footer with Feedback & Action -->
-      <div 
+      <div
         class="mt-8 pt-6 border-t transition-colors duration-300"
         [class.border-transparent]="!checked()"
         [class.border-green-200]="checked() && isCorrect()"
@@ -62,7 +52,7 @@ import { CommonModule } from '@angular/common';
         }
 
         <div class="flex justify-end">
-          <button 
+          <button
             (click)="onActionClick()"
             [disabled]="!canCheck() && !checked()"
             class="px-8 py-3.5 rounded-full font-bold transition-all transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg hover:scale-105 cursor-pointer"
@@ -87,10 +77,7 @@ import { CommonModule } from '@angular/common';
 export class ExerciseShellComponent {
   current = input.required<number>();
   total = input.required<number>();
-  
   history = input<(boolean | null)[]>([]);
-
-  stepsArray = computed(() => Array.from({ length: this.total() }));
 
   checked = input<boolean>(false);
   isCorrect = input<boolean>(false);
@@ -100,6 +87,7 @@ export class ExerciseShellComponent {
 
   check = output<void>();
   next = output<void>();
+  goTo = output<number>();
 
   onActionClick() {
     if (this.checked()) {

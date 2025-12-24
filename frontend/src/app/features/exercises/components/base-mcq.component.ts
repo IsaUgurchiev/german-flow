@@ -17,6 +17,7 @@ export abstract class BaseMcqComponent {
   
   check = output<{ isCorrect: boolean; selectedIndex: number; userAnswer?: string }>();
   next = output<void>();
+  goTo = output<number>();
 
   @ViewChild(McqChoiceListComponent) choiceList?: McqChoiceListComponent;
 

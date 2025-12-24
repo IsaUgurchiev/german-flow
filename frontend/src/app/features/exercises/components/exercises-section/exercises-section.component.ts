@@ -86,6 +86,7 @@ const EXERCISE_CONFIG: Record<ExerciseType, { label: string; xp: number }> = {
                       [history]="exerciseResults()[set.type]"
                       (check)="onCheck(exercise, set.type, $event)"
                       (next)="onNext(set.type)"
+                      (goTo)="onGoTo(set.type, $event)"
                     />
                   }
                   @case ('sentence_translation_mcq') {
@@ -96,6 +97,7 @@ const EXERCISE_CONFIG: Record<ExerciseType, { label: string; xp: number }> = {
                       [history]="exerciseResults()[set.type]"
                       (check)="onCheck(exercise, set.type, $event)"
                       (next)="onNext(set.type)"
+                      (goTo)="onGoTo(set.type, $event)"
                     />
                   }
                   @case ('comprehension_mcq') {
@@ -106,6 +108,7 @@ const EXERCISE_CONFIG: Record<ExerciseType, { label: string; xp: number }> = {
                       [history]="exerciseResults()[set.type]"
                       (check)="onCheck(exercise, set.type, $event)"
                       (next)="onNext(set.type)"
+                      (goTo)="onGoTo(set.type, $event)"
                     />
                   }
                   @case ('fill_blank') {
@@ -116,6 +119,7 @@ const EXERCISE_CONFIG: Record<ExerciseType, { label: string; xp: number }> = {
                       [history]="exerciseResults()[set.type]"
                       (check)="onCheck(exercise, set.type, $event)"
                       (next)="onNext(set.type)"
+                      (goTo)="onGoTo(set.type, $event)"
                     />
                   }
                 }
@@ -306,6 +310,13 @@ export class ExercisesSectionComponent {
     this.currentIndices.update(prev => ({
       ...prev,
       [type]: prev[type] + 1
+    }));
+  }
+
+  onGoTo(type: ExerciseType, index: number) {
+    this.currentIndices.update(prev => ({
+      ...prev,
+      [type]: index
     }));
   }
 

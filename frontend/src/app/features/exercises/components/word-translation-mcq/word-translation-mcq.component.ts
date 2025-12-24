@@ -20,6 +20,7 @@ import { McqChoiceListComponent } from '../mcq-choice-list/mcq-choice-list.compo
       [rationale]="exercise().rationale || ''"
       (check)="onCheck()"
       (next)="onNext()"
+      (goTo)="goTo.emit($event)"
     >
       <div class="flex flex-col gap-8">
         <div class="text-center py-4">
