@@ -19,8 +19,8 @@ import { CommonModule } from '@angular/common';
               [class.bg-green-500]="history()[$index] === true"
               [class.bg-red-500]="history()[$index] === false"
               [class.bg-primary]="$index === current() - 1 && (history()[$index] === null || history()[$index] === undefined)"
-              [class.bg-[#f0f0eb]]="$index >= current() && (history()[$index] === null || history()[$index] === undefined)"
-              [class.dark:bg-[#33332a]]="$index >= current() && (history()[$index] === null || history()[$index] === undefined)"
+              [class.bg-[#f0f0eb]]="$index !== current() - 1 && (history()[$index] === null || history()[$index] === undefined)"
+              [class.dark:bg-[#33332a]]="$index !== current() - 1 && (history()[$index] === null || history()[$index] === undefined)"
             ></div>
           }
         </div>

@@ -3,6 +3,7 @@
 All notable changes to this project are documented here.
 
 ## Production
+- [Bugfix] Fixed solved exercises not being restored after login when localStorage is cleared. Backend is now the single source of truth for exercise completion state. Implemented "Offline-first lite" by syncing exercise attempts via the `SyncService` and `UserState` model.
 - [UI] Added header login/logout UI with Google Sign-In and profile display.
 - [Sync] Fixed data loss on login by implementing a merge strategy for local progress earned while logged out (`gf.sync.localDirty` flag).
 - [Sync] Fixed sync hydrate→push loop by implementing a hydration lock (released asynchronously) and a payload comparison guard (`lastPushedPayloadString`).

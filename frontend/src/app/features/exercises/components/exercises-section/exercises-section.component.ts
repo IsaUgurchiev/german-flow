@@ -177,6 +177,7 @@ export class ExercisesSectionComponent {
   });
 
   constructor() {
+    // 1. Load exercises for the lesson
     effect(() => {
       const id = this.lessonId();
       if (id) {
@@ -184,33 +185,64 @@ export class ExercisesSectionComponent {
           if (data) {
             this.exerciseData.set(data.exerciseSets);
 
-            // Initialize results arrays from history
-            const attempts = this.progressService.getAttempts();
-            const initialResults: Record<ExerciseType, (boolean | null)[]> = {
-              'word_translation_mcq': [],
-              'sentence_translation_mcq': [],
-              'comprehension_mcq': [],
-              'fill_blank': this.exerciseSet().map(ex => {
-                const attempt = attempts.find(a => a.exerciseId === ex.id);
-                return attempt ? attempt.isCorrect : null;
-              })
-            };
-
-            data.exerciseSets.forEach(s => {
-              initialResults[s.type] = s.items.map(ex => {
-                const attempt = attempts.find(a => a.exerciseId === ex.id);
-                return attempt ? attempt.isCorrect : null;
-              });
-            });
-
-            this.exerciseResults.set(initialResults);
-
             // Set first available tab as active
             const firstAvailable = data.exerciseSets.find(s => s.items.length > 0);
             if (firstAvailable) {
               this.activeTabId.set(firstAvailable.type);
             }
           }
+        });
+      }
+    });
+
+    // 2. Sync exerciseResults and currentIndices with progressService
+    effect(() => {
+      const attempts = this.progressService.getAttempts();
+      const data = this.exerciseData();
+      const fillBlankSet = this.exerciseSet();
+      
+      if (data.length > 0 || fillBlankSet.length > 0) {
+        this.exerciseResults.update(current => {
+          const newResults = { ...current };
+          
+          // Sync all types
+          const types: ExerciseType[] = ['word_translation_mcq', 'sentence_translation_mcq', 'comprehension_mcq', 'fill_blank'];
+          
+          types.forEach(type => {
+            const items = type === 'fill_blank' ? fillBlankSet : data.find(s => s.type === type)?.items || [];
+            if (items.length > 0) {
+              newResults[type] = items.map((ex: any, idx) => {
+                const attempt = attempts.find(a => a.exerciseId === ex.id);
+                // Priority: 1. Server/Saved attempt, 2. Current session result (if any), 3. null
+                if (attempt) return attempt.isCorrect;
+                return newResults[type]?.[idx] ?? null;
+              });
+            }
+          });
+          
+          return newResults;
+        });
+
+        // Auto-advance currentIndices to first unsolved exercise for each type (only if not already advanced)
+        this.currentIndices.update(prev => {
+          const nextIndices = { ...prev };
+          const types: ExerciseType[] = ['word_translation_mcq', 'sentence_translation_mcq', 'comprehension_mcq', 'fill_blank'];
+          
+          types.forEach(type => {
+            // Only auto-advance if we are at the start (to avoid jumping while user is playing)
+            if (nextIndices[type] === 0) {
+              const items = type === 'fill_blank' ? fillBlankSet : data.find(s => s.type === type)?.items || [];
+              const firstUnsolvedIdx = items.findIndex((ex: any) => !this.progressService.isCompleted(ex.id));
+              if (firstUnsolvedIdx !== -1) {
+                nextIndices[type] = firstUnsolvedIdx;
+              } else if (items.length > 0) {
+                // All solved, stay at the end or at 0? 
+                // We'll go to items.length to show "Completed" state
+                nextIndices[type] = items.length;
+              }
+            }
+          });
+          return nextIndices;
         });
       }
     });

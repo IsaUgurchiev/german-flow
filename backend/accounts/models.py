@@ -6,6 +6,7 @@ class UserState(models.Model):
     total_xp = models.IntegerField(default=0)
     xp_log = models.JSONField(default=list)
     my_words = models.JSONField(default=list)
+    exercise_attempts = models.JSONField(default=list)
     last_lesson_id = models.CharField(max_length=255, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { XpService, XpLogEntry } from './xp.service';
 import { MyWordsRepository } from '../repositories/my-words.repository';
 import { UserProgressService } from './user-progress.service';
+import { ExerciseProgressService, ExerciseAttempt } from './exercise-progress';
 import { environment } from '../../../environments/environment';
 import { catchError, of, Subject, debounceTime, switchMap, filter, tap } from 'rxjs';
 
@@ -11,6 +12,7 @@ export interface UserStatePayload {
   totalXp: number;
   xpLog: XpLogEntry[];
   myWords: string[];
+  exerciseAttempts: ExerciseAttempt[];
   lastLessonId: string | null;
 }
 
@@ -23,6 +25,7 @@ export class SyncService {
   private xpService = inject(XpService);
   private wordsRepo = inject(MyWordsRepository);
   private progressService = inject(UserProgressService);
+  private exerciseProgress = inject(ExerciseProgressService);
 
   private pushSubject = new Subject<void>();
   private isHydrating = false;
@@ -44,6 +47,7 @@ export class SyncService {
       this.xpService.xpLog();
       this.wordsRepo.getAll();
       this.progressService.lastLessonId();
+      this.exerciseProgress.getAttempts();
 
       if (this.isHydrating) return;
 
@@ -86,6 +90,7 @@ export class SyncService {
             totalXp: this.xpService.getXp(),
             xpLog: this.xpService.getLog(),
             myWords: this.wordsRepo.getAll(),
+            exerciseAttempts: this.exerciseProgress.getAttempts(),
             lastLessonId: this.progressService.lastLessonId()
           };
 
@@ -95,6 +100,7 @@ export class SyncService {
             this.xpService.hydrate(mergedState.totalXp, mergedState.xpLog);
             this.wordsRepo.hydrate(mergedState.myWords);
             this.progressService.hydrate(mergedState.lastLessonId);
+            this.exerciseProgress.hydrate(mergedState.exerciseAttempts);
             this.lastPushedPayloadString = JSON.stringify(mergedState);
             
             // Immediate push of merged state to server
@@ -110,6 +116,7 @@ export class SyncService {
             this.xpService.hydrate(serverState.totalXp, serverState.xpLog || []);
             this.wordsRepo.hydrate(serverState.myWords || []);
             this.progressService.hydrate(serverState.lastLessonId);
+            this.exerciseProgress.hydrate(serverState.exerciseAttempts || []);
             
             // Store the pulled state as the "last pushed" to prevent immediate loop
             this.lastPushedPayloadString = JSON.stringify(serverState);
@@ -138,7 +145,19 @@ export class SyncService {
     // 3. Last Lesson: local preferred if exists
     const lastLessonId = local.lastLessonId || server.lastLessonId;
 
-    // 4. XP Log: concatenate and de-duplicate by timestamp
+    // 4. Exercise Attempts: merge and keep newest/correct
+    const combinedAttempts = [...(server.exerciseAttempts || []), ...(local.exerciseAttempts || [])];
+    const uniqueAttemptsMap = new Map<string, ExerciseAttempt>();
+    
+    combinedAttempts.forEach(attempt => {
+      const existing = uniqueAttemptsMap.get(attempt.exerciseId);
+      if (!existing || attempt.ts > existing.ts || (attempt.isCorrect && !existing.isCorrect)) {
+        uniqueAttemptsMap.set(attempt.exerciseId, attempt);
+      }
+    });
+    const exerciseAttempts = Array.from(uniqueAttemptsMap.values());
+
+    // 5. XP Log: concatenate and de-duplicate by timestamp
     const combinedLog = [...(server.xpLog || []), ...(local.xpLog || [])];
     const uniqueLogMap = new Map<number, XpLogEntry>();
     combinedLog.forEach(entry => uniqueLogMap.set(entry.ts, entry));
@@ -147,7 +166,7 @@ export class SyncService {
       .sort((a, b) => b.ts - a.ts) // Newest first
       .slice(0, 50);
 
-    return { totalXp, xpLog, myWords, lastLessonId };
+    return { totalXp, xpLog, myWords, exerciseAttempts, lastLessonId };
   }
 
   private pushState() {
@@ -157,6 +176,7 @@ export class SyncService {
       totalXp: this.xpService.getXp(),
       xpLog: this.xpService.getLog(),
       myWords: this.wordsRepo.getAll(),
+      exerciseAttempts: this.exerciseProgress.getAttempts(),
       lastLessonId: this.progressService.lastLessonId()
     };
 

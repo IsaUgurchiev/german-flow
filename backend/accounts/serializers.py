@@ -27,11 +27,12 @@ class UserStateSerializer(serializers.ModelSerializer):
     totalXp = serializers.IntegerField(source='total_xp')
     xpLog = serializers.JSONField(source='xp_log')
     myWords = serializers.JSONField(source='my_words')
+    exerciseAttempts = serializers.JSONField(source='exercise_attempts', default=list)
     lastLessonId = serializers.CharField(source='last_lesson_id', allow_null=True, allow_blank=True)
 
     class Meta:
         model = UserState
-        fields = ('totalXp', 'xpLog', 'myWords', 'lastLessonId')
+        fields = ('totalXp', 'xpLog', 'myWords', 'exerciseAttempts', 'lastLessonId')
 
 class GoogleLoginSerializer(serializers.Serializer):
     idToken = serializers.CharField()
