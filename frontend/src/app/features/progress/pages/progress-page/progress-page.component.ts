@@ -1,15 +1,42 @@
-import { Component, inject, computed, signal } from '@angular/core';
+import { Component, inject, computed, signal, OnInit } from '@angular/core';
 import { ProgressSummaryService } from '../../../../core/services/progress-summary.service';
 import { MyWordsRepository } from '../../../../core/repositories/my-words.repository';
 import { XpService } from '../../../../core/services/xp.service';
 import { UserProgressService } from '../../../../core/services/user-progress.service';
-import { DatePipe } from '@angular/common';
+import { ExerciseProgressService } from '../../../../core/services/exercise-progress';
+import { LessonsService } from '../../../../core/services/lessons.service';
+import { ExerciseDataService, ExerciseData } from '../../../../core/services/exercise-data';
+import { DatePipe, CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
+import { forkJoin, map, of, switchMap } from 'rxjs';
+import { LessonMeta } from '../../../../core/models/lesson.model';
+
+interface LessonProgress {
+  lessonId: string;
+  title: string;
+  totalExercises: number;
+  completedExercises: number;
+  percent: number;
+  byType: {
+    type: string;
+    label: string;
+    total: number;
+    completed: number;
+    percent: number;
+  }[];
+}
+
+const EXERCISE_LABELS: Record<string, string> = {
+  'word_translation_mcq': 'Word',
+  'sentence_translation_mcq': 'Sentence',
+  'comprehension_mcq': 'Context',
+  'fill_blank': 'Fill-in'
+};
 
 @Component({
   selector: 'app-progress-page',
   standalone: true,
-  imports: [DatePipe, RouterLink],
+  imports: [CommonModule, DatePipe, RouterLink],
   template: `
     <div class="flex-1 overflow-y-auto bg-[#fcfcf9] dark:bg-[#0f0f05] p-6 md:p-10">
       <div class="max-w-6xl mx-auto">
@@ -62,7 +89,7 @@ import { RouterLink, Router } from '@angular/router';
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <!-- My Words Preview -->
-          <div class="lg:col-span-2 space-y-8">
+          <div class="lg:col-span-1 space-y-8">
             <section class="bg-white dark:bg-[#1e1e12] rounded-3xl border border-[#f0f0eb] dark:border-[#33332a] shadow-sm overflow-hidden">
               <div class="px-6 py-5 border-b border-[#f0f0eb] dark:border-[#33332a] flex items-center justify-between bg-gray-50/50 dark:bg-white/5">
                 <h2 class="text-xl font-bold text-text-primary dark:text-white flex items-center gap-2">
@@ -74,17 +101,17 @@ import { RouterLink, Router } from '@angular/router';
                   <div class="flex items-center gap-2">
                     <button 
                       (click)="copyAll()"
-                      class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-text-primary bg-white dark:bg-[#2a2a1a] border border-[#e6e6e0] dark:border-[#444] hover:bg-gray-50 dark:hover:bg-[#333] transition-colors cursor-pointer"
+                      title="Copy all words"
+                      class="p-2 rounded-xl text-text-primary bg-white dark:bg-[#2a2a1a] border border-[#e6e6e0] dark:border-[#444] hover:bg-gray-50 dark:hover:bg-[#333] transition-colors cursor-pointer"
                     >
-                      <span class="material-symbols-outlined !text-[16px]">content_copy</span>
-                      Copy all
+                      <span class="material-symbols-outlined !text-[18px]">content_copy</span>
                     </button>
                     <button 
                       (click)="confirmClear()"
-                      class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-red-500 bg-red-50 dark:bg-red-500/10 border border-red-100 dark:border-red-500/20 hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors cursor-pointer"
+                      title="Clear all"
+                      class="p-2 rounded-xl text-red-500 bg-red-50 dark:bg-red-500/10 border border-red-100 dark:border-red-500/20 hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors cursor-pointer"
                     >
-                      <span class="material-symbols-outlined !text-[16px]">delete</span>
-                      Clear all
+                      <span class="material-symbols-outlined !text-[18px]">delete</span>
                     </button>
                   </div>
                 }
@@ -113,34 +140,110 @@ import { RouterLink, Router } from '@angular/router';
                 }
               </div>
             </section>
-          </div>
 
-          <!-- XP Log -->
-          <div class="lg:col-span-1">
-            <section class="bg-white dark:bg-[#1e1e12] rounded-3xl border border-[#f0f0eb] dark:border-[#33332a] shadow-sm overflow-hidden h-full flex flex-col">
+            <!-- XP Log moved here as a smaller block -->
+            <section class="bg-white dark:bg-[#1e1e12] rounded-3xl border border-[#f0f0eb] dark:border-[#33332a] shadow-sm overflow-hidden flex flex-col">
               <div class="px-6 py-5 border-b border-[#f0f0eb] dark:border-[#33332a] bg-gray-50/50 dark:bg-white/5">
-                <h2 class="text-xl font-bold text-text-primary dark:text-white flex items-center gap-2">
+                <h2 class="text-lg font-bold text-text-primary dark:text-white flex items-center gap-2">
                   <span class="material-symbols-outlined text-primary">history</span>
-                  Activity
+                  Recent Activity
                 </h2>
               </div>
               
-              <div class="flex-1 overflow-y-auto p-4 space-y-4">
+              <div class="p-4 space-y-3">
                 @for (entry of xpLog(); track entry.ts) {
                   <div class="flex items-center justify-between gap-4 p-3 rounded-2xl bg-gray-50/50 dark:bg-white/5 border border-[#f0f0eb]/50 dark:border-[#33332a]/50">
                     <div class="min-w-0">
-                      <p class="text-sm font-bold text-text-primary dark:text-white truncate">{{ entry.reason }}</p>
-                      <p class="text-[10px] text-text-secondary dark:text-gray-500 uppercase font-medium">{{ entry.ts | date:'MMM d, HH:mm' }}</p>
+                      <p class="text-xs font-bold text-text-primary dark:text-white truncate">{{ entry.reason }}</p>
+                      <p class="text-[9px] text-text-secondary dark:text-gray-500 uppercase font-medium">{{ entry.ts | date:'MMM d, HH:mm' }}</p>
                     </div>
-                    <div class="flex items-center gap-1 text-green-600 dark:text-green-400 font-black text-sm shrink-0">
+                    <div class="flex items-center gap-0.5 text-green-600 dark:text-green-400 font-black text-xs shrink-0">
                       +{{ entry.amount }}
                     </div>
                   </div>
                 } @empty {
-                  <div class="py-12 flex flex-col items-center justify-center text-center">
-                    <span class="material-symbols-outlined text-gray-200 dark:text-gray-700 !text-[48px] mb-2">pending_actions</span>
+                  <div class="py-8 flex flex-col items-center justify-center text-center">
                     <p class="text-text-secondary dark:text-gray-500 text-xs font-medium">No activity yet</p>
                   </div>
+                }
+              </div>
+            </section>
+          </div>
+
+          <!-- Activity / Progress by Lessons -->
+          <div class="lg:col-span-2">
+            <section class="bg-white dark:bg-[#1e1e12] rounded-3xl border border-[#f0f0eb] dark:border-[#33332a] shadow-sm overflow-hidden h-full flex flex-col">
+              <div class="px-6 py-5 border-b border-[#f0f0eb] dark:border-[#33332a] bg-gray-50/50 dark:bg-white/5 flex items-center justify-between">
+                <h2 class="text-xl font-bold text-text-primary dark:text-white flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary">analytics</span>
+                  Lesson Progress
+                </h2>
+              </div>
+              
+              <div class="flex-1 p-6 space-y-6">
+                @if (isLoadingTotals()) {
+                  <div class="flex flex-col items-center justify-center py-20 gap-4 text-text-secondary">
+                    <div class="size-10 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+                    <p class="text-sm font-medium">Loading progress data...</p>
+                  </div>
+                } @else {
+                  @for (lesson of lessonProgress(); track lesson.lessonId) {
+                    <div class="p-5 rounded-[24px] bg-gray-50/50 dark:bg-white/5 border border-[#f0f0eb] dark:border-[#33332a] hover:border-primary/30 transition-all group">
+                      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
+                        <div class="min-w-0">
+                          <a 
+                            [routerLink]="['/video', lesson.lessonId]"
+                            class="text-lg font-black text-text-primary dark:text-white hover:text-primary transition-colors flex items-center gap-2"
+                          >
+                            {{ lesson.title }}
+                            <span class="material-symbols-outlined !text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+                          </a>
+                        </div>
+                        <div class="flex items-center gap-3 shrink-0">
+                          <div class="text-right">
+                            <span class="text-sm font-black text-text-primary dark:text-white">
+                              {{ lesson.completedExercises }}/{{ lesson.totalExercises }}
+                            </span>
+                            <span class="text-xs font-medium text-text-secondary dark:text-gray-500 ml-1">
+                              ({{ lesson.percent | number:'1.0-0' }}%)
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Overall Progress Bar -->
+                      <div class="h-2 w-full bg-gray-200/50 dark:bg-white/10 rounded-full overflow-hidden mb-5">
+                        <div 
+                          class="h-full rounded-full transition-all duration-1000 ease-out" 
+                          [class.bg-green-500]="lesson.percent > 0"
+                          [class.shadow-[0_0_12px_rgba(34,197,94,0.4)]]="lesson.percent === 100"
+                          [style.width.%]="lesson.percent"
+                        ></div>
+                      </div>
+
+                      <!-- Breakdown -->
+                      <div class="flex flex-wrap gap-2">
+                        @for (type of lesson.byType; track type.type) {
+                          <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white dark:bg-[#1e1e12] border border-[#f0f0eb] dark:border-[#33332a] text-[11px]">
+                            <span class="font-bold text-text-secondary dark:text-gray-400 uppercase tracking-tight">{{ type.label }}</span>
+                            <span class="w-[1px] h-3 bg-gray-200 dark:bg-gray-700"></span>
+                            <span class="font-black text-text-primary dark:text-white">{{ type.completed }}/{{ type.total }}</span>
+                            @if (type.percent === 100) {
+                              <span class="material-symbols-outlined !text-[14px] text-green-500 font-bold">check_circle</span>
+                            } @else {
+                              <span class="text-text-secondary dark:text-gray-500 font-medium">{{ type.percent | number:'1.0-0' }}%</span>
+                            }
+                          </div>
+                        }
+                      </div>
+                    </div>
+                  } @empty {
+                    <div class="py-12 flex flex-col items-center justify-center text-center">
+                      <span class="material-symbols-outlined text-gray-200 dark:text-gray-700 !text-[64px] mb-4">history_edu</span>
+                      <p class="text-text-primary dark:text-white font-bold mb-1">No lessons available</p>
+                      <p class="text-text-secondary dark:text-gray-500 text-sm max-w-xs">Complete lessons in the catalog to see your progress here.</p>
+                    </div>
+                  }
                 }
               </div>
             </section>
@@ -193,17 +296,88 @@ import { RouterLink, Router } from '@angular/router';
   `,
   styles: [`:host { display: flex; flex: 1; min-height: 0; }`]
 })
-export class ProgressPageComponent {
+export class ProgressPageComponent implements OnInit {
   private summaryService = inject(ProgressSummaryService);
   private myWordsRepository = inject(MyWordsRepository);
   private xpService = inject(XpService);
-  private progressService = inject(UserProgressService);
+  private userProgressService = inject(UserProgressService);
+  private exerciseProgressService = inject(ExerciseProgressService);
+  private lessonsService = inject(LessonsService);
+  private exerciseDataService = inject(ExerciseDataService);
   private router = inject(Router);
   
   private refreshTrigger = signal(0);
+  private allLessons = signal<LessonMeta[]>([]);
+  private lessonTotals = signal<Record<string, ExerciseData | null>>({});
+  isLoadingTotals = signal(true);
   
   showClearModal = signal(false);
   showCopyToast = signal(false);
+
+  ngOnInit() {
+    this.loadLessonData();
+  }
+
+  private loadLessonData() {
+    this.lessonsService.getAllLessons().pipe(
+      switchMap(lessons => {
+        this.allLessons.set(lessons);
+        if (lessons.length === 0) return of([]);
+        
+        const obs = lessons.map(lesson => 
+          this.exerciseDataService.getExercisesForLesson(lesson.id).pipe(
+            map(data => ({ id: lesson.id, data }))
+          )
+        );
+        return forkJoin(obs);
+      })
+    ).subscribe(results => {
+      const totalsMap: Record<string, ExerciseData | null> = {};
+      results.forEach(res => {
+        totalsMap[res.id] = res.data;
+      });
+      this.lessonTotals.set(totalsMap);
+      this.isLoadingTotals.set(false);
+    });
+  }
+
+  lessonProgress = computed(() => {
+    const lessons = this.allLessons();
+    const totals = this.lessonTotals();
+    const attempts = this.exerciseProgressService.getAttempts();
+
+    return lessons.map(lesson => {
+      const data = totals[lesson.id];
+      if (!data) return null;
+
+      const byType = data.exerciseSets.map(set => {
+        const total = set.items.length;
+        const completed = set.items.filter(item => 
+          attempts.some(a => a.exerciseId === item.id && a.isCorrect)
+        ).length;
+        
+        return {
+          type: set.type,
+          label: EXERCISE_LABELS[set.type] || set.type,
+          total,
+          completed,
+          percent: total > 0 ? (completed / total) * 100 : 0
+        };
+      }).filter(t => t.total > 0);
+
+      const totalAll = byType.reduce((acc, curr) => acc + curr.total, 0);
+      const completedAll = byType.reduce((acc, curr) => acc + curr.completed, 0);
+
+      return {
+        lessonId: lesson.id,
+        title: lesson.title,
+        totalExercises: totalAll,
+        completedExercises: completedAll,
+        percent: totalAll > 0 ? (completedAll / totalAll) * 100 : 0,
+        byType
+      };
+    }).filter(p => p !== null) as LessonProgress[];
+  });
   
   savedWords = computed(() => {
     this.refreshTrigger();
@@ -220,7 +394,7 @@ export class ProgressPageComponent {
   xpLog = computed(() => this.xpService.getLog().slice(0, 10));
 
   continueLearning() {
-    const lastId = this.progressService.lastLessonId();
+    const lastId = this.userProgressService.lastLessonId();
     if (lastId) {
       this.router.navigate(['/video', lastId]);
     } else {

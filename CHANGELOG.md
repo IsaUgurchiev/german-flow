@@ -3,6 +3,7 @@
 All notable changes to this project are documented here.
 
 ## Production
+- [UI] My Progress: Activity block widened on desktop; added per-lesson progress with overall percentage and per-exercise type breakdown.
 - [Bugfix] Fixed solved exercises not being restored after login when localStorage is cleared. Backend is now the single source of truth for exercise completion state. Implemented "Offline-first lite" by syncing exercise attempts via the `SyncService` and `UserState` model.
 - [UI] Added header login/logout UI with Google Sign-In and profile display.
 - [Sync] Fixed data loss on login by implementing a merge strategy for local progress earned while logged out (`gf.sync.localDirty` flag).
