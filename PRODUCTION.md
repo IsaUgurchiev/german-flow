@@ -223,11 +223,11 @@ DoD:
 - Backend reachable via HTTPS
 
 ## 9) Quality gates
-- [ ] Backend tests:
+- [+] Backend tests:
   - /api/health
   - /api/state roundtrip
 
-- [ ] Frontend smoke check:
+- [+] Frontend smoke check:
   - App boots logged-out
   - /progress opens safely
 
